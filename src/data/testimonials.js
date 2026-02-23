@@ -1,0 +1,48 @@
+// Replace mock testimonials with verified client feedback before publishing.
+export const testimonials = [
+  {
+    id: 1,
+    quote: 'Hasnain brought a clear process, excellent communication, and measurable improvements to our Shopify conversion flow.',
+    name: 'Olivia Carter',
+    role: 'Founder',
+    company: 'Northlane Goods',
+    industry: 'D2C E-commerce',
+    rating: 5,
+  },
+  {
+    id: 2,
+    quote: 'Our WordPress site now feels premium and performs much better on mobile. Great QA discipline as well.',
+    name: 'James Walker',
+    role: 'Marketing Lead',
+    company: 'Apex Advisory',
+    industry: 'Consulting',
+    rating: 5,
+  },
+  {
+    id: 3,
+    quote: 'Fast turnaround, clean implementation, and no surprises. The launch was smooth and client-ready.',
+    name: 'Amelia Scott',
+    role: 'Product Manager',
+    company: 'Lantern Labs',
+    industry: 'SaaS',
+    rating: 4,
+  },
+  {
+    id: 4,
+    quote: 'From Webflow polish to bug cleanup, Hasnain consistently delivered quality and reliability.',
+    name: 'Harper Reed',
+    role: 'Creative Director',
+    company: 'Flowline Studio',
+    industry: 'Creative Agency',
+    rating: 5,
+  },
+  {
+    id: 5,
+    quote: 'His QA documentation alone saved our team hours and helped us ship with confidence.',
+    name: 'Ethan Moore',
+    role: 'Engineering Manager',
+    company: 'Sprintdesk',
+    industry: 'Product Startup',
+    rating: 5,
+  },
+]
