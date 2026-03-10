@@ -6,19 +6,36 @@ import { siteConfig } from '../../utils/site'
 
 export default function Footer() {
   return (
-    <footer className="section-pad pb-10 pt-24">
-      <div className="section-wrap premium-card p-8 sm:p-10">
+    <footer className="section-pad pb-10 pt-20">
+      <div className="section-wrap premium-card p-7 sm:p-10">
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.8fr_0.9fr_1fr]">
           <div>
             <p className="text-xl font-semibold text-white">Hasnain Saeed</p>
-            <p className="mt-3 max-w-sm text-zinc-300">Freelance web developer for Shopify, WordPress, Webflow, and WooCommerce projects, website optimization, bug fixing, and ongoing website maintenance.</p>
-            <div className="mt-4 inline-flex rounded-full border border-emerald-400/35 bg-emerald-500/10 px-3 py-1 text-xs uppercase tracking-[0.16em] text-emerald-300">
+            <p className="mt-3 max-w-sm text-zinc-300">
+              Freelance web developer for Shopify, WordPress, Webflow, and WooCommerce projects, website optimization, bug fixing, and ongoing website maintenance.
+            </p>
+
+            <div className="mt-5 inline-flex rounded-full border border-emerald-400/35 bg-emerald-500/10 px-3 py-1 text-xs uppercase tracking-[0.16em] text-emerald-300">
               {siteConfig.availability}
             </div>
-            <p className="mt-4 text-sm text-zinc-300">Email: <a href={`mailto:${siteConfig.contactEmail}`} className="text-orange-300">{siteConfig.contactEmail}</a></p>
-            <p className="mt-2 text-sm text-zinc-300">Serving {siteConfig.serviceMarkets.join(', ')} from {siteConfig.location}</p>
-            <p className="mt-2 text-xs uppercase tracking-[0.16em] text-zinc-400">Usually replies within 24 hours</p>
-            <ButtonLink to={routes.contact} className="mt-5">
+
+            <div className="mt-5 space-y-2 text-sm text-zinc-300">
+              <p>
+                <span className="text-zinc-400">Email:</span>{' '}
+                <a href={`mailto:${siteConfig.contactEmail}`} className="text-orange-300 transition hover:text-orange-200">
+                  {siteConfig.contactEmail}
+                </a>
+              </p>
+              <p>
+                <span className="text-zinc-400">Markets:</span> {siteConfig.serviceMarkets.join(', ')}
+              </p>
+              <p>
+                <span className="text-zinc-400">Location:</span> {siteConfig.location}
+              </p>
+              <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">{siteConfig.responseTimeNote}</p>
+            </div>
+
+            <ButtonLink to={routes.contact} className="mt-6">
               Book Consultation
             </ButtonLink>
           </div>
@@ -39,8 +56,10 @@ export default function Footer() {
             </nav>
           ))}
         </div>
-        <div className="mt-10 border-t border-white/10 pt-5 text-sm text-zinc-400">
-          Copyright {new Date().getFullYear()} Hasnain Saeed. All rights reserved.
+
+        <div className="mt-8 border-t border-white/10 pt-5 text-sm text-zinc-400 sm:flex sm:items-center sm:justify-between">
+          <p>Copyright {new Date().getFullYear()} Hasnain Saeed. All rights reserved.</p>
+          <p className="mt-2 text-xs uppercase tracking-[0.16em] text-zinc-500 sm:mt-0">Built for speed and conversion</p>
         </div>
       </div>
     </footer>
