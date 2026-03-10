@@ -2,13 +2,33 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      document.documentElement.classList.add('js')
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Hasnain Saeed" />
+    <meta name="theme-color" content="#0b0d13" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="stylesheet"
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;600;700&display=swap"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;600;700&display=swap"
+      />
+    </noscript>
     <meta
       name="description"
       content="Hasnain Saeed - Freelance Web Developer specializing in Shopify, WordPress, Webflow, UI implementation, optimization, and QA support."
@@ -16,6 +36,7 @@
     <title>Hasnain Saeed | Freelance Web Developer</title>
   </head>
   <body>
+    <noscript>This site works best with JavaScript enabled, but core pages are also prerendered for search and accessibility.</noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

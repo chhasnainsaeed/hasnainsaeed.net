@@ -18,7 +18,7 @@ export const packages = [
     pages: '5-10 pages',
     timeline: '12-20 days',
     popular: true,
-    features: ['Advanced sections', 'UI polish', 'Speed optimization', 'Analytics setup placeholder'],
+    features: ['Advanced sections', 'UI polish', 'Speed optimization', 'Analytics and tracking setup'],
   },
   {
     id: 'premium',

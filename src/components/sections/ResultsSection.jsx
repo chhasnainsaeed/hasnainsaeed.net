@@ -20,7 +20,7 @@ export default function ResultsSection() {
               <article className="premium-card flex h-full flex-col p-6">
                 <div className="mb-3 flex items-center justify-between">
                   <span className="text-xs uppercase tracking-[0.2em] text-zinc-500">Metric</span>
-                  <span className="text-sm text-emerald-300">?</span>
+                  <span className="text-sm text-emerald-300">+</span>
                 </div>
                 <div className="text-4xl font-bold leading-none text-white sm:text-5xl">
                   <Counter value={item.value} suffix={item.suffix} />

@@ -1,25 +1,60 @@
 import PageHero from '../components/ui/PageHero'
 import Reveal from '../components/ui/Reveal'
-import PackageCard from '../components/ui/PackageCard'
 import FaqAccordion from '../components/ui/FaqAccordion'
 import ButtonLink from '../components/ui/ButtonLink'
+import PackageCard from '../components/ui/PackageCard'
+import Seo from '../seo/Seo'
+import { getStaticPageMetadata } from '../seo/metadata'
+import { createBreadcrumbSchema, createFAQSchema, createProfessionalServiceReference, createWebPageSchema } from '../seo/schema'
 import { packageComparison, packages } from '../data/packages'
+import { routes } from '../utils/routes'
 
 const faqs = [
-  { question: 'Can I request custom scope beyond listed packages?', answer: 'Yes. The Custom package is specifically for unique project needs, complex builds, and ongoing support.' },
-  { question: 'Do packages include QA before launch?', answer: 'Growth and Premium include QA pass by default. Starter can add QA as an optional service.' },
-  { question: 'How fast can a project start?', answer: 'Most projects can start within 3-7 days depending on scope and current schedule.' },
+  { question: 'Are these fixed-price packages?', answer: 'Think of them as structured starting points. Final scope depends on the platform, content readiness, and whether the project includes optimization or ongoing support.' },
+  { question: 'Can I request custom scope beyond the listed packages?', answer: 'Yes. The Custom package is specifically for unique builds, complex handoffs, or long-term support work.' },
+  { question: 'Do packages include QA before launch?', answer: 'Growth and Premium include a QA pass by default. Other packages can add QA and bug-fix coverage depending on the project.' },
 ]
 
 export default function PackagesPage() {
-  document.title = 'Packages | Hasnain Saeed'
+  const metadata = getStaticPageMetadata('packages')
+  const faqSchema = createFAQSchema(faqs, routes.packages)
 
   return (
     <>
+      <Seo
+        title={metadata.title}
+        description={metadata.description}
+        pathname={metadata.pathname}
+        ogTitle={metadata.ogTitle}
+        ogDescription={metadata.ogDescription}
+        twitterTitle={metadata.twitterTitle}
+        twitterDescription={metadata.twitterDescription}
+        image={metadata.image}
+        jsonLd={[
+          createBreadcrumbSchema([
+            { name: 'Home', path: routes.home },
+            { name: 'Packages', path: routes.packages },
+          ]),
+          createWebPageSchema({
+            path: routes.packages,
+            title: metadata.title,
+            description: metadata.description,
+            mainEntity: createProfessionalServiceReference(),
+            about: [createProfessionalServiceReference(), 'website project packages', 'freelance web development pricing structure'],
+            image: metadata.image,
+          }),
+          ...(faqSchema ? [faqSchema] : []),
+        ]}
+      />
+
       <PageHero
         eyebrow="Packages"
-        title="Flexible Website Packages"
-        description="Clear pricing tiers for Starter, Growth, Premium, and Custom project requirements."
+        title="Structured Packages for Builds, Rebuilds, and Ongoing Support"
+        description="These packages help frame scope quickly. They are designed to give clear starting points, not to force every project into the same shape."
+        breadcrumbs={[
+          { label: 'Home', to: routes.home },
+          { label: 'Packages' },
+        ]}
       />
 
       <section className="section-pad pb-14">
@@ -68,10 +103,10 @@ export default function PackagesPage() {
             <FaqAccordion items={faqs} />
           </Reveal>
           <Reveal className="premium-card p-7" delay={0.08}>
-            <h3 className="text-2xl font-semibold text-white">Need a Custom Proposal?</h3>
-            <p className="mt-3 text-zinc-300">Share your goals and timeline to receive a tailored scope with realistic delivery milestones.</p>
-            <ButtonLink to="/contact" className="mt-6">
-              Book Consultation
+            <h3 className="text-2xl font-semibold text-white">Need a custom proposal?</h3>
+            <p className="mt-3 text-zinc-300">Share the current site, platform, and what success should look like. I&apos;ll recommend the right package or propose a custom scope when the work does not fit a standard tier.</p>
+            <ButtonLink to={routes.contact} className="mt-6">
+              Request a Proposal
             </ButtonLink>
           </Reveal>
         </div>

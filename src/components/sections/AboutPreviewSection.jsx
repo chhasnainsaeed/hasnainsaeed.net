@@ -50,7 +50,7 @@ export default function AboutPreviewSection() {
               <SectionHeading
                 eyebrow="About Hasnain"
                 title="Web Developer and QA-Minded Implementation Specialist"
-                description="I work with founders and businesses to ship websites that look premium, perform fast, and convert better. My process combines platform expertise with structured QA so launches are smooth and reliable."
+                description="I work with founders, agencies, and businesses to ship websites that look premium, perform faster, and feel more trustworthy. The process combines platform expertise, technical cleanup, and structured QA so launches stay smooth."
               />
               <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-orange-300/30 bg-orange-500/10 px-3 py-1 text-[11px] uppercase tracking-[0.16em] text-orange-200">
                 Detail-Oriented Delivery

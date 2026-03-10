@@ -30,7 +30,7 @@ html {
 }
 
 body {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: var(--text);
   background:
     radial-gradient(circle at 10% 20%, rgba(255, 115, 0, 0.14), transparent 40%),
@@ -46,7 +46,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Sora', 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   letter-spacing: -0.02em;
 }
 
@@ -95,6 +95,23 @@ main {
   border-radius: 9999px;
   filter: blur(50px);
   z-index: 0;
+}
+
+.reveal-ready {
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.js .reveal-hidden {
+  opacity: 0;
+  transform: translate3d(0, 26px, 0);
+  will-change: opacity, transform;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
 input,
@@ -161,3 +178,23 @@ button,
     transform: translateX(-50%);
   }
 }
+
+/* Global vertical rhythm: tighten inter-section spacing across devices */
+section.section-pad {
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready {
+    transition: none;
+  }
+
+  .js .reveal-hidden,
+  .reveal-visible {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+  }
+}
+

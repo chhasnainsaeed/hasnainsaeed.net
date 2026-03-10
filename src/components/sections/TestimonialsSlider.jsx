@@ -30,12 +30,12 @@ export default function TestimonialsSlider() {
             exit={{ opacity: 0, y: -18 }}
             transition={{ duration: 0.35 }}
           >
-            <p className="text-2xl text-orange-300">"</p>
-            <p className="mt-2 text-lg text-zinc-100">{current.quote}</p>
-            <div className="mt-4 text-sm text-orange-300">{Array.from({ length: 5 }, (_, i) => (i < current.rating ? '\u2605' : '\u2606')).join(' ')}</div>
-            <p className="mt-4 font-semibold text-white">{current.name}</p>
-            <p className="text-sm text-zinc-300">{current.role}, {current.company}</p>
-            <p className="text-xs uppercase tracking-[0.18em] text-zinc-500">{current.industry}</p>
+            <p className="inline-flex rounded-full border border-orange-300/35 bg-orange-500/10 px-3 py-1 text-xs uppercase tracking-[0.16em] text-orange-200">
+              {current.stat}
+            </p>
+            <h3 className="mt-4 text-2xl font-semibold text-white">{current.title}</h3>
+            <p className="mt-4 text-lg text-zinc-100">{current.quote}</p>
+            <p className="mt-4 text-sm text-zinc-300">{current.supportingText}</p>
           </motion.div>
         </AnimatePresence>
         <div className="mt-6 flex items-center justify-between">
@@ -63,10 +63,9 @@ export default function TestimonialsSlider() {
 
       <div className="premium-card hidden p-6 lg:block">
         <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">Up Next</p>
-        <p className="mt-2 text-base text-zinc-200">{next.quote}</p>
-        <div className="mt-3 text-xs text-orange-300">{Array.from({ length: 5 }, (_, i) => (i < next.rating ? '\u2605' : '\u2606')).join(' ')}</div>
-        <p className="mt-4 text-sm font-semibold text-white">{next.name}</p>
-        <p className="text-xs text-zinc-400">{next.company} | {next.industry}</p>
+        <p className="mt-2 text-base text-zinc-200">{next.title}</p>
+        <p className="mt-3 text-xs uppercase tracking-[0.16em] text-orange-300">{next.stat}</p>
+        <p className="mt-4 text-sm text-zinc-400">{next.supportingText}</p>
       </div>
     </div>
   )

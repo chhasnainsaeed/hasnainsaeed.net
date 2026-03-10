@@ -11,9 +11,9 @@ const statMeta = {
     chip: 'Delivery',
     note: 'Web projects completed with performance and QA checks.',
   },
-  Platforms: {
-    chip: 'Stack',
-    note: 'Specialized in Shopify, WordPress, and Webflow builds.',
+  'Core Service Lines': {
+    chip: 'Coverage',
+    note: 'Support across platform builds, implementation, optimization, maintenance, and QA.',
   },
   'International Clients': {
     chip: 'Global',
