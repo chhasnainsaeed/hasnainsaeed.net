@@ -41,9 +41,24 @@ export const defaultKeywords = [
   'bug fixing and QA support',
 ]
 
+export function normalizePublicPath(pathname = '/') {
+  const normalizedInput = pathname.startsWith('/') ? pathname : `/${pathname}`
+
+  if (normalizedInput === '/') return '/'
+
+  const [, pathOnly = '/', suffix = ''] = normalizedInput.match(/^([^?#]*)(.*)$/) || []
+  const trimmedPath = pathOnly.replace(/\/+$/, '') || '/'
+  const hasFileExtension = /\.[a-z0-9]+$/i.test(trimmedPath)
+
+  if (trimmedPath === '/' || hasFileExtension) {
+    return `${trimmedPath}${suffix}`
+  }
+
+  return `${trimmedPath}/${suffix}`
+}
+
 export function getAbsoluteUrl(pathname = '/') {
-  const normalizedPath = pathname.startsWith('/') ? pathname : `/${pathname}`
-  return new URL(normalizedPath, siteConfig.url).toString()
+  return new URL(normalizePublicPath(pathname), siteConfig.url).toString()
 }
 
 export const navLinks = [
