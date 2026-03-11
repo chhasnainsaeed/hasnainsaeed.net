@@ -1,30 +1,40 @@
-import { Link } from 'react-router-dom'
-import { services } from '../../data/services'
-import { getServicePath, routes } from '../../utils/routes'
-import { siteConfig } from '../../utils/site'
+import { useEffect, useMemo, useState } from 'react'
+import { motion } from 'framer-motion'
 import ButtonLink from '../ui/ButtonLink'
 
-const trustBullets = [
-  'Shopify, WordPress, Webflow, and WooCommerce project delivery',
-  'Conversion-focused implementation, website optimization, and QA',
-  'Remote collaboration for USA, UK, Canada, and international clients',
+const rotatingWords = ['Shopify', 'WordPress', 'Webflow', 'CRO', 'QA', 'SEO-ready']
+
+const proofItems = [
+  { label: 'Average Speed Gain', value: '+45%' },
+  { label: 'Launch QA Coverage', value: '100%' },
+  { label: 'Projects Delivered', value: '100+' },
 ]
 
-const primaryServiceSlugs = [
-  'shopify-development',
-  'wordpress-development',
-  'webflow-development',
-  'woocommerce-development',
-  'website-speed-optimization',
-  'website-maintenance-support',
+const projectTiles = [
+  { title: 'Skincare Shopify Revamp', tag: 'Shopify', result: '+34% checkout completion' },
+  { title: 'Corporate WP Rebuild', tag: 'WordPress', result: '+51% lead submissions' },
+  { title: 'SaaS Webflow Launch', tag: 'Webflow', result: '+38% trial signups' },
 ]
 
-const supportServiceSlugs = ['figma-to-website-development', 'ui-ux-implementation', 'bug-fixing-qa-support']
-
-const primaryServices = services.filter((service) => primaryServiceSlugs.includes(service.slug))
-const supportServices = services.filter((service) => supportServiceSlugs.includes(service.slug))
+const tagStyle = {
+  Shopify: 'border-emerald-400/45 bg-emerald-500/15 text-emerald-300',
+  WordPress: 'border-blue-400/45 bg-blue-500/15 text-blue-300',
+  Webflow: 'border-violet-400/45 bg-violet-500/15 text-violet-300',
+}
 
 export default function HeroSection() {
+  const [wordIndex, setWordIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWordIndex((prev) => (prev + 1) % rotatingWords.length)
+    }, 1800)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  const activeWord = useMemo(() => rotatingWords[wordIndex], [wordIndex])
+
   return (
     <section className="relative overflow-hidden px-4 pb-20 pt-12 sm:px-8 sm:pb-24 lg:px-14 lg:pt-16">
       <div className="section-wrap">
@@ -36,79 +46,74 @@ export default function HeroSection() {
             <div className="max-w-3xl">
               <p className="mb-4 text-xs uppercase tracking-[0.28em] text-orange-300/90">Hasnain Saeed | Freelance Web Developer</p>
 
-              <h1 className="max-w-[18ch] text-[2.25rem] font-semibold leading-[1.08] text-white sm:text-[3.2rem] xl:text-[4rem]">
-                Freelance Web Developer
-                <span className="block text-gradient">for Shopify, WordPress,</span>
-                Webflow, and WooCommerce
+              <h1 className="max-w-[16ch] text-[2rem] font-semibold leading-[1.14] text-white sm:text-[3rem] xl:text-[3.8rem]">
+                Websites That
+                <span className="text-gradient"> Look Premium</span>
+                <br />
+                and Convert Like a Sales Engine
               </h1>
 
-              <p className="mt-6 max-w-[58ch] text-base leading-relaxed text-zinc-300 sm:text-lg">
-                I help businesses build high-converting websites, implement pixel-perfect UI, improve website optimization, fix technical issues, and provide ongoing website maintenance without agency overhead.
-              </p>
-              <p className="mt-4 max-w-[58ch] text-sm leading-relaxed text-zinc-400 sm:text-base">
-                Work includes Shopify development, WordPress development, Webflow development, WooCommerce development, Figma to website delivery, bug fixing, QA support, and post-launch maintenance.
+              <div className="mt-5 flex flex-wrap items-center gap-3 text-zinc-200">
+                <span className="text-sm uppercase tracking-[0.18em] text-zinc-400">Built for</span>
+                <motion.span
+                  key={activeWord}
+                  className="rounded-full border border-orange-300/35 bg-orange-500/12 px-4 py-1.5 text-sm font-semibold text-orange-200"
+                  initial={{ y: 8, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -8, opacity: 0 }}
+                >
+                  {activeWord}
+                </motion.span>
+              </div>
+
+              <p className="mt-5 max-w-[56ch] text-zinc-300">
+                I help brands in USA, UK, and Canada launch high-performing Shopify, WordPress, and Webflow websites with
+                conversion-focused UI implementation and QA-backed delivery.
               </p>
 
               <div className="mt-7 flex flex-wrap gap-3">
-                <ButtonLink to={routes.contact}>Book Consultation</ButtonLink>
-                <ButtonLink to={routes.portfolio} variant="ghost">
-                  View Work
+                <ButtonLink to="/contact">Book Consultation</ButtonLink>
+                <ButtonLink to="/portfolio" variant="ghost">
+                  View Portfolio
                 </ButtonLink>
               </div>
 
-              <ul className="mt-7 grid gap-3 sm:grid-cols-3">
-                {trustBullets.map((bullet) => (
-                  <li key={bullet} className="rounded-2xl border border-white/12 bg-white/[0.03] px-4 py-4 text-sm text-zinc-200">
-                    <span className="mb-3 inline-flex h-2.5 w-2.5 rounded-full bg-orange-300" aria-hidden="true" />
-                    <p>{bullet}</p>
-                  </li>
+              <div className="mt-7 grid gap-3 sm:grid-cols-3">
+                {proofItems.map((item) => (
+                  <div key={item.label} className="rounded-xl border border-white/12 bg-white/[0.03] px-4 py-3">
+                    <p className="text-2xl font-bold text-white">{item.value}</p>
+                    <p className="text-xs uppercase tracking-[0.14em] text-zinc-400">{item.label}</p>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
 
             <div className="relative lg:pl-2">
               <div className="premium-card relative p-5 sm:p-6 lg:p-7">
                 <div className="flex flex-wrap items-center justify-between gap-3">
-                  <p className="text-xs uppercase tracking-[0.22em] text-zinc-400">Core Services</p>
+                  <p className="text-xs uppercase tracking-[0.22em] text-zinc-400">Live Project Highlights</p>
                   <span className="rounded-2xl border border-orange-300/30 bg-orange-500/12 px-3 py-2 text-[11px] uppercase tracking-[0.18em] text-orange-200">
-                    {siteConfig.availability}
+                    Premium Delivery
                   </span>
                 </div>
 
-                <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                  {primaryServices.map((service, index) => (
-                    <Link
-                      key={service.slug}
-                      to={getServicePath(service.slug)}
-                      className={`rounded-2xl border p-4 text-sm transition duration-300 hover:-translate-y-1 hover:border-orange-300/45 hover:bg-orange-500/[0.08] ${
-                        index === 0 ? 'border-orange-400/40 bg-orange-500/[0.08]' : 'border-white/12 bg-white/[0.03]'
+                <div className="mt-6 space-y-5">
+                  {projectTiles.map((item, index) => (
+                    <article
+                      key={item.title}
+                      className={`rounded-2xl border p-5 transition duration-300 hover:-translate-y-1 hover:shadow-[0_14px_35px_rgba(255,115,0,0.2)] ${
+                        index === 0 ? 'border-orange-400/40 bg-orange-500/[0.1]' : 'border-white/12 bg-white/[0.03]'
                       }`}
                     >
-                      <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-orange-300/30 bg-orange-500/12 text-[11px] font-semibold uppercase tracking-[0.12em] text-orange-200">
-                        {service.icon}
-                      </span>
-                      <h3 className="mt-3 text-base font-semibold text-white">{service.title}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-zinc-300">{service.summary}</p>
-                    </Link>
+                      <div className="flex items-start justify-between gap-4">
+                        <h3 className="text-sm font-semibold leading-snug text-white sm:text-base">{item.title}</h3>
+                        <span className={`shrink-0 rounded-full border px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] ${tagStyle[item.tag]}`}>
+                          {item.tag}
+                        </span>
+                      </div>
+                      <p className="mt-3 text-sm text-zinc-300">{item.result}</p>
+                    </article>
                   ))}
-                </div>
-
-                <div className="mt-6 rounded-2xl border border-white/12 bg-black/25 p-5">
-                  <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">Also Available For</p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {supportServices.map((service) => (
-                      <Link
-                        key={service.slug}
-                        to={getServicePath(service.slug)}
-                        className="rounded-full border border-white/15 bg-white/[0.03] px-3 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-zinc-200 transition hover:border-orange-300/45 hover:text-orange-200"
-                      >
-                        {service.title}
-                      </Link>
-                    ))}
-                  </div>
-                  <p className="mt-4 text-sm leading-relaxed text-zinc-300">
-                    Based in Pakistan and working remotely with {siteConfig.serviceMarkets.join(', ')} clients who need stronger implementation quality, clearer conversion flow, and dependable support.
-                  </p>
                 </div>
               </div>
             </div>

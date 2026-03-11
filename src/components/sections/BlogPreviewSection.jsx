@@ -10,9 +10,9 @@ export default function BlogPreviewSection() {
       <div className="section-wrap space-y-10">
         <Reveal>
           <SectionHeading
-            eyebrow="Insights"
-            title="Practical Articles for Better Websites, Better UX, and Cleaner Launches"
-            description="Actionable reading on Shopify, WordPress, Webflow, performance, implementation quality, and QA-backed delivery."
+            eyebrow="Blog"
+            title="Practical Insights for Better Website Performance"
+            description="UI-ready blog previews with topics around Shopify, WordPress, Webflow, and QA best practices."
           />
         </Reveal>
         <div className="grid gap-5 lg:grid-cols-3">
@@ -24,7 +24,7 @@ export default function BlogPreviewSection() {
         </div>
         <Reveal>
           <Link to="/blog" className="inline-flex text-sm font-semibold text-orange-300">
-            Browse All Articles &rarr;
+            Read More Articles &rarr;
           </Link>
         </Reveal>
       </div>

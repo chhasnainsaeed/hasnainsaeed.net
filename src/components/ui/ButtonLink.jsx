@@ -10,16 +10,9 @@ export default function ButtonLink({ to, children, variant = 'primary', classNam
       'border border-orange-300/70 bg-white/[0.04] text-zinc-100 shadow-[0_8px_20px_rgba(0,0,0,0.25)] hover:-translate-y-0.5 hover:border-orange-300 hover:bg-orange-400/14 hover:shadow-[0_12px_30px_rgba(255,115,0,0.25)]',
   }
 
-  const classes = `${base} ${styles[variant]} ${className}`
-  const isExternal = typeof to === 'string' && (to.startsWith('http') || to.startsWith('mailto:'))
-
-  if (isExternal) {
-    return (
-      <a href={to} className={classes} {...props}>
-        {children}
-      </a>
-    )
-  }
-
-  return <Link to={to} className={classes} {...props}>{children}</Link>
+  return (
+    <Link to={to} className={`${base} ${styles[variant]} ${className}`} {...props}>
+      {children}
+    </Link>
+  )
 }

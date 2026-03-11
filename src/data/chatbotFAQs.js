@@ -70,7 +70,7 @@ export const fallbackAnswers = [
     intent: 'portfolio',
     keywords: ['portfolio', 'projects', 'case study', 'work', 'examples'],
     answer:
-      'You can view case studies on the Case Studies page, including Shopify, WordPress, Webflow, optimization, and QA projects.',
+      'You can view case studies on the Portfolio page, including Shopify, WordPress, Webflow, optimization, and QA projects.',
   },
   {
     intent: 'thanks',

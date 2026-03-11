@@ -9,8 +9,8 @@ export default function ProcessSection() {
         <Reveal>
           <SectionHeading
             eyebrow="Process"
-            title="A practical process that keeps scope clear and delivery predictable."
-            description="The work moves from discovery to launch through clear milestones, focused implementation, and QA before anything goes live."
+            title="A Structured Workflow from Discovery to Launch"
+            description="Process-driven execution keeps scope clear, quality high, and communication smooth."
           />
         </Reveal>
         <div className="relative grid gap-4 md:grid-cols-2 xl:grid-cols-3">
