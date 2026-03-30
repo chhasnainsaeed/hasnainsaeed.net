@@ -5,8 +5,8 @@ import ButtonLink from '../components/ui/ButtonLink'
 import { services } from '../data/services'
 import Seo from '../seo/Seo'
 import { getStaticPageMetadata } from '../seo/metadata'
-import { createBreadcrumbSchema, createFAQSchema, createProfessionalServiceSchema, createWebPageSchema } from '../seo/schema'
-import { routes } from '../utils/routes'
+import { createBreadcrumbSchema, createCollectionPageSchema, createFAQSchema, createProfessionalServiceSchema } from '../seo/schema'
+import { getServicePath, routes } from '../utils/routes'
 
 const faqs = [
   {
@@ -26,6 +26,7 @@ const faqs = [
 export default function ServicesPage() {
   const metadata = getStaticPageMetadata('services')
   const serviceNames = services.map((service) => service.title)
+  const serviceItems = services.map((service) => ({ name: service.title, path: getServicePath(service.slug) }))
   const faqSchema = createFAQSchema(faqs, routes.services)
 
   return (
@@ -41,11 +42,12 @@ export default function ServicesPage() {
         image={metadata.image}
         jsonLd={[
           createProfessionalServiceSchema(serviceNames),
-          createWebPageSchema({
+          createCollectionPageSchema({
             path: routes.services,
-            title: metadata.title,
+            name: metadata.title,
             description: metadata.description,
             image: metadata.image,
+            items: serviceItems,
             about: serviceNames,
           }),
           createBreadcrumbSchema([
@@ -71,6 +73,9 @@ export default function ServicesPage() {
                   <p className="text-xs uppercase tracking-[0.2em] text-orange-300/80">{service.icon}</p>
                   <h2 className="mt-2 text-2xl font-semibold text-white">{service.title}</h2>
                   <p className="mt-3 text-sm text-zinc-300">{service.summary}</p>
+                  <ButtonLink to={getServicePath(service.slug)} variant="ghost" className="mt-5">
+                    View Service Page
+                  </ButtonLink>
                 </div>
                 <div>
                   <h3 className="text-sm uppercase tracking-[0.2em] text-zinc-400">What's Included</h3>

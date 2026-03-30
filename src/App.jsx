@@ -3,6 +3,7 @@ import MainLayout from './components/layout/MainLayout'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import ServicesPage from './pages/ServicesPage'
+import ServiceDetailPage from './pages/ServiceDetailPage'
 import PortfolioPage from './pages/PortfolioPage'
 import ProjectDetailPage from './pages/ProjectDetailPage'
 import PackagesPage from './pages/PackagesPage'
@@ -20,6 +21,7 @@ function AppRoutes() {
         { index: true, element: <HomePage /> },
         { path: 'about', element: <AboutPage /> },
         { path: 'services', element: <ServicesPage /> },
+        { path: 'services/:slug', element: <ServiceDetailPage /> },
         { path: 'portfolio', element: <PortfolioPage /> },
         { path: 'portfolio/:slug', element: <ProjectDetailPage /> },
         { path: 'packages', element: <PackagesPage /> },

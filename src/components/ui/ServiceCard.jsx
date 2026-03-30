@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { getServicePath } from '../../utils/routes'
 
 export default function ServiceCard({ service }) {
   return (
@@ -9,7 +10,10 @@ export default function ServiceCard({ service }) {
       </span>
       <h3 className="mt-4 text-xl font-semibold text-white">{service.title}</h3>
       <p className="mt-3 flex-1 text-sm text-zinc-300">{service.summary}</p>
-      <Link to="/services" className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-orange-300 transition group-hover:text-orange-200">
+      <Link
+        to={getServicePath(service.slug)}
+        className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-orange-300 transition group-hover:text-orange-200"
+      >
         Learn More <span className="transition-transform duration-300 group-hover:translate-x-1.5">&rarr;</span>
       </Link>
     </article>

@@ -44,6 +44,10 @@ function getArticleId(slug) {
   return `${getAbsoluteUrl(`/blog/${slug}`)}#article`
 }
 
+function getServiceId(path) {
+  return `${getAbsoluteUrl(path)}#service`
+}
+
 export function createBreadcrumbSchema(items) {
   const currentPath = items[items.length - 1]?.path || '/'
 
@@ -218,5 +222,33 @@ export function createArticleSchema(post) {
     keywords: (post.keywords || []).join(', '),
     inLanguage: schemaLanguage,
     isAccessibleForFree: true,
+  })
+}
+
+export function createServiceSchema(service, path) {
+  return withContext({
+    '@type': 'Service',
+    '@id': getServiceId(path),
+    name: service.title,
+    serviceType: service.title,
+    description: service.summary,
+    url: getAbsoluteUrl(path),
+    provider: { '@id': `${siteConfig.url}#professional-service` },
+    areaServed: siteConfig.serviceMarkets.map((market) => ({
+      '@type': 'Place',
+      name: market,
+    })),
+    audience: service.idealFor
+      ? {
+          '@type': 'Audience',
+          audienceType: service.idealFor,
+        }
+      : undefined,
+    offers: {
+      '@type': 'Offer',
+      url: getAbsoluteUrl(path),
+      category: service.title,
+      availability: 'https://schema.org/InStock',
+    },
   })
 }

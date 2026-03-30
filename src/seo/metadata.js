@@ -1,4 +1,4 @@
-import { getBlogPath, getProjectPath, routes } from '../utils/routes'
+import { getBlogPath, getProjectPath, getServicePath, routes } from '../utils/routes'
 import { siteConfig } from '../utils/site'
 
 const shareImages = {
@@ -10,6 +10,16 @@ const shareImages = {
   blog: '/images/project-pixeltrue-cover.png',
   contact: '/images/project-suave-cover.png',
   packages: '/images/project-mapx-cover.png',
+}
+
+function trimMetaDescription(value, maxLength = 160) {
+  if (!value) return value
+  if (value.length <= maxLength) return value
+
+  const trimmed = value.slice(0, maxLength + 1)
+  const lastSpaceIndex = trimmed.lastIndexOf(' ')
+
+  return `${trimmed.slice(0, lastSpaceIndex > 120 ? lastSpaceIndex : maxLength).trimEnd()}...`
 }
 
 function createMetadata({
@@ -31,12 +41,12 @@ function createMetadata({
 
   return {
     title: resolvedTitle,
-    description: resolvedDescription,
+    description: trimMetaDescription(resolvedDescription),
     pathname,
     ogTitle: resolvedOgTitle,
-    ogDescription: resolvedOgDescription,
+    ogDescription: trimMetaDescription(resolvedOgDescription),
     twitterTitle: twitterTitle || resolvedOgTitle,
-    twitterDescription: twitterDescription || resolvedOgDescription,
+    twitterDescription: trimMetaDescription(twitterDescription || resolvedOgDescription),
     image,
     type,
     keywords,
@@ -45,52 +55,52 @@ function createMetadata({
 
 const staticPageMetadata = {
   home: createMetadata({
-    title: 'Freelance Web Developer for Shopify, WordPress, and Webflow | Hasnain Saeed',
+    title: 'Freelance Shopify, WordPress & Webflow Developer | Hasnain Saeed',
     description:
-      'Hire Hasnain Saeed for Shopify, WordPress, and Webflow development, technical SEO foundations, bug fixing, UI implementation, and ongoing website support.',
+      'Hire Hasnain Saeed for Shopify, WordPress, and Webflow development, bug fixing, technical SEO setup, UI implementation, and ongoing website support.',
     pathname: routes.home,
-    ogTitle: 'Freelance Web Developer for Shopify, WordPress, and Webflow',
+    ogTitle: 'Freelance Shopify, WordPress & Webflow Developer',
     ogDescription:
       'Explore services, case studies, packages, and practical guides for businesses that need a dependable freelance web developer.',
     image: shareImages.home,
   }),
   about: createMetadata({
-    title: 'About Hasnain Saeed | Freelance Web Developer',
+    title: 'About Hasnain Saeed | Shopify, WordPress & Webflow Developer',
     description:
       'Learn how Hasnain Saeed approaches Shopify, WordPress, and Webflow projects with direct communication, QA-minded delivery, and technical implementation discipline.',
     pathname: routes.about,
     image: shareImages.about,
   }),
   services: createMetadata({
-    title: 'Web Development Services | Shopify, WordPress, Webflow, SEO, QA',
+    title: 'Shopify, WordPress & Webflow Services | Hasnain Saeed',
     description:
-      'Review freelance web development services covering Shopify, WordPress, Webflow, optimization, UI implementation, QA support, and SEO-ready website structure.',
+      'Review Shopify, WordPress, and Webflow development services, plus landing pages, QA, bug fixing, UI implementation, and technical SEO setup.',
     pathname: routes.services,
     image: shareImages.services,
   }),
   portfolio: createMetadata({
-    title: 'Portfolio Case Studies | Shopify, WordPress, and Webflow Projects',
+    title: 'Shopify, WordPress & Webflow Case Studies | Hasnain Saeed',
     description:
       'Review detailed case studies covering Shopify, WordPress, and Webflow projects with screenshots, technical notes, outcomes, and live-site references.',
     pathname: routes.portfolio,
     image: shareImages.portfolio,
   }),
   packages: createMetadata({
-    title: 'Website Packages and Pricing Guidance | Hasnain Saeed',
+    title: 'Web Development Packages | Hasnain Saeed',
     description:
       'Compare website packages for startup sites, growth builds, premium implementation, and ongoing support before requesting a tailored project scope.',
     pathname: routes.packages,
     image: shareImages.packages,
   }),
   blog: createMetadata({
-    title: 'Web Development Insights and Guides | Hasnain Saeed',
+    title: 'Shopify, WordPress & Webflow Insights | Hasnain Saeed',
     description:
       'Read practical insights on Shopify, WordPress, Webflow, technical SEO, website performance, QA, and implementation quality.',
     pathname: routes.blog,
     image: shareImages.blog,
   }),
   contact: createMetadata({
-    title: 'Contact Hasnain Saeed | Freelance Web Developer',
+    title: 'Contact Hasnain Saeed | Web Development Inquiries',
     description:
       'Start a project with Hasnain Saeed. Share your scope, platform, timeline, and goals for Shopify, WordPress, Webflow, optimization, or support work.',
     pathname: routes.contact,
@@ -110,11 +120,11 @@ export function getStaticPageMetadata(pageKey) {
 
 export function getProjectMetadata(project) {
   return createMetadata({
-    title: `${project.title} Case Study | Hasnain Saeed`,
-    description: project.shortResult || project.heroSummary || siteConfig.description,
+    title: project.seoTitle || `${project.title} | Case Study | Hasnain Saeed`,
+    description: project.metaDescription || project.shortResult || project.heroSummary || siteConfig.description,
     pathname: getProjectPath(project.slug),
-    ogTitle: project.title,
-    ogDescription: project.heroSummary || project.shortResult || siteConfig.description,
+    ogTitle: project.ogTitle || project.title,
+    ogDescription: project.metaDescription || project.heroSummary || project.shortResult || siteConfig.description,
     image: project.cover || shareImages.portfolio,
     keywords: Array.from(new Set([project.platform, project.category, 'case study', 'portfolio'].filter(Boolean))),
   })
@@ -130,5 +140,17 @@ export function getBlogPostMetadata(post) {
     image: post.image || shareImages.blog,
     type: 'article',
     keywords: post.keywords || [],
+  })
+}
+
+export function getServiceMetadata(service) {
+  return createMetadata({
+    title: service.metaTitle || `${service.title} | Hasnain Saeed`,
+    description: service.metaDescription || service.intro || service.summary || siteConfig.description,
+    pathname: getServicePath(service.slug),
+    ogTitle: service.ogTitle || service.title,
+    ogDescription: service.metaDescription || service.summary || service.intro || siteConfig.description,
+    image: service.image || shareImages.services,
+    keywords: service.keywords || [],
   })
 }

@@ -15,3 +15,7 @@ export function getProjectPath(slug) {
 export function getBlogPath(slug) {
   return `${routes.blog}/${slug}`
 }
+
+export function getServicePath(slug) {
+  return `${routes.services}/${slug}`
+}

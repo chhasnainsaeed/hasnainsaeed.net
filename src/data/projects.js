@@ -3,6 +3,9 @@ export const projects = [
   {
     slug: 'suave-florida-website-revamp',
     title: 'SuaveFlorida.com Medical Rehab Website for Miami and Hialeah',
+    seoTitle: 'Suave Florida Rehab Website Case Study | Hasnain Saeed',
+    metaDescription:
+      'WordPress case study for a Miami and Hialeah rehab website focused on urgent care messaging, service clarity, and appointment conversion.',
     category: 'WordPress',
     platform: 'WordPress',
     year: '2025',
@@ -37,6 +40,9 @@ export const projects = [
   {
     slug: 'mapx-development-wordpress-site',
     title: 'MAPX Development WordPress Site for Architecture Brand',
+    seoTitle: 'MAPX Development Website Case Study | Hasnain Saeed',
+    metaDescription:
+      'WordPress case study for MAPX Development, covering architecture-brand messaging, sector discovery, and inquiry-focused website structure.',
     category: 'WordPress',
     platform: 'WordPress',
     year: '2025',
@@ -71,6 +77,9 @@ export const projects = [
   {
     slug: 'top-dollar-junk-car-buyer-palm-beach-gardens',
     title: 'Top Dollar Junk Car Buyer Site for Palm Beach Gardens',
+    seoTitle: 'Top Dollar Junk Car Buyer Website Case Study | Hasnain Saeed',
+    metaDescription:
+      'WordPress case study for a Palm Beach Gardens junk car buyer site built around urgent local intent, towing reassurance, and simple quote flow.',
     category: 'WordPress',
     platform: 'WordPress',
     year: '2025',
@@ -106,6 +115,9 @@ export const projects = [
   {
     slug: 'design-inc-palm-beach-interior-design-site',
     title: 'Design Inc. Interior Design and Design-Build Website',
+    seoTitle: 'Design Inc Website Case Study | Hasnain Saeed',
+    metaDescription:
+      'WordPress case study for a Palm Beach interior design website with luxury positioning, service clarity, and portfolio-led navigation.',
     category: 'WordPress',
     platform: 'WordPress',
     year: '2025',
@@ -141,6 +153,9 @@ export const projects = [
   {
     slug: 'next-day-shower-glass-palm-beach-site',
     title: 'Next Day Shower Glass Residential and Commercial Glass Website',
+    seoTitle: 'Next Day Shower Glass Website Case Study | Hasnain Saeed',
+    metaDescription:
+      'WordPress case study for a Palm Beach glass services website focused on estimate CTAs, trust building, and residential/commercial service discovery.',
     category: 'WordPress',
     platform: 'WordPress',
     year: '2025',
@@ -176,6 +191,9 @@ export const projects = [
   {
     slug: 'apex-tuition-australia-tutoring-site',
     title: 'Apex Tuition Australia Private Tutoring Website',
+    seoTitle: 'Apex Tuition Australia Webflow Case Study | Hasnain Saeed',
+    metaDescription:
+      'Webflow case study for a tutoring website covering subject discovery, pricing transparency, FAQs, and tutor recruitment across Australia.',
     category: 'Webflow',
     platform: 'Webflow',
     year: '2026',
@@ -211,6 +229,9 @@ export const projects = [
   {
     slug: 'pixeltrue-unlimited-design-subscription-site',
     title: 'Pixeltrue Unlimited Design Subscription Website',
+    seoTitle: 'Pixeltrue Website Case Study | Hasnain Saeed',
+    metaDescription:
+      'Webflow case study for a design subscription website with pricing clarity, platform education, and conversion-focused product storytelling.',
     category: 'Webflow',
     platform: 'Webflow',
     year: '2026',
@@ -246,6 +267,9 @@ export const projects = [
   {
     slug: 'aquifer-growth-commerce-operations-site',
     title: 'Aquifer Growth Commerce Operations and Discoverability Website',
+    seoTitle: 'Aquifer Growth Website Case Study | Hasnain Saeed',
+    metaDescription:
+      'Webflow case study for an ecommerce operations site built around pricing comparison, case studies, and consultation conversion.',
     category: 'Webflow',
     platform: 'Webflow',
     year: '2026',
@@ -281,6 +305,9 @@ export const projects = [
   {
     slug: 'aquifercfo-fractional-finance-website',
     title: 'AquiferCFO Fractional CFO and Outsourced Finance Website',
+    seoTitle: 'AquiferCFO Website Case Study | Hasnain Saeed',
+    metaDescription:
+      'Webflow case study for a fractional CFO website featuring pricing comparison, startup credibility, industry pages, and lead capture.',
     category: 'Webflow',
     platform: 'Webflow',
     year: '2026',
@@ -316,6 +343,9 @@ export const projects = [
   {
     slug: 'bebano-shopify-fashion-storefront',
     title: 'BEBANO Shopify Fashion Storefront for Women’s Eastern and Western Wear',
+    seoTitle: 'BEBANO Shopify Store Case Study | Hasnain Saeed',
+    metaDescription:
+      'Shopify case study for a fashion storefront focused on category-led merchandising, product-page conversion flow, and review-backed shopping support.',
     category: 'Shopify',
     platform: 'Shopify',
     year: '2026',
@@ -351,6 +381,9 @@ export const projects = [
   {
     slug: 'feyre-shopify-luxury-fashion-storefront',
     title: 'Feyre Shopify Luxury Pret and Festive Wear Storefront',
+    seoTitle: 'Feyre Shopify Store Case Study | Hasnain Saeed',
+    metaDescription:
+      'Shopify case study for a luxury fashion storefront built around premium collection browsing, product-page clarity, and customer trust signals.',
     category: 'Shopify',
     platform: 'Shopify',
     year: '2026',
