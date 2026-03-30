@@ -8,7 +8,8 @@ import NotFoundPage from './NotFoundPage'
 import Seo from '../seo/Seo'
 import { getBlogPostMetadata } from '../seo/metadata'
 import { createArticleSchema, createBreadcrumbSchema, createFAQSchema, createWebPageSchema } from '../seo/schema'
-import { getBlogPath, routes } from '../utils/routes'
+import { getRelatedProjectsForPost, getRelatedServicesForPost } from '../utils/relatedContent'
+import { getBlogPath, getProjectPath, getServicePath, routes } from '../utils/routes'
 import { getAbsoluteUrl } from '../utils/site'
 
 function getSectionId(heading) {
@@ -27,6 +28,8 @@ export default function BlogDetailPage() {
   const postPath = getBlogPath(post.slug)
   const metadata = getBlogPostMetadata(post)
   const faqSchema = createFAQSchema(post.faq, postPath)
+  const relatedServices = getRelatedServicesForPost(post)
+  const relatedProjects = getRelatedProjectsForPost(post)
 
   return (
     <>
@@ -143,10 +146,41 @@ export default function BlogDetailPage() {
             <FaqAccordion items={post.faq} />
           </Reveal>
           <Reveal className="premium-card p-7 sm:p-8" delay={0.08}>
-            <h2 className="text-2xl font-semibold text-white">Need this applied on a live website?</h2>
+            <h2 className="text-2xl font-semibold text-white">Turn this topic into execution</h2>
             <p className="mt-4 text-sm text-zinc-300">
-              If this issue already affects your site, I can review the bottleneck, implement the fix, and support the QA required to launch it cleanly.
+              If this issue already affects a live website, the next step is implementation, cleanup, and QA on the pages that matter most.
             </p>
+            {relatedServices.length ? (
+              <div className="mt-6 space-y-3">
+                {relatedServices.map((service) => (
+                  <Link
+                    key={service.slug}
+                    to={getServicePath(service.slug)}
+                    className="block rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition hover:border-orange-300/40 hover:bg-white/[0.05]"
+                  >
+                    <p className="text-sm font-semibold text-white">{service.title}</p>
+                    <p className="mt-2 text-sm text-zinc-300">{service.summary}</p>
+                  </Link>
+                ))}
+              </div>
+            ) : null}
+            {relatedProjects.length ? (
+              <>
+                <h3 className="mt-6 text-sm uppercase tracking-[0.18em] text-zinc-400">Relevant case studies</h3>
+                <div className="mt-3 space-y-3">
+                  {relatedProjects.map((project) => (
+                    <Link
+                      key={project.slug}
+                      to={getProjectPath(project.slug)}
+                      className="block rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition hover:border-orange-300/40 hover:bg-white/[0.05]"
+                    >
+                      <p className="text-sm font-semibold text-white">{project.title}</p>
+                      <p className="mt-2 text-sm text-zinc-300">{project.shortResult}</p>
+                    </Link>
+                  ))}
+                </div>
+              </>
+            ) : null}
             <div className="mt-6 flex flex-wrap gap-3">
               <ButtonLink to={routes.contact}>Book Consultation</ButtonLink>
               <ButtonLink to={routes.services} variant="ghost">

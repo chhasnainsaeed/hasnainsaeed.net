@@ -2,6 +2,8 @@ import PageHero from '../components/ui/PageHero'
 import Reveal from '../components/ui/Reveal'
 import FaqAccordion from '../components/ui/FaqAccordion'
 import ButtonLink from '../components/ui/ButtonLink'
+import BlogCard from '../components/ui/BlogCard'
+import { blogPosts } from '../data/blogPosts'
 import { services } from '../data/services'
 import Seo from '../seo/Seo'
 import { getStaticPageMetadata } from '../seo/metadata'
@@ -27,6 +29,7 @@ export default function ServicesPage() {
   const metadata = getStaticPageMetadata('services')
   const serviceNames = services.map((service) => service.title)
   const serviceItems = services.map((service) => ({ name: service.title, path: getServicePath(service.slug) }))
+  const featuredGuides = [...blogPosts].sort((left, right) => new Date(right.date) - new Date(left.date)).slice(0, 3)
   const faqSchema = createFAQSchema(faqs, routes.services)
 
   return (
@@ -120,6 +123,28 @@ export default function ServicesPage() {
               Book Consultation
             </ButtonLink>
           </Reveal>
+        </div>
+      </section>
+
+      <section className="section-pad pb-18">
+        <div className="section-wrap space-y-6">
+          <Reveal className="flex items-end justify-between gap-4">
+            <div>
+              <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">Content Support</p>
+              <h2 className="mt-2 text-3xl font-semibold text-white">Guides connected to these services</h2>
+            </div>
+            <ButtonLink to={routes.blog} variant="ghost">
+              View All Articles
+            </ButtonLink>
+          </Reveal>
+
+          <div className="grid gap-5 lg:grid-cols-3">
+            {featuredGuides.map((post, index) => (
+              <Reveal key={post.slug} delay={index * 0.05}>
+                <BlogCard post={post} />
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
     </>

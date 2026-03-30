@@ -5,6 +5,8 @@ import SectionHeading from '../ui/SectionHeading'
 import BlogCard from '../ui/BlogCard'
 
 export default function BlogPreviewSection() {
+  const latestPosts = [...blogPosts].sort((left, right) => new Date(right.date) - new Date(left.date)).slice(0, 3)
+
   return (
     <section className="section-pad py-16">
       <div className="section-wrap space-y-10">
@@ -16,7 +18,7 @@ export default function BlogPreviewSection() {
           />
         </Reveal>
         <div className="grid gap-5 lg:grid-cols-3">
-          {blogPosts.slice(0, 3).map((post, index) => (
+          {latestPosts.map((post, index) => (
             <Reveal key={post.slug} delay={index * 0.05}>
               <BlogCard post={post} />
             </Reveal>

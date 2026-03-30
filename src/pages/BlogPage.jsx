@@ -14,16 +14,17 @@ export default function BlogPage() {
   const [category, setCategory] = useState('All')
   const [page, setPage] = useState(1)
   const metadata = getStaticPageMetadata('blog')
-  const categories = useMemo(() => ['All', ...new Set(blogPosts.map((post) => post.category))], [])
+  const sortedBlogPosts = useMemo(() => [...blogPosts].sort((left, right) => new Date(right.date) - new Date(left.date)), [])
+  const categories = useMemo(() => ['All', ...new Set(sortedBlogPosts.map((post) => post.category))], [sortedBlogPosts])
 
   const filtered = useMemo(() => {
-    return blogPosts.filter((post) => {
+    return sortedBlogPosts.filter((post) => {
       const byCategory = category === 'All' || post.category === category
       const searchable = [post.title, post.excerpt, ...(post.keywords || [])].join(' ').toLowerCase()
       const bySearch = searchable.includes(searchTerm.trim().toLowerCase())
       return byCategory && bySearch
     })
-  }, [searchTerm, category])
+  }, [searchTerm, category, sortedBlogPosts])
 
   const perPage = 3
   const totalPages = Math.max(1, Math.ceil(filtered.length / perPage))
@@ -47,11 +48,11 @@ export default function BlogPage() {
             description: metadata.description,
             path: routes.blog,
             image: metadata.image,
-            items: blogPosts.map((post) => ({
+            items: sortedBlogPosts.map((post) => ({
               name: post.title,
               path: getBlogPath(post.slug),
             })),
-            about: ['Shopify guides', 'WordPress guides', 'Webflow guides', 'website QA', 'UI implementation'],
+            about: categories.filter((item) => item !== 'All'),
           }),
           createBreadcrumbSchema([
             { name: 'Home', path: routes.home },
@@ -63,7 +64,7 @@ export default function BlogPage() {
       <PageHero
         eyebrow="Blog"
         title="Insights on Development, Optimization, and QA"
-        description="Published guides on Shopify, WordPress, Webflow, launch QA, and frontend implementation quality."
+        description="Published guides on Shopify, WordPress, Webflow, technical SEO, launch QA, ongoing maintenance, and frontend implementation quality."
       />
 
       <section className="section-pad pb-16">

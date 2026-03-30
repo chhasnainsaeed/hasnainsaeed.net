@@ -22,6 +22,7 @@ export const services = [
     timeline: '1-4 weeks',
     addons: ['Ongoing maintenance', 'Content migration', 'Technical SEO cleanup'],
     relatedProjects: ['mapx-development-wordpress-site', 'design-inc-palm-beach-interior-design-site', 'next-day-shower-glass-palm-beach-site'],
+    relatedPosts: ['wordpress-speed-tips', 'website-maintenance-priorities', 'technical-seo-launch-checklist'],
     faq: [
       { question: 'Can you improve an existing WordPress site instead of rebuilding it?', answer: 'Yes. I often improve existing WordPress sites when the foundation is still usable but the UX, speed, or editing experience needs work.' },
       { question: 'Can you help after launch?', answer: 'Yes. Ongoing WordPress support, content updates, and technical cleanup can be handled as follow-on work.' },
@@ -49,6 +50,7 @@ export const services = [
     timeline: '2-6 weeks',
     addons: ['Retention flows', 'A/B test setup', 'Store speed optimization'],
     relatedProjects: ['bebano-shopify-fashion-storefront', 'feyre-shopify-luxury-fashion-storefront'],
+    relatedPosts: ['shopify-optimization-playbook', 'technical-seo-launch-checklist'],
     faq: [
       { question: 'Can you customize an existing Shopify theme?', answer: 'Yes. A lot of Shopify work is about improving an existing theme so it fits the catalog, brand, and conversion goals better.' },
       { question: 'Do you only work on full stores?', answer: 'No. I also take on product page, collection page, UX cleanup, and troubleshooting work when that is the main bottleneck.' },
@@ -76,6 +78,7 @@ export const services = [
     timeline: '1-3 weeks',
     addons: ['Localization setup', 'Integrations', 'Content publishing support'],
     relatedProjects: ['apex-tuition-australia-tutoring-site', 'aquifercfo-fractional-finance-website', 'aquifer-growth-commerce-operations-site'],
+    relatedPosts: ['webflow-best-practices', 'technical-seo-launch-checklist', 'landing-page-ui-implementation'],
     faq: [
       { question: 'Can you build in Webflow from an existing design?', answer: 'Yes. I regularly translate existing layouts into clean Webflow builds while tightening the responsive behavior and CMS structure.' },
       { question: 'Can you improve an existing Webflow site instead of starting over?', answer: 'Yes. Refinement, page additions, and quality cleanup are often the most practical next step for an existing Webflow project.' },
@@ -103,6 +106,7 @@ export const services = [
     timeline: '5-10 days',
     addons: ['Heatmap tracking', 'A/B variant setup'],
     relatedProjects: ['apex-tuition-australia-tutoring-site', 'pixeltrue-unlimited-design-subscription-site', 'aquifercfo-fractional-finance-website'],
+    relatedPosts: ['landing-page-ui-implementation', 'webflow-best-practices'],
     faq: [
       { question: 'Can you help if the copy is still rough?', answer: 'Yes. I can help structure the page around the offer and suggest stronger content hierarchy even if the final copy is still being refined.' },
       { question: 'Can you optimize an existing landing page instead of making a new one?', answer: 'Yes. If the offer is already established, improving the current page is often the fastest route to better clarity and stronger performance.' },
@@ -130,6 +134,7 @@ export const services = [
     timeline: '3-14 days',
     addons: ['Monitoring setup', 'Monthly optimization sprint'],
     relatedProjects: ['mapx-development-wordpress-site', 'suave-florida-website-revamp', 'pixeltrue-unlimited-design-subscription-site'],
+    relatedPosts: ['website-maintenance-priorities', 'wordpress-speed-tips', 'technical-seo-launch-checklist'],
     faq: [
       { question: 'Can you work from a list of existing bugs?', answer: 'Yes. I can work from a client-provided bug list, but I also usually identify related issues during the review that are worth fixing in the same pass.' },
       { question: 'Can optimization be done without redesigning the whole site?', answer: 'Yes. Most optimization work is about improving the current foundation instead of replacing it unnecessarily.' },
@@ -157,6 +162,7 @@ export const services = [
     timeline: '1-4 weeks',
     addons: ['Design system cleanup', 'Micro-interaction tuning'],
     relatedProjects: ['pixeltrue-unlimited-design-subscription-site', 'suave-florida-website-revamp', 'apex-tuition-australia-tutoring-site'],
+    relatedPosts: ['landing-page-ui-implementation', 'qa-launch-checklist'],
     faq: [
       { question: 'Can you work from Figma or another design tool?', answer: 'Yes. I can work from existing design files and focus on translating them into stable, responsive frontend output.' },
       { question: 'Do you handle responsive behavior too?', answer: 'Yes. Responsive implementation is a core part of the work and not an afterthought.' },
@@ -184,6 +190,7 @@ export const services = [
     timeline: 'Ongoing or sprint-based',
     addons: ['Regression suites', 'Release support'],
     relatedProjects: ['apex-tuition-australia-tutoring-site', 'pixeltrue-unlimited-design-subscription-site', 'aquifer-growth-commerce-operations-site'],
+    relatedPosts: ['qa-launch-checklist', 'website-maintenance-priorities'],
     faq: [
       { question: 'Do you only test websites you built?', answer: 'No. I often join projects specifically to test and document issues before launch or during active delivery.' },
       { question: 'Can you log bugs inside our existing workflow?', answer: 'Yes. I can adapt to the team workflow and document issues in the format or tracker the team already uses.' },
@@ -211,6 +218,7 @@ export const services = [
     timeline: 'Add-on to any build',
     addons: ['On-page SEO pass', 'Schema setup'],
     relatedProjects: ['mapx-development-wordpress-site', 'aquifer-growth-commerce-operations-site', 'aquifercfo-fractional-finance-website'],
+    relatedPosts: ['technical-seo-launch-checklist', 'website-maintenance-priorities', 'webflow-best-practices'],
     faq: [
       { question: 'Do you do full SEO campaigns?', answer: 'This service focuses on technical readiness during build and launch. It gives the site a stronger base, but it does not replace broader content or authority work.' },
       { question: 'Does this include sitemap and robots setup?', answer: 'Yes. Technical crawl-readiness checks, metadata framework, and indexing-support files are part of the implementation.' },

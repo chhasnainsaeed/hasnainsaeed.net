@@ -13,6 +13,8 @@ export const blogPosts = [
     displayDate: 'January 15, 2026',
     image: '/images/project-feyre-cover.png',
     keywords: ['shopify optimization', 'shopify conversion', 'shopify product page', 'shopify collection page'],
+    relatedServices: ['shopify-store-development', 'website-optimization-bug-fixing'],
+    relatedProjects: ['bebano-shopify-fashion-storefront', 'feyre-shopify-luxury-fashion-storefront'],
     intro:
       'Most Shopify stores do not have a traffic problem first. They have a clarity problem. When product information is hard to scan, merchandising feels inconsistent, or mobile buying flow creates hesitation, conversion drops before checkout friction even becomes visible.',
     keyTakeaways: [
@@ -68,6 +70,8 @@ export const blogPosts = [
     displayDate: 'December 20, 2025',
     image: '/images/project-mapx-cover.png',
     keywords: ['wordpress speed optimization', 'core web vitals', 'wordpress performance', 'plugin bloat'],
+    relatedServices: ['wordpress-development', 'website-optimization-bug-fixing', 'seo-ready-website-setup'],
+    relatedProjects: ['mapx-development-wordpress-site', 'suave-florida-website-revamp', 'next-day-shower-glass-palm-beach-site'],
     intro:
       'WordPress performance issues are usually structural, not mysterious. Heavy themes, overlapping plugins, oversized media, and weak template discipline can slow even simple business sites and make service pages feel less trustworthy the moment they load.',
     keyTakeaways: [
@@ -123,6 +127,8 @@ export const blogPosts = [
     displayDate: 'November 8, 2025',
     image: '/images/project-pixeltrue-cover.png',
     keywords: ['webflow best practices', 'webflow landing page', 'webflow seo', 'webflow launch checklist'],
+    relatedServices: ['webflow-development', 'landing-page-design-build', 'seo-ready-website-setup'],
+    relatedProjects: ['apex-tuition-australia-tutoring-site', 'pixeltrue-unlimited-design-subscription-site', 'aquifercfo-fractional-finance-website'],
     intro:
       'A Webflow site can look finished in the designer and still fail basic launch quality. Missing metadata, weak CMS structure, inconsistent responsive behavior, and untested forms can turn a polished build into a frustrating launch the moment traffic arrives.',
     keyTakeaways: [
@@ -178,6 +184,8 @@ export const blogPosts = [
     displayDate: 'October 31, 2025',
     image: '/images/project-showerglass-cover.jpg',
     keywords: ['website qa checklist', 'pre-launch qa', 'website testing', 'launch readiness'],
+    relatedServices: ['qa-testing-documentation', 'website-optimization-bug-fixing', 'ui-ux-implementation'],
+    relatedProjects: ['apex-tuition-australia-tutoring-site', 'pixeltrue-unlimited-design-subscription-site', 'next-day-shower-glass-palm-beach-site'],
     intro:
       'A website that looks finished can still carry enough release risk to damage trust the moment traffic arrives. QA is where layout issues, broken flows, thin content, and conversion blockers should be caught before they become public problems.',
     keyTakeaways: [
@@ -233,6 +241,8 @@ export const blogPosts = [
     displayDate: 'October 10, 2025',
     image: '/images/project-designinc-cover.jpg',
     keywords: ['ui implementation', 'landing page ux', 'frontend quality', 'conversion ux'],
+    relatedServices: ['ui-ux-implementation', 'landing-page-design-build'],
+    relatedProjects: ['pixeltrue-unlimited-design-subscription-site', 'suave-florida-website-revamp', 'apex-tuition-australia-tutoring-site'],
     intro:
       'A page can look visually close to the design and still underperform because the live implementation misses the moments where trust and clarity are built. Conversion often drops because of frontend details that seem small in review but feel costly once the page is live.',
     keyTakeaways: [
@@ -271,6 +281,120 @@ export const blogPosts = [
       {
         question: 'What should teams review before launch from a UI perspective?',
         answer: 'Responsive hierarchy, CTA visibility, layout consistency, form behavior, and high-intent sections should all be reviewed carefully.',
+      },
+    ],
+  },
+  {
+    slug: 'technical-seo-launch-checklist',
+    title: 'Technical SEO Checklist Before a Website Launch',
+    metaTitle: 'Technical SEO Checklist Before a Website Launch | Hasnain Saeed',
+    metaDescription:
+      'A technical SEO launch checklist covering canonicals, redirects, sitemap, robots.txt, metadata, schema, internal links, and indexation checks before go-live.',
+    excerpt:
+      'A technical SEO launch checklist covering canonicals, redirects, sitemap, robots.txt, metadata, schema, internal links, and indexation checks before go-live.',
+    category: 'Technical SEO',
+    readTime: '7 min read',
+    date: '2026-02-14',
+    displayDate: 'February 14, 2026',
+    image: '/images/project-mapx-cover.png',
+    keywords: ['technical seo checklist', 'website launch seo', 'seo-ready website', 'indexation checklist'],
+    relatedServices: ['seo-ready-website-setup', 'website-optimization-bug-fixing'],
+    relatedProjects: ['mapx-development-wordpress-site', 'aquifer-growth-commerce-operations-site', 'aquifercfo-fractional-finance-website'],
+    intro:
+      'A website can look launch-ready and still send weak or conflicting signals to search engines. Canonical mistakes, mixed redirects, missing metadata, and thin internal linking can delay indexing or dilute the visibility a new build should start with.',
+    keyTakeaways: [
+      'Choose one preferred URL version and make every alternate path resolve cleanly to it.',
+      'Metadata, headings, canonicals, sitemap, and robots should be reviewed before launch, not after.',
+      'Schema and internal linking help Google understand what the important pages actually are.',
+      'Requesting indexing works best after the technical basics are already stable.',
+    ],
+    sections: [
+      {
+        heading: 'Confirm the preferred URL version first',
+        body:
+          'Decide which version of the site is canonical and make sure http, https, www, non-www, and trailing-slash behavior all resolve consistently. Launching with multiple live variants is one of the easiest ways to create duplicate paths and mixed signals early.',
+      },
+      {
+        heading: 'Review metadata and headings page by page',
+        body:
+          'Check titles, descriptions, H1s, canonicals, and indexation intent on the homepage, service pages, case studies, blog posts, and contact pages. The pages that matter most commercially should not inherit generic metadata or ship with placeholders.',
+      },
+      {
+        heading: 'Validate sitemap, robots, and structured data',
+        body:
+          'Make sure the sitemap includes the pages you want indexed, robots.txt does not block important routes, and the structured data matches the page type. This is especially important on service pages, blog articles, and case studies where clarity of page purpose helps search engines understand the site faster.',
+      },
+      {
+        heading: 'Test internal links and request indexing after launch checks',
+        body:
+          'Before submitting the sitemap or requesting indexing, click through the important page paths manually. Service hubs should link to detail pages, articles should link to relevant services, and orphan pages should be fixed before the site is pushed harder into search.',
+      },
+    ],
+    faq: [
+      {
+        question: 'Does technical SEO alone rank a website?',
+        answer: 'No. Technical SEO improves crawlability and page understanding, but rankings still depend on content quality, intent match, internal linking, and site authority.',
+      },
+      {
+        question: 'When should technical SEO checks happen on a rebuild?',
+        answer: 'Before launch, during QA, and again right after go-live so redirect behavior, metadata, and crawl paths can be confirmed on the live domain.',
+      },
+    ],
+  },
+  {
+    slug: 'website-maintenance-priorities',
+    title: 'Website Maintenance Priorities That Prevent Broken UX',
+    metaTitle: 'Website Maintenance Priorities for Better Stability | Hasnain Saeed',
+    metaDescription:
+      'A practical website maintenance guide for prioritizing updates, bug fixes, form checks, plugin cleanup, and QA before small issues turn into lost leads.',
+    excerpt:
+      'A practical website maintenance guide for prioritizing updates, bug fixes, form checks, plugin cleanup, and QA before small issues turn into lost leads.',
+    category: 'Optimization',
+    readTime: '6 min read',
+    date: '2026-02-27',
+    displayDate: 'February 27, 2026',
+    image: '/images/project-suave-cover.png',
+    keywords: ['website maintenance', 'website support', 'website bug fixing', 'ongoing website optimization'],
+    relatedServices: ['website-optimization-bug-fixing', 'qa-testing-documentation', 'wordpress-development'],
+    relatedProjects: ['suave-florida-website-revamp', 'mapx-development-wordpress-site', 'pixeltrue-unlimited-design-subscription-site'],
+    intro:
+      'Website issues rarely arrive one at a time. Small layout shifts, form errors, stale plugins, broken links, and overlooked device bugs compound until trust drops and lead flow becomes less reliable. Good maintenance is about catching the highest-impact issues before users feel them repeatedly.',
+    keyTakeaways: [
+      'Prioritize maintenance by business impact, not by which bug is easiest to fix.',
+      'Forms, CTA paths, and slow templates should be reviewed more often than low-risk pages.',
+      'Updates should be paired with QA and rollback awareness instead of being pushed blindly.',
+      'A recurring maintenance backlog keeps the website from slipping into reactive firefighting.',
+    ],
+    sections: [
+      {
+        heading: 'Triage issues by impact on revenue and trust',
+        body:
+          'Broken forms, unstable service pages, checkout friction, and slow mobile templates should move to the top of the queue before cosmetic issues. Maintenance gets more useful when it protects the parts of the site that actually drive inquiries or sales.',
+      },
+      {
+        heading: 'Bundle updates with QA and visibility checks',
+        body:
+          'Plugin, theme, or integration updates should be paired with smoke tests on the important page flows. That means checking forms, CTA clicks, mobile layout, analytics, and any dynamic modules that are easy to break quietly after an update.',
+      },
+      {
+        heading: 'Monitor third-party scripts and recurring weak spots',
+        body:
+          'Popups, embeds, app scripts, and tracking tags often create the bugs teams notice last. Keep an eye on the templates, scripts, and components that have caused instability before so maintenance becomes preventative instead of repetitive.',
+      },
+      {
+        heading: 'Turn recurring fixes into an ongoing optimization list',
+        body:
+          'If the same kinds of issues keep appearing, document them and create a monthly cleanup rhythm. Over time that helps the site move from patchwork fixes toward a more stable, easier-to-manage foundation.',
+      },
+    ],
+    faq: [
+      {
+        question: 'How often should a business website be maintained?',
+        answer: 'At minimum, review critical pages and updates monthly. Higher-traffic or actively marketed websites usually need a tighter cadence.',
+      },
+      {
+        question: 'Is maintenance only about updates?',
+        answer: 'No. It also includes QA, form testing, performance review, broken-link checks, content accuracy, and keeping the most important user journeys stable.',
       },
     ],
   },

@@ -3,21 +3,16 @@ import PageHero from '../components/ui/PageHero'
 import Reveal from '../components/ui/Reveal'
 import FaqAccordion from '../components/ui/FaqAccordion'
 import ButtonLink from '../components/ui/ButtonLink'
+import BlogCard from '../components/ui/BlogCard'
 import ProjectCard from '../components/ui/ProjectCard'
 import { getServiceBySlug, services } from '../data/services'
-import { projects } from '../data/projects'
 import NotFoundPage from './NotFoundPage'
 import Seo from '../seo/Seo'
 import { getServiceMetadata } from '../seo/metadata'
 import { createBreadcrumbSchema, createFAQSchema, createServiceSchema, createWebPageSchema } from '../seo/schema'
+import { getRelatedPostsForService, getRelatedProjectsForService } from '../utils/relatedContent'
 import { getServicePath, routes } from '../utils/routes'
 import { getAbsoluteUrl } from '../utils/site'
-
-function getRelatedProjects(service) {
-  return (service.relatedProjects || [])
-    .map((slug) => projects.find((project) => project.slug === slug))
-    .filter(Boolean)
-}
 
 export default function ServiceDetailPage() {
   const { slug } = useParams()
@@ -28,7 +23,8 @@ export default function ServiceDetailPage() {
   const servicePath = getServicePath(service.slug)
   const metadata = getServiceMetadata(service)
   const faqSchema = createFAQSchema(service.faq, servicePath)
-  const relatedProjects = getRelatedProjects(service)
+  const relatedProjects = getRelatedProjectsForService(service)
+  const relatedPosts = getRelatedPostsForService(service)
   const relatedServices = services.filter((item) => item.slug !== service.slug).slice(0, 3)
 
   return (
@@ -172,6 +168,30 @@ export default function ServiceDetailPage() {
           </div>
         </div>
       </section>
+
+      {relatedPosts.length ? (
+        <section className="section-pad pb-12">
+          <div className="section-wrap space-y-6">
+            <Reveal className="flex items-end justify-between gap-4">
+              <div>
+                <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">Support Content</p>
+                <h2 className="mt-2 text-3xl font-semibold text-white">Guides that support this service</h2>
+              </div>
+              <Link to={routes.blog} className="text-sm font-semibold text-orange-300">
+                Browse Blog &rarr;
+              </Link>
+            </Reveal>
+
+            <div className="grid gap-5 lg:grid-cols-3">
+              {relatedPosts.map((post, index) => (
+                <Reveal key={post.slug} delay={index * 0.05}>
+                  <BlogCard post={post} />
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="section-pad pb-16">
         <div className="section-wrap grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">

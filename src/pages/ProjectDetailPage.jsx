@@ -2,13 +2,15 @@ import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import PageHero from '../components/ui/PageHero'
 import Reveal from '../components/ui/Reveal'
+import BlogCard from '../components/ui/BlogCard'
 import ButtonLink from '../components/ui/ButtonLink'
 import { projects } from '../data/projects'
 import NotFoundPage from './NotFoundPage'
 import Seo from '../seo/Seo'
 import { getProjectMetadata } from '../seo/metadata'
 import { createBreadcrumbSchema, createCaseStudySchema, createWebPageSchema } from '../seo/schema'
-import { getProjectPath, routes } from '../utils/routes'
+import { getPrimaryServiceForProject, getRelatedPostsForProject } from '../utils/relatedContent'
+import { getProjectPath, getServicePath, routes } from '../utils/routes'
 import { getAbsoluteUrl } from '../utils/site'
 
 function ProjectMedia({ src, alt, fallback, className = '' }) {
@@ -35,6 +37,8 @@ export default function ProjectDetailPage() {
   const nextProject = projects[(projectIndex + 1) % projects.length]
   const projectPath = getProjectPath(project.slug)
   const metadata = getProjectMetadata(project)
+  const primaryService = getPrimaryServiceForProject(project)
+  const relatedPosts = getRelatedPostsForProject(project).slice(0, 2)
 
   return (
     <>
@@ -150,6 +154,45 @@ export default function ProjectDetailPage() {
                 {project.testimonial.name} - {project.testimonial.role}
               </p>
             </Reveal>
+          ) : null}
+          {primaryService || relatedPosts.length ? (
+            <section className="space-y-6">
+              {primaryService ? (
+                <Reveal className="premium-card p-7 sm:p-8">
+                  <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">Related Service</p>
+                  <h2 className="mt-2 text-2xl font-semibold text-white">{primaryService.title}</h2>
+                  <p className="mt-4 max-w-3xl text-sm text-zinc-300">{primaryService.summary}</p>
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <ButtonLink to={getServicePath(primaryService.slug)}>View Service</ButtonLink>
+                    <ButtonLink to={routes.contact} variant="ghost">
+                      Discuss Similar Work
+                    </ButtonLink>
+                  </div>
+                </Reveal>
+              ) : null}
+
+              {relatedPosts.length ? (
+                <>
+                  <Reveal className="flex items-end justify-between gap-4">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">Related Guides</p>
+                      <h2 className="mt-2 text-3xl font-semibold text-white">Helpful articles tied to this build</h2>
+                    </div>
+                    <Link to={routes.blog} className="text-sm font-semibold text-orange-300">
+                      Browse Blog &rarr;
+                    </Link>
+                  </Reveal>
+
+                  <div className="grid gap-5 md:grid-cols-2">
+                    {relatedPosts.map((post, index) => (
+                      <Reveal key={post.slug} delay={index * 0.05}>
+                        <BlogCard post={post} />
+                      </Reveal>
+                    ))}
+                  </div>
+                </>
+              ) : null}
+            </section>
           ) : null}
           <Reveal className="premium-card flex flex-wrap items-center justify-between gap-3 p-6">
             <Link className="text-sm text-orange-300" to={getProjectPath(nextProject.slug)}>
