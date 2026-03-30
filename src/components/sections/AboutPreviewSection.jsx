@@ -1,40 +1,28 @@
 import { Link } from 'react-router-dom'
-import { FaShopify, FaWordpressSimple } from 'react-icons/fa6'
-import { FiActivity, FiCode, FiShield } from 'react-icons/fi'
-import { SiWebflow } from 'react-icons/si'
+import { FiArrowUpRight } from 'react-icons/fi'
 import Reveal from '../ui/Reveal'
-import SectionHeading from '../ui/SectionHeading'
 
-const skills = [
+const bestFitItems = [
+  'Approved designs that need clean implementation',
+  'Live websites that feel rough in production',
+  'Near-launch builds that need QA and polish',
+]
+
+const serviceColumns = [
   {
-    title: 'WordPress',
-    note: 'Custom builds and CMS structure',
-    icon: <FaWordpressSimple className="h-4 w-4" />,
+    label: 'Platforms',
+    title: 'Shopify, WordPress, and Webflow',
+    note: 'Most projects sit inside these systems, with the work focused on structure, clarity, and finish quality.',
   },
   {
-    title: 'Shopify',
-    note: 'Storefront and conversion UX',
-    icon: <FaShopify className="h-4 w-4" />,
+    label: 'Scope',
+    title: 'Builds, refinements, and launch prep',
+    note: 'That can mean a new page, a redesign implementation, or a final cleanup pass before traffic hits.',
   },
   {
-    title: 'Webflow',
-    note: 'Landing pages and interactions',
-    icon: <SiWebflow className="h-4 w-4" />,
-  },
-  {
-    title: 'UI/UX Implementation',
-    note: 'Design-to-code precision',
-    icon: <FiCode className="h-4 w-4" />,
-  },
-  {
-    title: 'Performance Optimization',
-    note: 'Speed and Core Web Vitals',
-    icon: <FiActivity className="h-4 w-4" />,
-  },
-  {
-    title: 'QA Support',
-    note: 'Testing and release confidence',
-    icon: <FiShield className="h-4 w-4" />,
+    label: 'Standard',
+    title: 'Responsive, stable, and ready to ship',
+    note: 'I treat UI quality, performance cleanup, and QA as part of the same delivery standard.',
   },
 ]
 
@@ -42,41 +30,73 @@ export default function AboutPreviewSection() {
   return (
     <section className="section-pad py-16">
       <div className="section-wrap">
-        <Reveal className="premium-card relative overflow-hidden p-7 sm:p-10">
-          <div className="pointer-events-none absolute -right-20 top-8 h-56 w-56 rounded-full bg-orange-500/15 blur-[90px]" />
+        <Reveal className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(17,17,20,0.98),rgba(12,12,16,0.98))] p-6 shadow-[0_28px_70px_rgba(0,0,0,0.36)] sm:p-8 lg:p-10">
+          <div
+            className="pointer-events-none absolute inset-0 opacity-[0.04]"
+            style={{
+              backgroundImage:
+                'linear-gradient(to right, rgba(255,255,255,0.85) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.85) 1px, transparent 1px)',
+              backgroundSize: '36px 36px',
+            }}
+          />
 
-          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-            <div>
-              <SectionHeading
-                eyebrow="About Hasnain"
-                title="Web Developer and QA-Minded Implementation Specialist"
-                description="I work with founders and businesses to ship websites that look premium, perform fast, and convert better. My process combines platform expertise with structured QA so launches are smooth and reliable."
-              />
-              <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-orange-300/30 bg-orange-500/10 px-3 py-1 text-[11px] uppercase tracking-[0.16em] text-orange-200">
-                Detail-Oriented Delivery
-              </div>
-            </div>
-
-            <div className="grid gap-3 sm:grid-cols-2">
-              {skills.map((skill) => (
-                <article
-                  key={skill.title}
-                  className="group rounded-xl border border-white/12 bg-[linear-gradient(140deg,rgba(255,255,255,0.04),rgba(0,0,0,0.18))] p-4 transition duration-300 hover:border-orange-300/35"
-                >
-                  <div className="mb-3 inline-flex h-8 w-8 items-center justify-center rounded-full border border-orange-300/35 bg-orange-500/12 text-orange-200 transition group-hover:scale-105">
-                    {skill.icon}
-                  </div>
-                  <h3 className="text-sm font-semibold text-zinc-100">{skill.title}</h3>
-                  <p className="mt-1 text-xs text-zinc-400">{skill.note}</p>
-                </article>
-              ))}
-
+          <div className="relative">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <p className="text-xs uppercase tracking-[0.26em] text-orange-300/85">About Hasnain</p>
               <Link
                 to="/about"
-                className="sm:col-span-2 mt-1 inline-flex items-center text-sm font-semibold text-orange-300 transition hover:text-orange-200"
+                className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-zinc-300 transition hover:text-white"
               >
-                More About Me &rarr;
+                More About Me
+                <FiArrowUpRight className="h-4 w-4" />
               </Link>
+            </div>
+
+            <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.08fr)_340px] lg:gap-12">
+              <div>
+                <h2 className="max-w-[12ch] text-3xl font-semibold leading-[1.06] text-white sm:text-4xl lg:text-[3.1rem]">
+                  Quiet execution for websites that need to feel finished.
+                </h2>
+                <p className="mt-5 max-w-[60ch] text-sm leading-7 text-zinc-300 sm:text-base sm:leading-8">
+                  I work with small teams that already know what the site needs to do. My role is to turn that direction into clean production
+                  work that reads clearly, behaves consistently, and survives launch without the usual last-minute friction.
+                </p>
+
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {['Direct collaboration', 'Build + QA', 'Remote delivery'].map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-white/12 bg-white/[0.03] px-3 py-1.5 text-[11px] uppercase tracking-[0.16em] text-zinc-300"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <aside className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5 sm:p-6">
+                <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">Best Fit</p>
+                <div className="mt-5 space-y-4">
+                  {bestFitItems.map((item, index) => (
+                    <div key={item} className="flex gap-4 border-b border-white/8 pb-4 last:border-b-0 last:pb-0">
+                      <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-200">{`0${index + 1}`}</span>
+                      <p className="text-sm leading-6 text-zinc-200">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </aside>
+            </div>
+
+            <div className="mt-8 h-px bg-white/10" />
+
+            <div className="mt-8 grid gap-px overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/10 md:grid-cols-3">
+              {serviceColumns.map((item) => (
+                <article key={item.label} className="bg-[linear-gradient(180deg,rgba(255,255,255,0.035),rgba(255,255,255,0.02))] p-5 sm:p-6">
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-zinc-500">{item.label}</p>
+                  <h3 className="mt-4 text-xl font-semibold text-white">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-zinc-300">{item.note}</p>
+                </article>
+              ))}
             </div>
           </div>
         </Reveal>

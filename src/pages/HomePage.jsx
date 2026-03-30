@@ -5,16 +5,45 @@ import ServicesPreviewSection from '../components/sections/ServicesPreviewSectio
 import FeaturedProjectsSection from '../components/sections/FeaturedProjectsSection'
 import ProcessSection from '../components/sections/ProcessSection'
 import ResultsSection from '../components/sections/ResultsSection'
-import TestimonialsSection from '../components/sections/TestimonialsSection'
 import PackagesPreviewSection from '../components/sections/PackagesPreviewSection'
 import BlogPreviewSection from '../components/sections/BlogPreviewSection'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
+import { services } from '../data/services'
+import Seo from '../seo/Seo'
+import { getStaticPageMetadata } from '../seo/metadata'
+import { createBreadcrumbSchema, createPersonSchema, createProfessionalServiceSchema, createWebPageSchema, createWebsiteSchema } from '../seo/schema'
+import { routes } from '../utils/routes'
 
 export default function HomePage() {
-  document.title = 'Hasnain Saeed | Premium Freelance Web Developer'
+  const metadata = getStaticPageMetadata('home')
+  const serviceNames = services.map((service) => service.title)
 
   return (
     <>
+      <Seo
+        title={metadata.title}
+        description={metadata.description}
+        pathname={metadata.pathname}
+        ogTitle={metadata.ogTitle}
+        ogDescription={metadata.ogDescription}
+        twitterTitle={metadata.twitterTitle}
+        twitterDescription={metadata.twitterDescription}
+        image={metadata.image}
+        keywords={metadata.keywords}
+        jsonLd={[
+          createWebsiteSchema(),
+          createPersonSchema(),
+          createProfessionalServiceSchema(serviceNames),
+          createWebPageSchema({
+            path: routes.home,
+            title: metadata.title,
+            description: metadata.description,
+            image: metadata.image,
+            about: serviceNames,
+          }),
+          createBreadcrumbSchema([{ name: 'Home', path: routes.home }]),
+        ]}
+      />
       <HeroSection />
       <TrustRow />
       <AboutPreviewSection />
@@ -22,7 +51,6 @@ export default function HomePage() {
       <FeaturedProjectsSection />
       <ProcessSection />
       <ResultsSection />
-      <TestimonialsSection />
       <PackagesPreviewSection />
       <BlogPreviewSection />
       <FinalCtaSection />

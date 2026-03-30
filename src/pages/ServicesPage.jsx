@@ -3,6 +3,10 @@ import Reveal from '../components/ui/Reveal'
 import FaqAccordion from '../components/ui/FaqAccordion'
 import ButtonLink from '../components/ui/ButtonLink'
 import { services } from '../data/services'
+import Seo from '../seo/Seo'
+import { getStaticPageMetadata } from '../seo/metadata'
+import { createBreadcrumbSchema, createFAQSchema, createProfessionalServiceSchema, createWebPageSchema } from '../seo/schema'
+import { routes } from '../utils/routes'
 
 const faqs = [
   {
@@ -20,10 +24,38 @@ const faqs = [
 ]
 
 export default function ServicesPage() {
-  document.title = 'Services | Hasnain Saeed'
+  const metadata = getStaticPageMetadata('services')
+  const serviceNames = services.map((service) => service.title)
+  const faqSchema = createFAQSchema(faqs, routes.services)
 
   return (
     <>
+      <Seo
+        title={metadata.title}
+        description={metadata.description}
+        pathname={metadata.pathname}
+        ogTitle={metadata.ogTitle}
+        ogDescription={metadata.ogDescription}
+        twitterTitle={metadata.twitterTitle}
+        twitterDescription={metadata.twitterDescription}
+        image={metadata.image}
+        jsonLd={[
+          createProfessionalServiceSchema(serviceNames),
+          createWebPageSchema({
+            path: routes.services,
+            title: metadata.title,
+            description: metadata.description,
+            image: metadata.image,
+            about: serviceNames,
+          }),
+          createBreadcrumbSchema([
+            { name: 'Home', path: routes.home },
+            { name: 'Services', path: routes.services },
+          ]),
+          ...(faqSchema ? [faqSchema] : []),
+        ]}
+      />
+
       <PageHero
         eyebrow="Services"
         title="Premium Web Development, Implementation, and QA Services"

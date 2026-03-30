@@ -12,7 +12,7 @@ export default function BlogPreviewSection() {
           <SectionHeading
             eyebrow="Blog"
             title="Practical Insights for Better Website Performance"
-            description="UI-ready blog previews with topics around Shopify, WordPress, Webflow, and QA best practices."
+            description="Guides on Shopify, WordPress, Webflow, QA, and frontend implementation, each published as its own indexable article."
           />
         </Reveal>
         <div className="grid gap-5 lg:grid-cols-3">

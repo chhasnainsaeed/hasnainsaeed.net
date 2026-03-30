@@ -1,5 +1,6 @@
 import ButtonLink from '../ui/ButtonLink'
 import Reveal from '../ui/Reveal'
+import { siteConfig } from '../../utils/site'
 
 export default function FinalCtaSection() {
   return (
@@ -13,8 +14,8 @@ export default function FinalCtaSection() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <ButtonLink to="/contact">Book Consultation</ButtonLink>
-            <ButtonLink to="/contact" variant="ghost">
-              Message Me
+            <ButtonLink href={siteConfig.whatsAppUrl} variant="ghost" target="_blank" rel="noreferrer">
+              Message on WhatsApp
             </ButtonLink>
           </div>
           <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs uppercase tracking-[0.16em] text-zinc-300">

@@ -1,19 +1,33 @@
 import { useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import ButtonLink from '../ui/ButtonLink'
+import { projects } from '../../data/projects'
+import { siteConfig } from '../../utils/site'
 
-const rotatingWords = ['Shopify', 'WordPress', 'Webflow', 'CRO', 'QA', 'SEO-ready']
+const rotatingWords = ['Shopify', 'WordPress', 'Webflow', 'UI Implementation', 'QA Delivery', 'SEO Foundations']
 
 const proofItems = [
-  { label: 'Average Speed Gain', value: '+45%' },
-  { label: 'Launch QA Coverage', value: '100%' },
-  { label: 'Projects Delivered', value: '100+' },
+  { label: 'Live Case Studies', value: String(projects.length) },
+  { label: 'Core Platforms', value: String(siteConfig.corePlatforms.length) },
+  { label: 'Markets Served', value: String(siteConfig.serviceMarkets.length) },
 ]
 
 const projectTiles = [
-  { title: 'Skincare Shopify Revamp', tag: 'Shopify', result: '+34% checkout completion' },
-  { title: 'Corporate WP Rebuild', tag: 'WordPress', result: '+51% lead submissions' },
-  { title: 'SaaS Webflow Launch', tag: 'Webflow', result: '+38% trial signups' },
+  {
+    title: 'MAPX Development',
+    tag: 'WordPress',
+    result: projects.find((project) => project.slug === 'mapx-development-wordpress-site')?.resultBadge || 'Live brand site launch',
+  },
+  {
+    title: 'Feyre Storefront',
+    tag: 'Shopify',
+    result: projects.find((project) => project.slug === 'feyre-shopify-luxury-fashion-storefront')?.resultBadge || 'Premium collection-led UX',
+  },
+  {
+    title: 'Pixeltrue',
+    tag: 'Webflow',
+    result: projects.find((project) => project.slug === 'pixeltrue-unlimited-design-subscription-site')?.resultBadge || '24-48 hour design flow',
+  },
 ]
 
 const tagStyle = {
@@ -48,9 +62,9 @@ export default function HeroSection() {
 
               <h1 className="max-w-[16ch] text-[2rem] font-semibold leading-[1.14] text-white sm:text-[3rem] xl:text-[3.8rem]">
                 Websites That
-                <span className="text-gradient"> Look Premium</span>
+                <span className="text-gradient"> Ship Cleanly</span>
                 <br />
-                and Convert Like a Sales Engine
+                and Support Real Business Goals
               </h1>
 
               <div className="mt-5 flex flex-wrap items-center gap-3 text-zinc-200">
@@ -67,8 +81,8 @@ export default function HeroSection() {
               </div>
 
               <p className="mt-5 max-w-[56ch] text-zinc-300">
-                I help brands in USA, UK, and Canada launch high-performing Shopify, WordPress, and Webflow websites with
-                conversion-focused UI implementation and QA-backed delivery.
+                I help businesses launch and improve Shopify, WordPress, and Webflow websites with cleaner content structure,
+                dependable frontend implementation, and QA-backed delivery.
               </p>
 
               <div className="mt-7 flex flex-wrap gap-3">
@@ -93,7 +107,7 @@ export default function HeroSection() {
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <p className="text-xs uppercase tracking-[0.22em] text-zinc-400">Live Project Highlights</p>
                   <span className="rounded-2xl border border-orange-300/30 bg-orange-500/12 px-3 py-2 text-[11px] uppercase tracking-[0.18em] text-orange-200">
-                    Premium Delivery
+                    Real Portfolio Work
                   </span>
                 </div>
 

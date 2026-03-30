@@ -4,6 +4,10 @@ import PackageCard from '../components/ui/PackageCard'
 import FaqAccordion from '../components/ui/FaqAccordion'
 import ButtonLink from '../components/ui/ButtonLink'
 import { packageComparison, packages } from '../data/packages'
+import Seo from '../seo/Seo'
+import { getStaticPageMetadata } from '../seo/metadata'
+import { createBreadcrumbSchema, createFAQSchema, createWebPageSchema } from '../seo/schema'
+import { routes } from '../utils/routes'
 
 const faqs = [
   { question: 'Can I request custom scope beyond listed packages?', answer: 'Yes. The Custom package is specifically for unique project needs, complex builds, and ongoing support.' },
@@ -12,10 +16,36 @@ const faqs = [
 ]
 
 export default function PackagesPage() {
-  document.title = 'Packages | Hasnain Saeed'
+  const metadata = getStaticPageMetadata('packages')
+  const faqSchema = createFAQSchema(faqs, routes.packages)
 
   return (
     <>
+      <Seo
+        title={metadata.title}
+        description={metadata.description}
+        pathname={metadata.pathname}
+        ogTitle={metadata.ogTitle}
+        ogDescription={metadata.ogDescription}
+        twitterTitle={metadata.twitterTitle}
+        twitterDescription={metadata.twitterDescription}
+        image={metadata.image}
+        jsonLd={[
+          createWebPageSchema({
+            path: routes.packages,
+            title: metadata.title,
+            description: metadata.description,
+            image: metadata.image,
+            about: ['website packages', 'pricing guidance', 'freelance web development'],
+          }),
+          createBreadcrumbSchema([
+            { name: 'Home', path: routes.home },
+            { name: 'Packages', path: routes.packages },
+          ]),
+          ...(faqSchema ? [faqSchema] : []),
+        ]}
+      />
+
       <PageHero
         eyebrow="Packages"
         title="Flexible Website Packages"

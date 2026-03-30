@@ -7,17 +7,17 @@ const statMeta = {
     chip: 'Experience',
     note: 'Hands-on delivery across design-to-development workflows.',
   },
-  'Projects Delivered': {
-    chip: 'Delivery',
-    note: 'Web projects completed with performance and QA checks.',
+  'Live Case Studies': {
+    chip: 'Proof',
+    note: 'Public case studies backed by screenshots and live site references.',
   },
-  Platforms: {
+  'Core Platforms': {
     chip: 'Stack',
-    note: 'Specialized in Shopify, WordPress, and Webflow builds.',
+    note: 'Specialized in Shopify, WordPress, Webflow, and WooCommerce work.',
   },
-  'International Clients': {
-    chip: 'Global',
-    note: 'Serving USA, UK, and Canada with async collaboration.',
+  'Service Markets': {
+    chip: 'Markets',
+    note: 'Remote collaboration for USA, UK, Canada, and international clients.',
   },
 }
 
@@ -47,9 +47,9 @@ export default function TrustRow() {
           <div className="relative grid gap-5 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
             <div>
               <p className="text-xs uppercase tracking-[0.26em] text-orange-200/85">Credibility</p>
-              <h2 className="mt-3 max-w-2xl text-3xl font-semibold text-white sm:text-4xl">Proven Delivery for Growth-Focused Clients</h2>
+              <h2 className="mt-3 max-w-2xl text-3xl font-semibold text-white sm:text-4xl">Built Around Public Proof and Direct Delivery</h2>
               <p className="mt-3 max-w-xl text-sm text-zinc-300 sm:text-base">
-                A process-driven implementation style backed by consistent quality, measurable outcomes, and reliable communication.
+                The site now centers on real portfolio work, clear service scope, and a direct working model instead of generic agency-style claims.
               </p>
             </div>
             <div className="flex lg:justify-end">
