@@ -1,0 +1,23 @@
+<?php
+
+return [
+    // Main mailbox that should receive form submissions.
+    'CONTACT_RECIPIENT_EMAIL' => 'hello@hasnainsaeed.net',
+
+    // Sender used by the website when talking to SMTP.
+    'CONTACT_FROM_EMAIL' => 'hello@hasnainsaeed.net',
+    'CONTACT_FROM_NAME' => 'Hasnain Website',
+
+    // Preferred backup location. On shared hosting, a folder above public_html is safer.
+    'CONTACT_BACKUP_DIR' => dirname(__DIR__) . DIRECTORY_SEPARATOR . 'contact-form-leads',
+
+    // Hostinger mailbox SMTP settings.
+    'SMTP_HOST' => 'smtp.hostinger.com',
+    'SMTP_PORT' => 465,
+    'SMTP_USERNAME' => 'hello@hasnainsaeed.net',
+    'SMTP_PASSWORD' => 'replace-with-your-mailbox-password',
+    'SMTP_SECURE' => 'ssl', // Use ssl for 465 or tls for 587.
+
+    // Optional. Leave as '0' to avoid falling back to PHP mail() when SMTP fails.
+    'CONTACT_ALLOW_MAIL_FALLBACK' => '0',
+];

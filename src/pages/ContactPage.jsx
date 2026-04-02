@@ -14,6 +14,7 @@ const initialForm = {
   email: '',
   company: '',
   websiteUrl: '',
+  companyWebsite: '',
   projectType: '',
   budget: '',
   timeline: '',
@@ -47,7 +48,7 @@ const faqs = [
   },
   {
     question: 'How does the form work?',
-    answer: `The form can prepare either an email draft to ${siteConfig.contactEmail} or a WhatsApp message to ${siteConfig.contactPhone}, with the project details already structured.`,
+    answer: `The contact form submits the project brief directly to ${siteConfig.contactEmail}, and there is still a WhatsApp option if a faster chat is better for the project.`,
   },
 ]
 
@@ -59,10 +60,12 @@ function getOptionLabel(options, value, fallback = 'Not provided') {
 export default function ContactPage() {
   const [form, setForm] = useState(initialForm)
   const [errors, setErrors] = useState({})
-  const [submittedChannel, setSubmittedChannel] = useState('')
+  const [submissionState, setSubmissionState] = useState('idle')
+  const [submissionMessage, setSubmissionMessage] = useState('')
   const metadata = getStaticPageMetadata('contact')
   const serviceNames = services.map((service) => service.title)
   const faqSchema = createFAQSchema(faqs, routes.contact)
+  const contactEndpoint = import.meta.env.VITE_CONTACT_FORM_ENDPOINT || '/contact-form.php'
 
   const validate = () => {
     const nextErrors = {}
@@ -76,7 +79,10 @@ export default function ContactPage() {
 
   const handleFieldChange = (field) => (event) => {
     setForm((current) => ({ ...current, [field]: event.target.value }))
-    if (submittedChannel) setSubmittedChannel('')
+    if (submissionState !== 'idle') {
+      setSubmissionState('idle')
+      setSubmissionMessage('')
+    }
     setErrors((current) => {
       if (!current[field]) return current
       const nextErrors = { ...current }
@@ -107,18 +113,57 @@ export default function ContactPage() {
     return nextErrors
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
     const nextErrors = validateBeforeSend()
 
     if (Object.keys(nextErrors).length > 0) return
 
     const selectedService = getSelectedService()
-    const subject = encodeURIComponent(`Project Inquiry: ${selectedService} - ${form.name}`)
-    const body = encodeURIComponent(buildInquiryMessage(selectedService))
 
-    setSubmittedChannel('email')
-    window.location.href = `mailto:${siteConfig.contactEmail}?subject=${subject}&body=${body}`
+    setSubmissionState('submitting')
+    setSubmissionMessage('')
+
+    try {
+      const response = await fetch(contactEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...form,
+          projectType: selectedService,
+          budgetLabel: getOptionLabel(budgetOptions, form.budget),
+          timelineLabel: getOptionLabel(timelineOptions, form.timeline),
+          submittedFrom: window.location.href,
+          submittedAt: new Date().toISOString(),
+        }),
+      })
+
+      let responseData = null
+
+      try {
+        responseData = await response.json()
+      } catch {
+        responseData = null
+      }
+
+      if (!response.ok) {
+        throw new Error(responseData?.message || 'The form could not be sent right now.')
+      }
+
+      setForm(initialForm)
+      setErrors({})
+      setSubmissionState('success')
+      setSubmissionMessage(responseData?.message || `Thanks. Your inquiry was sent to ${siteConfig.contactEmail}.`)
+    } catch (error) {
+      setSubmissionState('error')
+      setSubmissionMessage(
+        error instanceof Error && error.message
+          ? error.message
+          : `The form could not be sent automatically. Please email ${siteConfig.contactEmail} directly.`
+      )
+    }
   }
 
   const handleWhatsApp = () => {
@@ -129,7 +174,8 @@ export default function ContactPage() {
     const selectedService = getSelectedService()
     const text = encodeURIComponent(`New project inquiry\n\n${buildInquiryMessage(selectedService)}`)
 
-    setSubmittedChannel('whatsapp')
+    setSubmissionState('idle')
+    setSubmissionMessage('')
     window.open(`${siteConfig.whatsAppUrl}?text=${text}`, '_blank', 'noopener,noreferrer')
   }
 
@@ -165,13 +211,23 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Start Your Project"
-        description="Share the platform, blocker, and target outcome. The form can prepare a direct email draft or a WhatsApp message so the first brief stays structured."
+        description="Share the platform, blocker, and target outcome. The contact form sends the project brief directly by email, and WhatsApp is still available if a faster conversation is better."
       />
 
       <section className="section-pad pb-16">
         <div className="section-wrap grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
           <Reveal className="premium-card p-7 sm:p-8">
             <form onSubmit={handleSubmit} noValidate className="space-y-4">
+              <input
+                type="text"
+                name="companyWebsite"
+                value={form.companyWebsite}
+                onChange={handleFieldChange('companyWebsite')}
+                tabIndex="-1"
+                autoComplete="off"
+                className="hidden"
+                aria-hidden="true"
+              />
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label className="mb-1 block text-sm text-zinc-300" htmlFor="name">Name</label>
@@ -245,12 +301,16 @@ export default function ContactPage() {
               </div>
 
               <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-sm text-zinc-300">
-                The form can prepare a draft for <strong>{siteConfig.contactEmail}</strong> or a WhatsApp message to <strong>{siteConfig.contactPhone}</strong>.
+                The contact form sends directly to <strong>{siteConfig.contactEmail}</strong>. If you prefer, you can still open WhatsApp at <strong>{siteConfig.contactPhone}</strong>.
               </div>
 
               <div className="flex flex-wrap items-center gap-3">
-                <button type="submit" className="rounded-full bg-gradient-to-r from-orange-500 to-red-500 px-6 py-3 text-sm font-semibold text-black">
-                  Prepare Inquiry Email
+                <button
+                  type="submit"
+                  disabled={submissionState === 'submitting'}
+                  className="rounded-full bg-gradient-to-r from-orange-500 to-red-500 px-6 py-3 text-sm font-semibold text-black disabled:cursor-not-allowed disabled:opacity-70"
+                >
+                  {submissionState === 'submitting' ? 'Sending Inquiry...' : 'Send Project Inquiry'}
                 </button>
                 <button
                   type="button"
@@ -277,11 +337,9 @@ export default function ContactPage() {
 
               <p className="text-sm text-zinc-400">{siteConfig.responseTimeNote}</p>
 
-              {submittedChannel ? (
-                <p className="text-sm text-emerald-300">
-                  {submittedChannel === 'email'
-                    ? `Your inquiry draft is ready. If no email app opened, send the same brief directly to ${siteConfig.contactEmail}.`
-                    : `Your WhatsApp draft is ready for ${siteConfig.contactPhone}. If no new tab opened, use the direct WhatsApp link below.`}
+              {submissionMessage ? (
+                <p className={`text-sm ${submissionState === 'error' ? 'text-red-300' : 'text-emerald-300'}`}>
+                  {submissionMessage}
                 </p>
               ) : null}
             </form>

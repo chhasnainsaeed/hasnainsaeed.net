@@ -13,6 +13,9 @@ dist
 dist-ssr
 temp
 *.local
+contact-form-leads
+contact-form-config.php
+public/contact-form-config.php
 
 # Editor directories and files
 .vscode/*
