@@ -7,7 +7,7 @@ import { blogPosts } from '../data/blogPosts'
 import { services } from '../data/services'
 import Seo from '../seo/Seo'
 import { getStaticPageMetadata } from '../seo/metadata'
-import { createBreadcrumbSchema, createCollectionPageSchema, createFAQSchema, createProfessionalServiceSchema } from '../seo/schema'
+import { createBreadcrumbSchema, createCollectionPageSchema, createFAQSchema, createOrganizationSchema } from '../seo/schema'
 import { getServicePath, routes } from '../utils/routes'
 
 const faqs = [
@@ -44,7 +44,7 @@ export default function ServicesPage() {
         twitterDescription={metadata.twitterDescription}
         image={metadata.image}
         jsonLd={[
-          createProfessionalServiceSchema(serviceNames),
+          createOrganizationSchema(serviceNames),
           createCollectionPageSchema({
             path: routes.services,
             name: metadata.title,

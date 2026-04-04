@@ -13,11 +13,11 @@ export const siteConfig = {
   locale: 'en_US',
   contactEmail: 'hello@hasnainsaeed.net',
   contactPhone: '+923496295916',
-  whatsAppUrl: 'https://wa.me/923496295916',
+  whatsAppUrl: 'https://api.whatsapp.com/send?phone=923496295916',
   availability: 'Available for freelance projects',
   responseTimeNote: 'Most project inquiries receive a reply within one business day.',
   baseOgImage: '/images/project-mapx-cover.png',
-  sameAs: ['https://wa.me/923496295916'],
+  sameAs: [],
   serviceMarkets: ['USA', 'UK', 'Canada', 'International'],
   location: 'Pakistan',
   timezoneNote: 'Remote collaboration across USA, UK, Canada, and international time zones.',
@@ -55,6 +55,16 @@ export function normalizePublicPath(pathname = '/') {
 
 export function getAbsoluteUrl(pathname = '/') {
   return new URL(normalizePublicPath(pathname), siteConfig.url).toString()
+}
+
+export function getWhatsAppUrl(message = '') {
+  const url = new URL(siteConfig.whatsAppUrl)
+
+  if (message) {
+    url.searchParams.set('text', message)
+  }
+
+  return url.toString()
 }
 
 export const navLinks = [

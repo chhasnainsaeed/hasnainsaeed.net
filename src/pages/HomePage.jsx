@@ -11,7 +11,7 @@ import FinalCtaSection from '../components/sections/FinalCtaSection'
 import { services } from '../data/services'
 import Seo from '../seo/Seo'
 import { getStaticPageMetadata } from '../seo/metadata'
-import { createBreadcrumbSchema, createPersonSchema, createProfessionalServiceSchema, createWebPageSchema, createWebsiteSchema } from '../seo/schema'
+import { createBreadcrumbSchema, createOrganizationSchema, createPersonSchema, createWebPageSchema, createWebsiteSchema } from '../seo/schema'
 import { routes } from '../utils/routes'
 
 export default function HomePage() {
@@ -33,7 +33,7 @@ export default function HomePage() {
         jsonLd={[
           createWebsiteSchema(),
           createPersonSchema(),
-          createProfessionalServiceSchema(serviceNames),
+          createOrganizationSchema(serviceNames),
           createWebPageSchema({
             path: routes.home,
             title: metadata.title,

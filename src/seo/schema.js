@@ -48,6 +48,10 @@ function getServiceId(path) {
   return `${getAbsoluteUrl(path)}#service`
 }
 
+function getOrganizationId() {
+  return `${siteConfig.url}#organization`
+}
+
 export function createBreadcrumbSchema(items) {
   const currentPath = items[items.length - 1]?.path || '/'
 
@@ -94,17 +98,17 @@ export function createPersonSchema() {
   })
 }
 
-export function createProfessionalServiceSchema(serviceNames = []) {
+export function createOrganizationSchema(serviceNames = []) {
   return withContext({
-    '@type': 'ProfessionalService',
-    '@id': `${siteConfig.url}#professional-service`,
+    '@type': 'Organization',
+    '@id': getOrganizationId(),
     name: siteConfig.name,
     url: siteConfig.url,
     email: siteConfig.contactEmail,
     telephone: siteConfig.contactPhone,
     description: siteConfig.description,
+    image: getAbsoluteUrl(siteConfig.baseOgImage),
     founder: { '@id': `${siteConfig.url}#person` },
-    employee: { '@id': `${siteConfig.url}#person` },
     sameAs: siteConfig.sameAs,
     contactPoint: [
       {
@@ -112,7 +116,6 @@ export function createProfessionalServiceSchema(serviceNames = []) {
         contactType: 'project inquiries',
         email: siteConfig.contactEmail,
         telephone: siteConfig.contactPhone,
-        availableLanguage: [schemaLanguage],
       },
     ],
     areaServed: siteConfig.serviceMarkets.map((market) => ({
@@ -120,7 +123,6 @@ export function createProfessionalServiceSchema(serviceNames = []) {
       name: market,
     })),
     knowsAbout: serviceNames,
-    availableLanguage: [schemaLanguage],
   })
 }
 
@@ -196,7 +198,7 @@ export function createCaseStudySchema(project) {
     genre: 'Case Study',
     author: { '@id': `${siteConfig.url}#person` },
     creator: { '@id': `${siteConfig.url}#person` },
-    publisher: { '@id': `${siteConfig.url}#professional-service` },
+    publisher: { '@id': getOrganizationId() },
     url: getAbsoluteUrl(`/portfolio/${project.slug}`),
     mainEntityOfPage: { '@id': getWebPageId(`/portfolio/${project.slug}`) },
     image: getAbsoluteUrl(project.cover || siteConfig.baseOgImage),
@@ -212,7 +214,7 @@ export function createArticleSchema(post) {
     description: post.metaDescription || post.excerpt,
     alternativeHeadline: post.excerpt,
     author: { '@id': `${siteConfig.url}#person` },
-    publisher: { '@id': `${siteConfig.url}#professional-service` },
+    publisher: { '@id': getOrganizationId() },
     datePublished: post.date,
     dateModified: post.date,
     mainEntityOfPage: { '@id': getWebPageId(`/blog/${post.slug}`) },
@@ -233,7 +235,7 @@ export function createServiceSchema(service, path) {
     serviceType: service.title,
     description: service.summary,
     url: getAbsoluteUrl(path),
-    provider: { '@id': `${siteConfig.url}#professional-service` },
+    provider: { '@id': getOrganizationId() },
     areaServed: siteConfig.serviceMarkets.map((market) => ({
       '@type': 'Place',
       name: market,

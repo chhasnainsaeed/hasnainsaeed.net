@@ -5,9 +5,9 @@ import ButtonLink from '../components/ui/ButtonLink'
 import { services } from '../data/services'
 import Seo from '../seo/Seo'
 import { getStaticPageMetadata } from '../seo/metadata'
-import { createBreadcrumbSchema, createFAQSchema, createProfessionalServiceSchema, createWebPageSchema } from '../seo/schema'
+import { createBreadcrumbSchema, createFAQSchema, createOrganizationSchema, createWebPageSchema } from '../seo/schema'
 import { routes } from '../utils/routes'
-import { siteConfig } from '../utils/site'
+import { getWhatsAppUrl, siteConfig } from '../utils/site'
 
 const initialForm = {
   name: '',
@@ -172,11 +172,11 @@ export default function ContactPage() {
     if (Object.keys(nextErrors).length > 0) return
 
     const selectedService = getSelectedService()
-    const text = encodeURIComponent(`New project inquiry\n\n${buildInquiryMessage(selectedService)}`)
+    const text = `New project inquiry\n\n${buildInquiryMessage(selectedService)}`
 
     setSubmissionState('idle')
     setSubmissionMessage('')
-    window.open(`${siteConfig.whatsAppUrl}?text=${text}`, '_blank', 'noopener,noreferrer')
+    window.open(getWhatsAppUrl(text), '_blank', 'noopener,noreferrer')
   }
 
   return (
@@ -191,7 +191,7 @@ export default function ContactPage() {
         twitterDescription={metadata.twitterDescription}
         image={metadata.image}
         jsonLd={[
-          createProfessionalServiceSchema(serviceNames),
+          createOrganizationSchema(serviceNames),
           createWebPageSchema({
             path: routes.contact,
             title: metadata.title,
