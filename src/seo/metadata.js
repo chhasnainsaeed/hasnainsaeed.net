@@ -55,7 +55,7 @@ function createMetadata({
 
 const staticPageMetadata = {
   home: createMetadata({
-    title: 'Freelance Shopify, WordPress & Webflow Developer | Hasnain Saeed',
+    title: 'Hasnain Saeed | Freelance Shopify, WordPress & Webflow Developer in Pakistan',
     description:
       'Hire Hasnain Saeed for Shopify, WordPress, and Webflow development, bug fixing, technical SEO setup, UI implementation, and ongoing website support.',
     pathname: routes.home,
@@ -145,7 +145,7 @@ export function getBlogPostMetadata(post) {
 
 export function getServiceMetadata(service) {
   return createMetadata({
-    title: service.metaTitle || `${service.title} | Hasnain Saeed`,
+    title: service.metaTitle || `${service.title} by Hasnain Saeed`,
     description: service.metaDescription || service.intro || service.summary || siteConfig.description,
     pathname: getServicePath(service.slug),
     ogTitle: service.ogTitle || service.title,
