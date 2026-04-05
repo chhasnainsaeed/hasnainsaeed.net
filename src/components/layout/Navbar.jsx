@@ -1,18 +1,32 @@
-import { useMemo, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
+import { FiMenu, FiX } from 'react-icons/fi'
 import { navLinks } from '../../utils/site'
 import ButtonLink from '../ui/ButtonLink'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const location = useLocation()
 
-  const linkClass = useMemo(
-    () =>
-      ({ isActive }) =>
-        `relative px-1 py-2 text-sm transition ${isActive ? 'text-white' : 'text-zinc-300 hover:text-white'}`,
-    [],
-  )
+  useEffect(() => {
+    setOpen(false)
+  }, [location.pathname])
+
+  useEffect(() => {
+    if (!open) return undefined
+
+    const previousBodyOverflow = document.body.style.overflow
+    const previousHtmlOverflow = document.documentElement.style.overflow
+
+    document.body.style.overflow = 'hidden'
+    document.documentElement.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = previousBodyOverflow
+      document.documentElement.style.overflow = previousHtmlOverflow
+    }
+  }, [open])
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 section-pad pt-4">
@@ -25,7 +39,11 @@ export default function Navbar() {
 
           <div className="hidden items-center gap-6 lg:flex">
             {navLinks.map((link) => (
-              <NavLink key={link.href} to={link.href} className={linkClass}>
+              <NavLink
+                key={link.href}
+                to={link.href}
+                className={({ isActive }) => `relative px-1 py-2 text-sm transition ${isActive ? 'text-white' : 'text-zinc-300 hover:text-white'}`}
+              >
                 {({ isActive }) => (
                   <span>
                     {link.name}
@@ -48,10 +66,12 @@ export default function Navbar() {
           <button
             type="button"
             aria-label="Toggle menu"
+            aria-controls="mobile-nav"
+            aria-expanded={open}
             className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white lg:hidden"
             onClick={() => setOpen((prev) => !prev)}
           >
-            {open ? 'X' : '='}
+            {open ? <FiX className="h-4 w-4" /> : <FiMenu className="h-4 w-4" />}
           </button>
         </div>
       </nav>
@@ -59,12 +79,13 @@ export default function Navbar() {
       <AnimatePresence>
         {open ? (
           <motion.div
-            className="fixed inset-0 z-40 bg-black/75 p-6 backdrop-blur-md lg:hidden"
+            className="fixed inset-0 z-40 overflow-y-auto bg-black/75 p-6 backdrop-blur-md lg:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
             <motion.div
+              id="mobile-nav"
               className="mt-20 rounded-2xl border border-white/12 bg-zinc-950/95 p-7"
               initial={{ y: -24, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}

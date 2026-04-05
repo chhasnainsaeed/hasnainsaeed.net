@@ -68,7 +68,9 @@ export default function BlogDetailPage() {
       <section className="section-pad pb-12">
         <div className="section-wrap grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
           <Reveal className="premium-card overflow-hidden">
-            <img src={post.image} alt={post.title} className="h-72 w-full object-cover sm:h-80" loading="eager" />
+            <div className="flex items-start justify-center border-b border-white/10 bg-[linear-gradient(180deg,rgba(10,10,12,0.95),rgba(21,11,5,0.92))] p-3 sm:p-4">
+              <img src={post.image} alt={post.title} className="mx-auto h-auto w-auto max-h-[34rem] max-w-full" loading="eager" />
+            </div>
             <div className="p-6 sm:p-8">
               <h2 className="text-2xl font-semibold text-white">Why this topic matters</h2>
               <p className="mt-4 text-zinc-300">{post.intro}</p>

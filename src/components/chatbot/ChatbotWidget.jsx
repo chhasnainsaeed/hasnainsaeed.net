@@ -1,23 +1,24 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { getFallbackReply, quickPrompts } from '../../data/chatbotFAQs'
+
+const initialMessages = [
+  {
+    id: 1,
+    role: 'assistant',
+    text: 'Hi, I am Hasnain\'s assistant. Ask anything about services, pricing, timeline, SEO, QA, or booking.',
+  },
+]
 
 export default function ChatbotWidget() {
   const [open, setOpen] = useState(false)
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
-  const [messages, setMessages] = useState([
-    {
-      id: 1,
-      role: 'assistant',
-      text: 'Hi, I am Hasnain\'s assistant. Ask anything about services, pricing, timeline, SEO, QA, or booking.',
-    },
-  ])
+  const [messages, setMessages] = useState(initialMessages)
   const nextId = useRef(2)
   const messagesContainerRef = useRef(null)
-
-  const hasApiEndpoint = useMemo(() => Boolean(import.meta.env.VITE_CHATBOT_ENDPOINT), [])
+  const hasApiEndpoint = Boolean(import.meta.env.VITE_CHATBOT_ENDPOINT)
 
   useEffect(() => {
     if (!open) return
@@ -127,9 +128,9 @@ export default function ChatbotWidget() {
                     key={prompt}
                     type="button"
                     onClick={() => sendMessage(prompt)}
-                    className="rounded-full border border-white/15 bg-white/[0.03] px-3 py-1 text-xs text-zinc-200 hover:border-orange-300"
-                  >
-                    {prompt}
+                  className="rounded-full border border-white/15 bg-white/[0.03] px-3 py-1 text-xs text-zinc-200 hover:border-orange-300"
+                >
+                  {prompt}
                   </button>
                 ))}
               </div>

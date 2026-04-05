@@ -12,7 +12,6 @@ import { getBlogPath, routes } from '../utils/routes'
 export default function BlogPage() {
   const [searchTerm, setSearchTerm] = useState('')
   const [category, setCategory] = useState('All')
-  const [page, setPage] = useState(1)
   const metadata = getStaticPageMetadata('blog')
   const sortedBlogPosts = useMemo(() => [...blogPosts].sort((left, right) => new Date(right.date) - new Date(left.date)), [])
   const categories = useMemo(() => ['All', ...new Set(sortedBlogPosts.map((post) => post.category))], [sortedBlogPosts])
@@ -25,11 +24,6 @@ export default function BlogPage() {
       return byCategory && bySearch
     })
   }, [searchTerm, category, sortedBlogPosts])
-
-  const perPage = 3
-  const totalPages = Math.max(1, Math.ceil(filtered.length / perPage))
-  const safePage = Math.min(page, totalPages)
-  const visible = filtered.slice((safePage - 1) * perPage, safePage * perPage)
 
   return (
     <>
@@ -74,11 +68,9 @@ export default function BlogPage() {
               <input
                 type="text"
                 placeholder="Search articles..."
+                aria-label="Search articles"
                 value={searchTerm}
-                onChange={(event) => {
-                  setSearchTerm(event.target.value)
-                  setPage(1)
-                }}
+                onChange={(event) => setSearchTerm(event.target.value)}
               />
               <div className="flex flex-wrap gap-2">
                 {categories.map((item) => (
@@ -86,21 +78,21 @@ export default function BlogPage() {
                     key={item}
                     type="button"
                     className={`rounded-full px-4 py-2 text-sm ${category === item ? 'bg-orange-500 text-black' : 'border border-white/15 bg-white/5 text-zinc-300'}`}
-                    onClick={() => {
-                      setCategory(item)
-                      setPage(1)
-                    }}
+                    onClick={() => setCategory(item)}
                   >
                     {item}
                   </button>
                 ))}
               </div>
             </div>
+            <p className="mt-4 text-sm text-zinc-400">
+              Showing {filtered.length} {filtered.length === 1 ? 'article' : 'articles'}.
+            </p>
           </Reveal>
 
-          {visible.length ? (
+          {filtered.length ? (
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {visible.map((post, index) => (
+              {filtered.map((post, index) => (
                 <Reveal key={post.slug} delay={index * 0.05}>
                   <BlogCard post={post} />
                 </Reveal>
@@ -112,19 +104,6 @@ export default function BlogPage() {
               <p className="mt-3 max-w-2xl text-zinc-300">Try a broader keyword or switch categories to explore the full archive.</p>
             </Reveal>
           )}
-
-          <Reveal className="flex items-center justify-center gap-2 pt-2">
-            {Array.from({ length: totalPages }).map((_, index) => (
-              <button
-                key={`page-${index + 1}`}
-                type="button"
-                onClick={() => setPage(index + 1)}
-                className={`h-9 w-9 rounded-full text-sm ${safePage === index + 1 ? 'bg-orange-500 text-black' : 'border border-white/15 text-zinc-300'}`}
-              >
-                {index + 1}
-              </button>
-            ))}
-          </Reveal>
         </div>
       </section>
 

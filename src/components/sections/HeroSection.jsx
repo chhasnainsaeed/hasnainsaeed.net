@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from 'react'
-import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
 import ButtonLink from '../ui/ButtonLink'
 import { projects } from '../../data/projects'
 import { siteConfig } from '../../utils/site'
@@ -38,16 +38,19 @@ const tagStyle = {
 
 export default function HeroSection() {
   const [wordIndex, setWordIndex] = useState(0)
+  const shouldReduceMotion = useReducedMotion()
 
   useEffect(() => {
+    if (shouldReduceMotion) return undefined
+
     const interval = setInterval(() => {
       setWordIndex((prev) => (prev + 1) % rotatingWords.length)
     }, 1800)
 
     return () => clearInterval(interval)
-  }, [])
+  }, [shouldReduceMotion])
 
-  const activeWord = useMemo(() => rotatingWords[wordIndex], [wordIndex])
+  const activeWord = shouldReduceMotion ? rotatingWords[0] : rotatingWords[wordIndex]
 
   return (
     <section className="relative overflow-hidden px-4 pb-20 pt-12 sm:px-8 sm:pb-24 lg:px-14 lg:pt-16">
@@ -72,9 +75,8 @@ export default function HeroSection() {
                 <motion.span
                   key={activeWord}
                   className="rounded-full border border-orange-300/35 bg-orange-500/12 px-4 py-1.5 text-sm font-semibold text-orange-200"
-                  initial={{ y: 8, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -8, opacity: 0 }}
+                  initial={shouldReduceMotion ? false : { y: 8, opacity: 0 }}
+                  animate={shouldReduceMotion ? { opacity: 1 } : { y: 0, opacity: 1 }}
                 >
                   {activeWord}
                 </motion.span>

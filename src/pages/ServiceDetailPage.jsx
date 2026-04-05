@@ -5,6 +5,7 @@ import FaqAccordion from '../components/ui/FaqAccordion'
 import ButtonLink from '../components/ui/ButtonLink'
 import BlogCard from '../components/ui/BlogCard'
 import ProjectCard from '../components/ui/ProjectCard'
+import DetailMediaFrame from '../components/ui/DetailMediaFrame'
 import { getServiceBySlug, services } from '../data/services'
 import NotFoundPage from './NotFoundPage'
 import Seo from '../seo/Seo'
@@ -61,9 +62,9 @@ export default function ServiceDetailPage() {
       <PageHero eyebrow={`${service.eyebrow} | ${service.timeline}`} title={service.title} description={service.intro} />
 
       <section className="section-pad pb-12">
-        <div className="section-wrap grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
-          <Reveal className="premium-card overflow-hidden">
-            <img src={service.image} alt={service.title} className="h-72 w-full object-cover sm:h-80" loading="eager" />
+        <div className="section-wrap grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">
+          <Reveal>
+            <DetailMediaFrame src={service.image} alt={service.title} fallback={`${service.title} preview unavailable`} />
           </Reveal>
 
           <Reveal className="premium-card p-6 sm:p-8" delay={0.08}>

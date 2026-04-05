@@ -1,11 +1,50 @@
-import { Suspense, lazy } from 'react'
+import { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import ScrollToTop from './ScrollToTop'
 import useLenis from '../../hooks/useLenis'
 
-const ChatbotWidget = lazy(() => import('../chatbot/ChatbotWidget'))
+function DeferredChatbot() {
+  const [ChatbotWidget, setChatbotWidget] = useState(null)
+
+  useEffect(() => {
+    let cancelled = false
+    let timeoutId = 0
+    let idleId = 0
+
+    const loadChatbot = async () => {
+      try {
+        const module = await import('../chatbot/ChatbotWidget')
+        if (!cancelled) {
+          setChatbotWidget(() => module.default)
+        }
+      } catch {
+        setChatbotWidget(null)
+      }
+    }
+
+    if ('requestIdleCallback' in window) {
+      idleId = window.requestIdleCallback(() => {
+        void loadChatbot()
+      }, { timeout: 1500 })
+    } else {
+      timeoutId = window.setTimeout(() => {
+        void loadChatbot()
+      }, 450)
+    }
+
+    return () => {
+      cancelled = true
+      if (timeoutId) window.clearTimeout(timeoutId)
+      if (idleId && 'cancelRequestIdleCallback' in window) {
+        window.cancelRequestIdleCallback(idleId)
+      }
+    }
+  }, [])
+
+  return ChatbotWidget ? <ChatbotWidget /> : null
+}
 
 export default function MainLayout() {
   useLenis()
@@ -18,14 +57,10 @@ export default function MainLayout() {
         <div className="glow-dot right-[-100px] top-[640px] h-72 w-72 bg-red-500/20" aria-hidden="true" />
         <Navbar />
         <main className="pt-28">
-          <Suspense fallback={<div className="section-pad py-16 text-sm text-zinc-400">Loading page...</div>}>
-            <Outlet />
-          </Suspense>
+          <Outlet />
         </main>
         <Footer />
-        <Suspense fallback={null}>
-          <ChatbotWidget />
-        </Suspense>
+        <DeferredChatbot />
       </div>
     </>
   )

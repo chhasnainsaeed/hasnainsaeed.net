@@ -9,6 +9,8 @@ export default function useLenis() {
     let lenis = null
     let frame = 0
     let cancelled = false
+    let timeoutId = 0
+    let idleId = 0
 
     const initialize = async () => {
       const { default: Lenis } = await import('lenis')
@@ -30,13 +32,21 @@ export default function useLenis() {
     }
 
     if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(initialize, { timeout: 1200 })
+      idleId = window.requestIdleCallback(() => {
+        void initialize()
+      }, { timeout: 1200 })
     } else {
-      setTimeout(initialize, 250)
+      timeoutId = window.setTimeout(() => {
+        void initialize()
+      }, 250)
     }
 
     return () => {
       cancelled = true
+      if (timeoutId) window.clearTimeout(timeoutId)
+      if (idleId && 'cancelRequestIdleCallback' in window) {
+        window.cancelRequestIdleCallback(idleId)
+      }
       cancelAnimationFrame(frame)
       lenis?.destroy()
     }

@@ -4,6 +4,7 @@ import PageHero from '../components/ui/PageHero'
 import Reveal from '../components/ui/Reveal'
 import BlogCard from '../components/ui/BlogCard'
 import ButtonLink from '../components/ui/ButtonLink'
+import DetailMediaFrame from '../components/ui/DetailMediaFrame'
 import { projects } from '../data/projects'
 import NotFoundPage from './NotFoundPage'
 import Seo from '../seo/Seo'
@@ -74,12 +75,12 @@ export default function ProjectDetailPage() {
 
       <section className="section-pad pb-14">
         <div className="section-wrap">
-          <Reveal className="premium-card h-72 overflow-hidden">
-            <ProjectMedia
+          <Reveal>
+            <DetailMediaFrame
               src={project.cover}
               alt={`${project.title} cover`}
               fallback={`Cover preview unavailable (${project.platform} | ${project.year})`}
-              className="h-full w-full object-cover"
+              maxHeightClass="max-h-[56rem]"
             />
           </Reveal>
         </div>
