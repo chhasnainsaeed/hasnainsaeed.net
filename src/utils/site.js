@@ -1,10 +1,15 @@
 import { routes } from './routes.js'
 
+const runtimeEnv =
+  (typeof import.meta !== 'undefined' && import.meta.env) ||
+  (typeof process !== 'undefined' && process.env) ||
+  {}
+
 export const siteConfig = {
   name: 'Hasnain Saeed',
   shortName: 'Hasnain',
   jobTitle: 'Freelance Shopify, WordPress & Webflow Developer',
-  siteTitle: 'Hasnain Saeed | Freelance Shopify, WordPress & Webflow Developer in Pakistan',
+  siteTitle: 'Hasnain Saeed | Freelance Shopify, WordPress & Webflow Developer',
   description:
     'Hasnain Saeed is a freelance Shopify, WordPress, and Webflow developer in Pakistan helping US, UK, and Canada clients with website builds, technical SEO foundations, bug fixing, UI implementation, and ongoing support.',
   authorBio:
@@ -23,6 +28,11 @@ export const siteConfig = {
   baseOgImage: '/images/project-mapx-cover.png',
   headshotImage: '/images/hasnain-email-signature.jpg',
   sameAs: [],
+  searchVerification: {
+    google: runtimeEnv.VITE_GOOGLE_SITE_VERIFICATION || runtimeEnv.GOOGLE_SITE_VERIFICATION || '',
+    bing: runtimeEnv.VITE_BING_SITE_VERIFICATION || runtimeEnv.BING_SITE_VERIFICATION || '',
+    yandex: runtimeEnv.VITE_YANDEX_SITE_VERIFICATION || runtimeEnv.YANDEX_SITE_VERIFICATION || '',
+  },
   serviceMarkets: ['USA', 'UK', 'Canada', 'International'],
   location: 'Pakistan',
   timezoneNote: 'Remote collaboration across USA, UK, Canada, and international time zones.',
@@ -89,7 +99,7 @@ export const navLinks = [
 ]
 
 export const trustStats = [
-  { label: 'Years Experience', value: 5, suffix: '+' },
+  { label: 'Years Experience', value: 6, suffix: '+' },
   { label: 'Live Case Studies', value: 11, suffix: '' },
   { label: 'Core Platforms', value: 4, suffix: '' },
   { label: 'Service Markets', value: 4, suffix: '' },

@@ -163,7 +163,7 @@ export default function BlogDetailPage() {
           <Reveal className="premium-card p-7 sm:p-8">
             <div className="grid gap-6 lg:grid-cols-[0.6fr_1.4fr] lg:items-start">
               <div>
-                <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">About the author</p>
+                <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">Written by Hasnain Saeed</p>
                 <ProfilePortrait className="mt-4" showCaption={false} />
                 <div className="mt-4 rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5">
                   <p className="text-lg font-semibold text-white">{siteConfig.name}</p>

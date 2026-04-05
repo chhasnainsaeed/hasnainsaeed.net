@@ -1,0 +1,31 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f1117"/>
+      <stop offset="100%" stop-color="#06080c"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#36b9ff"/>
+      <stop offset="100%" stop-color="#7c5cff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="182" cy="120" r="136" fill="url(#accent)" opacity="0.2"/>
+  <circle cx="1024" cy="670" r="192" fill="url(#accent)" opacity="0.14"/>
+  <rect x="108" y="104" width="984" height="592" rx="28" fill="#11141c" stroke="#2b3140"/>
+  <text x="160" y="170" font-family="Arial, sans-serif" font-size="26" fill="#d8deea" letter-spacing="3">WEBFLOW BEST PRACTICES</text>
+  <text x="160" y="248" font-family="Arial, sans-serif" font-size="58" fill="#f5f4f2" font-weight="700">CMS Structure</text>
+  <text x="160" y="316" font-family="Arial, sans-serif" font-size="58" fill="#f5f4f2" font-weight="700">Responsive QA and Launch</text>
+  <rect x="160" y="374" width="244" height="54" rx="27" fill="url(#accent)"/>
+  <text x="198" y="408" font-family="Arial, sans-serif" font-size="24" fill="#0d0f14" font-weight="700">Built to publish</text>
+  <rect x="610" y="170" width="410" height="356" rx="24" fill="#171d28"/>
+  <rect x="648" y="212" width="142" height="18" rx="9" fill="#2b3140"/>
+  <rect x="648" y="252" width="218" height="18" rx="9" fill="#2b3140"/>
+  <rect x="648" y="292" width="296" height="18" rx="9" fill="#2b3140"/>
+  <rect x="648" y="334" width="164" height="18" rx="9" fill="#2b3140"/>
+  <rect x="648" y="382" width="132" height="38" rx="19" fill="url(#accent)"/>
+  <rect x="160" y="488" width="232" height="120" rx="18" fill="#171d28"/>
+  <rect x="414" y="488" width="232" height="120" rx="18" fill="#171d28"/>
+  <rect x="668" y="556" width="302" height="96" rx="18" fill="url(#accent)" opacity="0.92"/>
+  <text x="720" y="614" font-family="Arial, sans-serif" font-size="32" fill="#0d0f14" font-weight="700">Launch-ready CMS</text>
+</svg>

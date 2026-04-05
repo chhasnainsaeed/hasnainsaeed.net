@@ -1,0 +1,32 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f1117"/>
+      <stop offset="100%" stop-color="#06080c"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4e7bff"/>
+      <stop offset="100%" stop-color="#2947b8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="182" cy="128" r="142" fill="url(#accent)" opacity="0.24"/>
+  <circle cx="1026" cy="652" r="196" fill="url(#accent)" opacity="0.14"/>
+  <rect x="108" y="104" width="984" height="592" rx="28" fill="#11141c" stroke="#2b3140"/>
+  <text x="160" y="170" font-family="Arial, sans-serif" font-size="26" fill="#d8deea" letter-spacing="3">WORDPRESS SPEED</text>
+  <text x="160" y="250" font-family="Arial, sans-serif" font-size="58" fill="#f5f4f2" font-weight="700">Core Web Vitals</text>
+  <text x="160" y="318" font-family="Arial, sans-serif" font-size="58" fill="#f5f4f2" font-weight="700">Without Breaking UX</text>
+  <rect x="160" y="372" width="262" height="54" rx="27" fill="url(#accent)"/>
+  <text x="198" y="407" font-family="Arial, sans-serif" font-size="24" fill="#0d0f14" font-weight="700">Plugins to priorities</text>
+  <rect x="160" y="476" width="350" height="16" rx="8" fill="#283041"/>
+  <rect x="160" y="510" width="296" height="16" rx="8" fill="#283041"/>
+  <rect x="160" y="544" width="328" height="16" rx="8" fill="#283041"/>
+  <path d="M662 520 C712 404 760 332 824 288 C876 252 942 238 1008 220" fill="none" stroke="url(#accent)" stroke-width="16" stroke-linecap="round"/>
+  <circle cx="662" cy="520" r="18" fill="#f5f4f2"/>
+  <circle cx="824" cy="288" r="18" fill="#f5f4f2"/>
+  <circle cx="1008" cy="220" r="18" fill="#f5f4f2"/>
+  <rect x="612" y="178" width="120" height="54" rx="18" fill="#171d28"/>
+  <text x="642" y="214" font-family="Arial, sans-serif" font-size="24" fill="#f5f4f2" font-weight="700">CLS</text>
+  <rect x="760" y="520" width="276" height="92" rx="18" fill="url(#accent)" opacity="0.92"/>
+  <text x="804" y="575" font-family="Arial, sans-serif" font-size="34" fill="#0d0f14" font-weight="700">Faster pages</text>
+</svg>

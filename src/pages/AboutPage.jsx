@@ -10,7 +10,7 @@ import { routes } from '../utils/routes'
 import { siteConfig } from '../utils/site'
 
 const heroStats = [
-  { value: '5+', label: 'Years in freelance delivery' },
+  { value: '6+', label: 'Years in freelance delivery' },
   { value: '4', label: 'Core platforms' },
   { value: '1:1', label: 'Direct collaboration' },
   { value: '24h', label: 'Typical first reply' },
@@ -42,7 +42,7 @@ const deliveryLanes = [
 
 const timeline = [
   {
-    year: '2021',
+    year: '2020',
     title: 'Started freelancing with WordPress implementation work.',
     note: 'The early focus was clean business-site delivery, content structure, and getting pages live without rough edges.',
   },
@@ -257,7 +257,7 @@ export default function AboutPage() {
                 <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">How the role evolved</h2>
               </div>
               <span className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-[11px] uppercase tracking-[0.16em] text-zinc-400">
-                2021 to now
+                2020 to now
               </span>
             </div>
 

@@ -81,11 +81,11 @@ function createMetadata({
 
 const staticPageMetadata = {
   home: createMetadata({
-    title: 'Hasnain Saeed | Freelance Shopify, WordPress & Webflow Developer in Pakistan',
+    title: 'Hasnain Saeed | Freelance Shopify, WordPress & Webflow Developer',
     description:
       'Freelance web developer in Pakistan for US, UK, and Canada clients. Hire Hasnain Saeed for Shopify, WordPress, Webflow, technical SEO, and QA-backed delivery.',
     pathname: routes.home,
-    ogTitle: 'Freelance Shopify, WordPress & Webflow Developer',
+    ogTitle: 'Hasnain Saeed | Freelance Shopify, WordPress & Webflow Developer',
     ogDescription:
       'Explore services, case studies, packages, and practical guides from a freelance Shopify, WordPress, and Webflow developer in Pakistan.',
     image: shareImages.home,

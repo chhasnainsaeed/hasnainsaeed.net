@@ -1,0 +1,32 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f1117"/>
+      <stop offset="100%" stop-color="#06080c"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff8f3d"/>
+      <stop offset="100%" stop-color="#ff4d2d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="176" cy="122" r="132" fill="url(#accent)" opacity="0.22"/>
+  <circle cx="1028" cy="672" r="198" fill="url(#accent)" opacity="0.12"/>
+  <rect x="108" y="104" width="984" height="592" rx="28" fill="#11141c" stroke="#2b3140"/>
+  <text x="160" y="170" font-family="Arial, sans-serif" font-size="26" fill="#d8deea" letter-spacing="3">TECHNICAL SEO</text>
+  <text x="160" y="248" font-family="Arial, sans-serif" font-size="58" fill="#f5f4f2" font-weight="700">Canonicals</text>
+  <text x="160" y="316" font-family="Arial, sans-serif" font-size="58" fill="#f5f4f2" font-weight="700">Sitemaps and Indexing</text>
+  <rect x="160" y="372" width="262" height="54" rx="27" fill="url(#accent)"/>
+  <text x="202" y="407" font-family="Arial, sans-serif" font-size="24" fill="#0d0f14" font-weight="700">Launch checklist</text>
+  <rect x="614" y="176" width="406" height="388" rx="24" fill="#171d28"/>
+  <rect x="654" y="222" width="206" height="18" rx="9" fill="#2b3140"/>
+  <rect x="654" y="266" width="298" height="18" rx="9" fill="#2b3140"/>
+  <rect x="654" y="310" width="246" height="18" rx="9" fill="#2b3140"/>
+  <rect x="654" y="354" width="312" height="18" rx="9" fill="#2b3140"/>
+  <path d="M660 466 H964" stroke="#2b3140" stroke-width="12" stroke-linecap="round"/>
+  <path d="M660 506 H924" stroke="url(#accent)" stroke-width="12" stroke-linecap="round"/>
+  <path d="M660 546 H884" stroke="#2b3140" stroke-width="12" stroke-linecap="round"/>
+  <rect x="170" y="500" width="224" height="116" rx="18" fill="#171d28"/>
+  <text x="206" y="568" font-family="Arial, sans-serif" font-size="30" fill="#f5f4f2" font-weight="700">One URL</text>
+  <text x="206" y="602" font-family="Arial, sans-serif" font-size="30" fill="#f5f4f2" font-weight="700">version</text>
+</svg>

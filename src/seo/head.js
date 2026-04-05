@@ -51,6 +51,7 @@ export function buildSeoState({
     twitterDescription: twitterDescription || resolvedOgDescription,
     robots: noindex ? 'noindex, nofollow' : defaultRobots,
     keywords: dedupedKeywords.join(', '),
+    verification: siteConfig.searchVerification,
     jsonLd,
   }
 }
@@ -74,6 +75,9 @@ export function renderHeadTags(head) {
     `<meta name="author" content="${escapeHtml(head.author)}">`,
     `<meta name="keywords" content="${escapeHtml(head.keywords)}">`,
     `<meta name="robots" content="${escapeHtml(head.robots)}">`,
+    head.verification?.google ? `<meta name="google-site-verification" content="${escapeHtml(head.verification.google)}">` : '',
+    head.verification?.bing ? `<meta name="msvalidate.01" content="${escapeHtml(head.verification.bing)}">` : '',
+    head.verification?.yandex ? `<meta name="yandex-verification" content="${escapeHtml(head.verification.yandex)}">` : '',
     `<link rel="canonical" href="${escapeHtml(head.canonical)}">`,
     `<meta property="og:site_name" content="${escapeHtml(siteConfig.name)}">`,
     `<meta property="og:locale" content="${escapeHtml(siteConfig.locale)}">`,
