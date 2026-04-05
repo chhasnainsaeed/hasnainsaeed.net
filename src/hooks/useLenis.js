@@ -11,6 +11,7 @@ export default function useLenis() {
     let cancelled = false
     let timeoutId = 0
     let idleId = 0
+    let removeLoadListener = null
 
     const initialize = async () => {
       const { default: Lenis } = await import('lenis')
@@ -31,18 +32,29 @@ export default function useLenis() {
       frame = requestAnimationFrame(raf)
     }
 
-    if ('requestIdleCallback' in window) {
-      idleId = window.requestIdleCallback(() => {
-        void initialize()
-      }, { timeout: 1200 })
+    const scheduleInitialization = () => {
+      if ('requestIdleCallback' in window) {
+        idleId = window.requestIdleCallback(() => {
+          void initialize()
+        }, { timeout: 2200 })
+      } else {
+        timeoutId = window.setTimeout(() => {
+          void initialize()
+        }, 1000)
+      }
+    }
+
+    if (document.readyState === 'complete') {
+      scheduleInitialization()
     } else {
-      timeoutId = window.setTimeout(() => {
-        void initialize()
-      }, 250)
+      const onLoad = () => scheduleInitialization()
+      window.addEventListener('load', onLoad, { once: true })
+      removeLoadListener = () => window.removeEventListener('load', onLoad)
     }
 
     return () => {
       cancelled = true
+      removeLoadListener?.()
       if (timeoutId) window.clearTimeout(timeoutId)
       if (idleId && 'cancelRequestIdleCallback' in window) {
         window.cancelRequestIdleCallback(idleId)

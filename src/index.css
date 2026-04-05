@@ -11,6 +11,8 @@
   --accent-soft: #ff9a3d;
   --accent-red: #ff4d2d;
   --stroke: rgba(255, 255, 255, 0.12);
+  --font-body: 'Manrope', 'Aptos', 'Segoe UI Variable', 'Segoe UI', sans-serif;
+  --font-display: 'Sora', 'Aptos Display', 'Aptos', 'Segoe UI', sans-serif;
 }
 
 * {
@@ -30,7 +32,7 @@ html {
 }
 
 body {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-body);
   color: var(--text);
   background:
     radial-gradient(circle at 10% 20%, rgba(255, 115, 0, 0.14), transparent 40%),
@@ -46,7 +48,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font-display);
   letter-spacing: -0.02em;
 }
 
@@ -76,11 +78,10 @@ main {
 .glass-panel {
   background: linear-gradient(130deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
   border: 1px solid var(--stroke);
-  backdrop-filter: blur(14px);
 }
 
 .premium-card {
-  @apply rounded-2xl border border-white/10 bg-white/[0.03] shadow-[0_24px_70px_rgba(0,0,0,0.35)] backdrop-blur-lg;
+  @apply rounded-2xl border border-white/10 bg-white/[0.03] shadow-[0_24px_70px_rgba(0,0,0,0.35)];
 }
 
 .text-gradient {
@@ -95,6 +96,7 @@ main {
   border-radius: 9999px;
   filter: blur(50px);
   z-index: 0;
+  display: none;
 }
 
 input,
@@ -159,5 +161,21 @@ button,
   }
   to {
     transform: translateX(-50%);
+  }
+}
+
+@media (min-width: 768px) {
+  .glow-dot {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .glass-panel {
+    backdrop-filter: blur(14px);
+  }
+
+  .premium-card {
+    backdrop-filter: blur(14px);
   }
 }

@@ -12,6 +12,7 @@ function DeferredChatbot() {
     let cancelled = false
     let timeoutId = 0
     let idleId = 0
+    let removeLoadListener = null
 
     const loadChatbot = async () => {
       try {
@@ -24,18 +25,29 @@ function DeferredChatbot() {
       }
     }
 
-    if ('requestIdleCallback' in window) {
-      idleId = window.requestIdleCallback(() => {
-        void loadChatbot()
-      }, { timeout: 1500 })
+    const scheduleLoad = () => {
+      if ('requestIdleCallback' in window) {
+        idleId = window.requestIdleCallback(() => {
+          void loadChatbot()
+        }, { timeout: 2500 })
+      } else {
+        timeoutId = window.setTimeout(() => {
+          void loadChatbot()
+        }, 1200)
+      }
+    }
+
+    if (document.readyState === 'complete') {
+      scheduleLoad()
     } else {
-      timeoutId = window.setTimeout(() => {
-        void loadChatbot()
-      }, 450)
+      const onLoad = () => scheduleLoad()
+      window.addEventListener('load', onLoad, { once: true })
+      removeLoadListener = () => window.removeEventListener('load', onLoad)
     }
 
     return () => {
       cancelled = true
+      removeLoadListener?.()
       if (timeoutId) window.clearTimeout(timeoutId)
       if (idleId && 'cancelRequestIdleCallback' in window) {
         window.cancelRequestIdleCallback(idleId)

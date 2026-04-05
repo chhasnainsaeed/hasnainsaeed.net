@@ -1,10 +1,8 @@
-import { useEffect, useState } from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
 import ButtonLink from '../ui/ButtonLink'
 import { projects } from '../../data/projects'
 import { siteConfig } from '../../utils/site'
 
-const rotatingWords = ['Shopify', 'WordPress', 'Webflow', 'UI Implementation', 'QA Delivery', 'SEO Foundations']
+const capabilityChips = ['Shopify', 'WordPress', 'Webflow', 'UI Implementation', 'QA Delivery', 'SEO Foundations']
 
 const proofItems = [
   { label: 'Live Case Studies', value: String(projects.length) },
@@ -37,21 +35,6 @@ const tagStyle = {
 }
 
 export default function HeroSection() {
-  const [wordIndex, setWordIndex] = useState(0)
-  const shouldReduceMotion = useReducedMotion()
-
-  useEffect(() => {
-    if (shouldReduceMotion) return undefined
-
-    const interval = setInterval(() => {
-      setWordIndex((prev) => (prev + 1) % rotatingWords.length)
-    }, 1800)
-
-    return () => clearInterval(interval)
-  }, [shouldReduceMotion])
-
-  const activeWord = shouldReduceMotion ? rotatingWords[0] : rotatingWords[wordIndex]
-
   return (
     <section className="relative overflow-hidden px-4 pb-20 pt-12 sm:px-8 sm:pb-24 lg:px-14 lg:pt-16">
       <div className="section-wrap">
@@ -71,14 +54,11 @@ export default function HeroSection() {
 
               <div className="mt-5 flex flex-wrap items-center gap-3 text-zinc-200">
                 <span className="text-sm uppercase tracking-[0.18em] text-zinc-400">Built for</span>
-                <motion.span
-                  key={activeWord}
-                  className="rounded-full border border-orange-300/35 bg-orange-500/12 px-4 py-1.5 text-sm font-semibold text-orange-200"
-                  initial={shouldReduceMotion ? false : { y: 8, opacity: 0 }}
-                  animate={shouldReduceMotion ? { opacity: 1 } : { y: 0, opacity: 1 }}
-                >
-                  {activeWord}
-                </motion.span>
+                {capabilityChips.slice(0, 3).map((chip) => (
+                  <span key={chip} className="rounded-full border border-orange-300/35 bg-orange-500/12 px-4 py-1.5 text-sm font-semibold text-orange-200">
+                    {chip}
+                  </span>
+                ))}
               </div>
 
               <p className="mt-5 max-w-[56ch] text-zinc-300">{siteConfig.firstPersonIntro}</p>
@@ -119,7 +99,7 @@ export default function HeroSection() {
 
               <div className="premium-card relative p-5 sm:p-6 lg:p-7">
                 <div className="flex flex-wrap items-center justify-between gap-3">
-                  <p className="text-xs uppercase tracking-[0.22em] text-zinc-400">Live Project Highlights</p>
+                  <h2 className="text-xs uppercase tracking-[0.22em] text-zinc-400">Live Project Highlights</h2>
                   <span className="rounded-2xl border border-orange-300/30 bg-orange-500/12 px-3 py-2 text-[11px] uppercase tracking-[0.18em] text-orange-200">
                     Real Portfolio Work
                   </span>
@@ -134,7 +114,7 @@ export default function HeroSection() {
                       }`}
                     >
                       <div className="flex items-start justify-between gap-4">
-                        <h3 className="text-sm font-semibold leading-snug text-white sm:text-base">{item.title}</h3>
+                        <p className="text-sm font-semibold leading-snug text-white sm:text-base">{item.title}</p>
                         <span className={`shrink-0 rounded-full border px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] ${tagStyle[item.tag]}`}>
                           {item.tag}
                         </span>

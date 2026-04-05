@@ -3,12 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="dns-prefetch" href="//cdn.flowpoint.ai" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;600;700&display=swap"
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;600;700&display=optional"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;600;700&display=optional"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;600;700&display=optional"
+      />
+    </noscript>
     <meta
       name="description"
       content="Freelance web developer for Shopify, WordPress, and Webflow projects, with case studies, service details, and practical implementation guides."
@@ -16,12 +30,20 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <title>Hasnain Saeed | Freelance Web Developer for Shopify, WordPress, and Webflow</title>
     <script>
-      (function () {
-        var s = document.createElement('script')
-        s.src = 'https://cdn.flowpoint.ai/t/6cd64286-d52b-4e94-8584-5f13ab0409d2.js?v=' + Date.now()
-        s.async = 1
-        document.head.appendChild(s)
-      })()
+      window.addEventListener('load', function () {
+        var loadFlowpoint = function () {
+          var s = document.createElement('script')
+          s.src = 'https://cdn.flowpoint.ai/t/6cd64286-d52b-4e94-8584-5f13ab0409d2.js?v=' + Date.now()
+          s.async = 1
+          document.head.appendChild(s)
+        }
+
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(loadFlowpoint, { timeout: 2000 })
+        } else {
+          window.setTimeout(loadFlowpoint, 1200)
+        }
+      })
     </script>
   </head>
   <body>

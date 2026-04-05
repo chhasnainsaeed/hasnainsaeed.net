@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react'
-import { motion } from 'framer-motion'
 import PageHero from '../components/ui/PageHero'
 import Reveal from '../components/ui/Reveal'
 import ProjectCard from '../components/ui/ProjectCard'
@@ -105,13 +104,13 @@ export default function PortfolioPage() {
               </button>
             ))}
           </Reveal>
-          <motion.div layout className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {visibleProjects.map((project) => (
-              <motion.div layout key={project.slug}>
+              <div key={project.slug}>
                 <ProjectCard project={project} />
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
     </>
