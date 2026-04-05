@@ -194,6 +194,7 @@ export default function ContactPage() {
         twitterTitle={metadata.twitterTitle}
         twitterDescription={metadata.twitterDescription}
         image={metadata.image}
+        keywords={metadata.keywords}
         jsonLd={[
           createOrganizationSchema(serviceNames),
           createWebPageSchema({
@@ -211,7 +212,7 @@ export default function ContactPage() {
 
       <PageHero
         eyebrow="Contact"
-        title="Start Your Project"
+        title="Hire Hasnain Saeed for Web Development Support"
         description="Share the platform, blocker, and target outcome. The contact form sends the project brief directly by email, and WhatsApp is still available if a faster conversation is better."
         breadcrumbs={breadcrumbItems}
       />

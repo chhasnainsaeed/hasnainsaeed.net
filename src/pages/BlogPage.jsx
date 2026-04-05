@@ -40,6 +40,7 @@ export default function BlogPage() {
         twitterTitle={metadata.twitterTitle}
         twitterDescription={metadata.twitterDescription}
         image={metadata.image}
+        keywords={metadata.keywords}
         jsonLd={[
           createCollectionPageSchema({
             name: metadata.title,
@@ -58,7 +59,7 @@ export default function BlogPage() {
 
       <PageHero
         eyebrow="Blog"
-        title="Insights on Development, Optimization, and QA"
+        title="Hasnain Saeed on Web Development, SEO, and QA"
         description="Published guides on Shopify, WordPress, Webflow, technical SEO, launch QA, ongoing maintenance, and frontend implementation quality."
         breadcrumbs={breadcrumbItems}
       />

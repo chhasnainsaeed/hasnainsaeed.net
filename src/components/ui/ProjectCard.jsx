@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom'
 
 export default function ProjectCard({ project }) {
+  const coverAlt = project.coverAlt || `${project.platform} website case study for ${project.title}`
+
   return (
     <article className="group premium-card overflow-hidden">
       <div className="relative aspect-[16/10] overflow-hidden bg-zinc-900">
         <img
           src={project.cover}
-          alt={`${project.title} preview`}
+          alt={coverAlt}
           loading="lazy"
           className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
         />

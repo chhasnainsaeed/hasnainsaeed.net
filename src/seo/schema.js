@@ -90,6 +90,7 @@ export function createPersonSchema() {
     telephone: siteConfig.contactPhone,
     jobTitle: siteConfig.jobTitle,
     description: siteConfig.authorBio,
+    image: getAbsoluteUrl(siteConfig.headshotImage),
     sameAs: siteConfig.sameAs,
     homeLocation: {
       '@type': 'Place',
@@ -187,7 +188,9 @@ export function createFAQSchema(items = [], path) {
 }
 
 export function createCaseStudySchema(project) {
-  const keywords = Array.from(new Set([project.platform, project.category, 'case study', 'portfolio'].filter(Boolean)))
+  const keywords = Array.from(
+    new Set([project.platform, project.category, `${project.platform} case study`, 'case study', 'portfolio'].filter(Boolean)),
+  )
 
   return withContext({
     '@type': 'CreativeWork',
@@ -195,6 +198,7 @@ export function createCaseStudySchema(project) {
     name: project.title,
     headline: project.title,
     description: project.shortResult || project.heroSummary,
+    abstract: project.heroSummary || project.shortResult,
     genre: 'Case Study',
     author: { '@id': `${siteConfig.url}#person` },
     creator: { '@id': `${siteConfig.url}#person` },
@@ -202,6 +206,16 @@ export function createCaseStudySchema(project) {
     url: getAbsoluteUrl(`/portfolio/${project.slug}`),
     mainEntityOfPage: { '@id': getWebPageId(`/portfolio/${project.slug}`) },
     image: getAbsoluteUrl(project.cover || siteConfig.baseOgImage),
+    thumbnailUrl: getAbsoluteUrl(project.cover || siteConfig.baseOgImage),
+    dateCreated: project.year,
+    datePublished: project.year,
+    about: project.clientName
+      ? {
+          '@type': 'Organization',
+          name: project.clientName,
+          url: project.websiteUrl,
+        }
+      : undefined,
     keywords: keywords.join(', '),
   })
 }
@@ -228,12 +242,19 @@ export function createArticleSchema(post) {
 }
 
 export function createServiceSchema(service, path) {
+  const numericStartingPrice =
+    typeof service.startingPriceValue === 'number'
+      ? service.startingPriceValue
+      : typeof service.startingPriceValue === 'string'
+        ? Number(service.startingPriceValue)
+        : null
+
   return withContext({
     '@type': 'Service',
     '@id': getServiceId(path),
     name: service.title,
     serviceType: service.title,
-    description: service.summary,
+    description: service.metaDescription || service.intro || service.summary,
     url: getAbsoluteUrl(path),
     provider: { '@id': getOrganizationId() },
     areaServed: siteConfig.serviceMarkets.map((market) => ({
@@ -251,6 +272,9 @@ export function createServiceSchema(service, path) {
       url: getAbsoluteUrl(path),
       category: service.title,
       availability: 'https://schema.org/InStock',
+      priceCurrency: numericStartingPrice ? 'USD' : undefined,
+      price: numericStartingPrice || undefined,
+      description: service.pricingNote,
     },
   })
 }

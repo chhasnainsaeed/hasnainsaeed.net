@@ -2,6 +2,7 @@ import { FiArrowRight, FiLayers, FiMessageSquare, FiShield, FiZap } from 'react-
 import Breadcrumbs from '../components/ui/Breadcrumbs'
 import Reveal from '../components/ui/Reveal'
 import ButtonLink from '../components/ui/ButtonLink'
+import ProfilePortrait from '../components/ui/ProfilePortrait'
 import Seo from '../seo/Seo'
 import { getStaticPageMetadata } from '../seo/metadata'
 import { createBreadcrumbSchema, createPersonSchema, createWebPageSchema } from '../seo/schema'
@@ -116,6 +117,7 @@ export default function AboutPage() {
         twitterTitle={metadata.twitterTitle}
         twitterDescription={metadata.twitterDescription}
         image={metadata.image}
+        keywords={metadata.keywords}
         jsonLd={[
           createPersonSchema(),
           createWebPageSchema({
@@ -146,8 +148,8 @@ export default function AboutPage() {
               <div>
                 <Breadcrumbs items={breadcrumbItems} className="mb-5" />
                 <p className="text-xs uppercase tracking-[0.28em] text-orange-300/90">About</p>
-                <h1 className="mt-5 max-w-[12ch] text-5xl font-semibold leading-[0.96] tracking-[-0.05em] text-white sm:text-6xl lg:text-[5.4rem]">
-                  Web development with design discipline and QA built in.
+                <h1 className="mt-5 max-w-[13ch] text-5xl font-semibold leading-[0.96] tracking-[-0.05em] text-white sm:text-6xl lg:text-[5.4rem]">
+                  Hasnain Saeed, freelance web developer with design discipline and QA built in.
                 </h1>
                 <p className="mt-6 max-w-[64ch] text-base leading-8 text-zinc-300 sm:text-lg">
                   {siteConfig.authorBio} The work is not just about getting pages online. It is about making sure the live version still feels polished,
@@ -163,6 +165,7 @@ export default function AboutPage() {
               </div>
 
               <div className="grid gap-4">
+                <ProfilePortrait showCaption={false} />
                 <div className="rounded-[1.9rem] border border-white/10 bg-black/20 p-6 backdrop-blur-sm">
                   <p className="text-[11px] uppercase tracking-[0.22em] text-zinc-500">Operating Mode</p>
                   <p className="mt-4 text-2xl font-semibold leading-tight text-white">Direct collaboration from first reply to launch-ready delivery.</p>
@@ -205,6 +208,16 @@ export default function AboutPage() {
             <p className="mt-6 max-w-[58ch] text-sm leading-8 text-zinc-300 sm:text-base">
               Most clients already have momentum. The offer is clear, the platform is chosen, or the redesign direction already exists. What they need is
               somebody who can carry the implementation properly across design detail, responsive behavior, QA, and launch prep.
+            </p>
+            <p className="mt-4 max-w-[58ch] text-sm leading-8 text-zinc-300 sm:text-base">
+              The strongest differentiator in my process is that the work stays direct. There is no handoff chain between strategy, implementation, and
+              QA. I am usually the person reviewing the design, building the frontend, checking the responsive states, and validating the release details
+              before the site goes live.
+            </p>
+            <p className="mt-4 max-w-[58ch] text-sm leading-8 text-zinc-300 sm:text-base">
+              A recurring challenge I solve is the gap between "approved" and "actually ready." Plenty of websites look fine in a mockup or staging link,
+              but start to feel rough once real content, real devices, and real launch pressure are involved. My role is to close that gap so the live
+              version feels finished, trustworthy, and easier to grow.
             </p>
           </Reveal>
 

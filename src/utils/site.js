@@ -3,12 +3,16 @@ import { routes } from './routes.js'
 export const siteConfig = {
   name: 'Hasnain Saeed',
   shortName: 'Hasnain',
-  jobTitle: 'Freelance Web Developer',
-  siteTitle: 'Hasnain Saeed | Freelance Web Developer for Shopify, WordPress, and Webflow',
+  jobTitle: 'Freelance Shopify, WordPress & Webflow Developer',
+  siteTitle: 'Hasnain Saeed | Freelance Shopify, WordPress & Webflow Developer in Pakistan',
   description:
-    'Hasnain Saeed is a freelance web developer helping businesses with Shopify, WordPress, and Webflow websites, technical SEO foundations, bug fixing, UI implementation, and ongoing website support.',
+    'Hasnain Saeed is a freelance Shopify, WordPress, and Webflow developer in Pakistan helping US, UK, and Canada clients with website builds, technical SEO foundations, bug fixing, UI implementation, and ongoing support.',
   authorBio:
-    'Hasnain Saeed is a freelance web developer helping businesses build, improve, and maintain Shopify, WordPress, and Webflow websites with a focus on content clarity, technical quality, and dependable execution.',
+    'Hasnain Saeed is a freelance web developer in Pakistan helping US, UK, and Canada clients build, improve, and maintain Shopify, WordPress, and Webflow websites with a focus on content clarity, technical quality, and dependable execution.',
+  firstPersonIntro:
+    "I'm Hasnain Saeed, a freelance Shopify, WordPress, and Webflow developer from Pakistan working with US, UK, and Canada clients. I build, refine, and launch websites with cleaner structure, dependable frontend implementation, and QA-backed delivery.",
+  firstPersonDifferentiator:
+    'Most of the work I take on already has direction behind it. Clients hire me as a freelance web developer for US clients and international teams when they need direct collaboration, careful QA, and a live site that feels polished, performs reliably, and stays manageable after launch.',
   url: 'https://hasnainsaeed.net',
   locale: 'en_US',
   contactEmail: 'hello@hasnainsaeed.net',
@@ -17,6 +21,7 @@ export const siteConfig = {
   availability: 'Available for freelance projects',
   responseTimeNote: 'Most project inquiries receive a reply within one business day.',
   baseOgImage: '/images/project-mapx-cover.png',
+  headshotImage: '/images/hasnain-email-signature.jpg',
   sameAs: [],
   serviceMarkets: ['USA', 'UK', 'Canada', 'International'],
   location: 'Pakistan',
@@ -26,10 +31,16 @@ export const siteConfig = {
 }
 
 export const defaultKeywords = [
+  'hasnain saeed portfolio',
   'freelance web developer',
+  'freelance web developer pakistan',
+  'hire web developer pakistan',
   'shopify developer',
+  'shopify developer pakistan',
   'wordpress developer',
+  'wordpress developer pakistan',
   'webflow developer',
+  'webflow developer pakistan',
   'technical seo',
   'website maintenance',
   'website optimization',

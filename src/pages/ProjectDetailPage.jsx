@@ -9,7 +9,7 @@ import { projects } from '../data/projects'
 import NotFoundPage from './NotFoundPage'
 import Seo from '../seo/Seo'
 import { getProjectMetadata } from '../seo/metadata'
-import { createBreadcrumbSchema, createCaseStudySchema, createWebPageSchema } from '../seo/schema'
+import { createBreadcrumbSchema, createCaseStudySchema, createOrganizationSchema, createPersonSchema, createWebPageSchema } from '../seo/schema'
 import { getPrimaryServiceForProject, getRelatedPostsForProject } from '../utils/relatedContent'
 import { getProjectPath, getServicePath, routes } from '../utils/routes'
 import { getAbsoluteUrl } from '../utils/site'
@@ -28,6 +28,24 @@ function ProjectMedia({ src, alt, fallback, className = '' }) {
   return <img src={src} alt={alt} loading="lazy" className={className} onError={() => setHasError(true)} />
 }
 
+function getProjectCoverAlt(project) {
+  return project.coverAlt || `${project.platform} website case study for ${project.title}`
+}
+
+function getProjectGalleryAlt(project, index) {
+  return `${project.platform} website screenshot from ${project.title}, view ${index + 1}`
+}
+
+function getProjectDomainLabel(project) {
+  if (!project.websiteUrl) return null
+
+  try {
+    return new URL(project.websiteUrl).hostname.replace(/^www\./, '')
+  } catch {
+    return project.websiteUrl
+  }
+}
+
 export default function ProjectDetailPage() {
   const { slug } = useParams()
   const projectIndex = projects.findIndex((item) => item.slug === slug)
@@ -40,6 +58,7 @@ export default function ProjectDetailPage() {
   const metadata = getProjectMetadata(project)
   const primaryService = getPrimaryServiceForProject(project)
   const relatedPosts = getRelatedPostsForProject(project).slice(0, 2)
+  const projectDomain = getProjectDomainLabel(project)
   const breadcrumbItems = [
     { name: 'Home', path: routes.home },
     { name: 'Portfolio', path: routes.portfolio },
@@ -59,6 +78,8 @@ export default function ProjectDetailPage() {
         image={metadata.image}
         keywords={metadata.keywords}
         jsonLd={[
+          createPersonSchema(),
+          createOrganizationSchema(),
           createWebPageSchema({
             path: projectPath,
             title: metadata.title,
@@ -79,7 +100,7 @@ export default function ProjectDetailPage() {
           <Reveal>
             <DetailMediaFrame
               src={project.cover}
-              alt={`${project.title} cover`}
+              alt={getProjectCoverAlt(project)}
               fallback={`Cover preview unavailable (${project.platform} | ${project.year})`}
               maxHeightClass="max-h-[56rem]"
             />
@@ -90,10 +111,33 @@ export default function ProjectDetailPage() {
       <section className="section-pad pb-16">
         <div className="section-wrap grid gap-6 lg:grid-cols-2">
           <Reveal className="premium-card p-6">
+            <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">Project Snapshot</p>
+            <h2 className="mt-2 text-2xl font-semibold text-white">{project.resultBadge}</h2>
+            <p className="mt-3 text-sm text-zinc-300">{project.shortResult}</p>
+          </Reveal>
+          {project.websiteUrl ? (
+            <Reveal className="premium-card p-6" delay={0.08}>
+              <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">Live Client Site</p>
+              <h2 className="mt-2 text-2xl font-semibold text-white">{project.clientName || 'Published Website'}</h2>
+              <p className="mt-3 text-sm text-zinc-300">
+                Published reference available at <span className="text-zinc-100">{projectDomain}</span> for credibility checks, content
+                review, and live QA validation.
+              </p>
+              <a
+                href={project.websiteUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-5 inline-flex text-sm font-semibold text-orange-300"
+              >
+                View live client site &rarr;
+              </a>
+            </Reveal>
+          ) : null}
+          <Reveal className="premium-card p-6">
             <h2 className="text-2xl font-semibold text-white">Client Overview</h2>
             <p className="mt-3 text-sm text-zinc-300">{project.clientOverview}</p>
           </Reveal>
-          <Reveal className="premium-card p-6" delay={0.08}>
+          <Reveal className="premium-card p-6" delay={project.websiteUrl ? 0 : 0.08}>
             <h2 className="text-2xl font-semibold text-white">Challenge</h2>
             <p className="mt-3 text-sm text-zinc-300">{project.challenge}</p>
           </Reveal>
@@ -141,7 +185,7 @@ export default function ProjectDetailPage() {
               <Reveal key={item} delay={index * 0.05} className="premium-card h-40 overflow-hidden">
                 <ProjectMedia
                   src={item}
-                  alt={`${project.title} screenshot ${index + 1}`}
+                  alt={getProjectGalleryAlt(project, index)}
                   fallback={`Gallery preview ${index + 1} unavailable`}
                   className="h-full w-full object-cover"
                 />
@@ -208,7 +252,7 @@ export default function ProjectDetailPage() {
                   rel="noreferrer"
                   className="inline-flex items-center justify-center rounded-full border border-orange-300/70 bg-white/[0.04] px-6 py-3 text-sm font-semibold text-zinc-100 shadow-[0_8px_20px_rgba(0,0,0,0.25)] transition duration-300 hover:-translate-y-0.5 hover:border-orange-300 hover:bg-orange-400/14 hover:shadow-[0_12px_30px_rgba(255,115,0,0.25)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
                 >
-                  View Live Site
+                  View Live Client Site
                 </a>
               ) : null}
               <ButtonLink to="/contact">Book Consultation</ButtonLink>

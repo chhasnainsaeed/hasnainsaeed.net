@@ -10,6 +10,9 @@ export default function ServiceCard({ service }) {
       </span>
       <h3 className="mt-4 text-xl font-semibold text-white">{service.title}</h3>
       <p className="mt-3 flex-1 text-sm text-zinc-300">{service.summary}</p>
+      <p className="mt-4 text-xs uppercase tracking-[0.16em] text-zinc-500">
+        {service.startingPrice ? `Starting from ${service.startingPrice}` : 'Quoted based on scope'}
+      </p>
       <Link
         to={getServicePath(service.slug)}
         className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-orange-300 transition group-hover:text-orange-200"

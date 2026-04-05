@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { FiArrowUpRight } from 'react-icons/fi'
 import Reveal from '../ui/Reveal'
+import ProfilePortrait from '../ui/ProfilePortrait'
+import { siteConfig } from '../../utils/site'
 
 const bestFitItems = [
   'Approved designs that need clean implementation',
@@ -52,14 +54,20 @@ export default function AboutPreviewSection() {
               </Link>
             </div>
 
-            <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.08fr)_340px] lg:gap-12">
+            <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.02fr)_380px] lg:gap-12">
               <div>
                 <h2 className="max-w-[12ch] text-3xl font-semibold leading-[1.06] text-white sm:text-4xl lg:text-[3.1rem]">
                   Quiet execution for websites that need to feel finished.
                 </h2>
                 <p className="mt-5 max-w-[60ch] text-sm leading-7 text-zinc-300 sm:text-base sm:leading-8">
-                  I work with small teams that already know what the site needs to do. My role is to turn that direction into clean production
-                  work that reads clearly, behaves consistently, and survives launch without the usual last-minute friction.
+                  {siteConfig.firstPersonIntro}
+                </p>
+                <p className="mt-4 max-w-[60ch] text-sm leading-7 text-zinc-300 sm:text-base sm:leading-8">
+                  {siteConfig.firstPersonDifferentiator}
+                </p>
+                <p className="mt-4 max-w-[60ch] text-sm leading-7 text-zinc-300 sm:text-base sm:leading-8">
+                  That usually means joining projects where the strategy, offer, or design direction already exists, then carrying the work through
+                  responsive implementation, cleanup, QA, and launch prep so the final site feels trustworthy instead of half-finished.
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-2">
@@ -74,15 +82,18 @@ export default function AboutPreviewSection() {
                 </div>
               </div>
 
-              <aside className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5 sm:p-6">
-                <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">Best Fit</p>
-                <div className="mt-5 space-y-4">
-                  {bestFitItems.map((item, index) => (
-                    <div key={item} className="flex gap-4 border-b border-white/8 pb-4 last:border-b-0 last:pb-0">
-                      <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-200">{`0${index + 1}`}</span>
-                      <p className="text-sm leading-6 text-zinc-200">{item}</p>
-                    </div>
-                  ))}
+              <aside className="space-y-5">
+                <ProfilePortrait />
+                <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5 sm:p-6">
+                  <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">Best Fit</p>
+                  <div className="mt-5 space-y-4">
+                    {bestFitItems.map((item, index) => (
+                      <div key={item} className="flex gap-4 border-b border-white/8 pb-4 last:border-b-0 last:pb-0">
+                        <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-200">{`0${index + 1}`}</span>
+                        <p className="text-sm leading-6 text-zinc-200">{item}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </aside>
             </div>

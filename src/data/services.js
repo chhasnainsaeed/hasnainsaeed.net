@@ -1,18 +1,26 @@
 // Edit service descriptions, timelines, and deliverables as your offers evolve.
-export const services = [
+const baseServices = [
   {
     id: 'wordpress',
     slug: 'wordpress-development',
-    title: 'WordPress Development',
-    metaTitle: 'WordPress Development Services | Hasnain Saeed',
+    title: 'Custom WordPress Development',
+    seoLabel: 'custom WordPress development',
+    metaTitle: 'Hire WordPress Developer in Pakistan | Custom WordPress Development',
     metaDescription:
-      'WordPress development services for business websites that need cleaner builds, better editing flow, stronger performance, and dependable launch support.',
+      'Hire a WordPress developer in Pakistan for custom WordPress development, cleaner builds, better editing flow, stronger performance, and QA-backed launch support.',
     icon: 'WP',
     eyebrow: 'Flexible CMS Builds',
     summary: 'Custom WordPress websites built for speed, content flexibility, and long-term scalability.',
-    intro: 'I build and refine WordPress websites for businesses that need a dependable CMS, clean frontend execution, and a setup that stays easy to manage after launch.',
+    intro:
+      'Custom WordPress development for businesses that need a WordPress developer for hire in Pakistan, with clean frontend execution, dependable CMS structure, and a setup that stays easy to manage after launch.',
     image: '/images/project-designinc-cover.jpg',
-    keywords: ['wordpress development services', 'custom wordpress developer', 'wordpress website build'],
+    keywords: [
+      'custom wordpress development',
+      'wordpress developer for hire',
+      'hire wordpress developer pakistan',
+      'freelance wordpress developer pakistan',
+      'wordpress website build',
+    ],
     includes: ['Theme setup or custom implementation', 'CMS structuring', 'Performance optimization', 'Plugin compatibility'],
     deliverables: ['Responsive pages', 'Admin-ready backend', 'Technical QA pass'],
     painPoints: ['A WordPress site that feels dated, slow, or hard to update safely', 'Theme or plugin combinations that create layout bugs and fragile editing experiences'],
@@ -32,15 +40,23 @@ export const services = [
     id: 'shopify',
     slug: 'shopify-store-development',
     title: 'Shopify Store Development',
-    metaTitle: 'Shopify Store Development | Hasnain Saeed',
+    seoLabel: 'Shopify store development',
+    metaTitle: 'Freelance Shopify Developer in Pakistan | Shopify Store Development',
     metaDescription:
-      'Shopify store development for brands that need a cleaner storefront, stronger product-page UX, reusable sections, and launch-ready QA support.',
+      'Shopify store development from a freelance Shopify developer in Pakistan for US and international brands that need stronger UX, reusable sections, and launch-ready QA.',
     icon: 'SF',
     eyebrow: 'Conversion-Focused Ecommerce',
     summary: 'Shopify storefront builds and customizations focused on conversion and clean UX.',
-    intro: 'I help Shopify brands launch or refine storefronts that feel polished, support product discovery, and remove the friction that usually slows down conversion.',
+    intro:
+      'Shopify store development from a freelance Shopify developer in Pakistan for US and international brands that need polished storefront UX, stronger product discovery, and fewer conversion blockers.',
     image: '/images/project-feyre-cover.png',
-    keywords: ['shopify developer', 'shopify store development', 'shopify storefront customization'],
+    keywords: [
+      'shopify store development',
+      'freelance shopify developer pakistan',
+      'hire shopify developer pakistan',
+      'shopify expert pakistan',
+      'shopify storefront customization',
+    ],
     includes: ['Theme customization', 'Product page optimization', 'Checkout improvements', 'App conflict resolution'],
     deliverables: ['Conversion-focused storefront', 'Reusable custom sections', 'Pre-launch QA'],
     painPoints: ['A Shopify theme that feels generic or inconsistent across buying flows', 'Theme and app changes that introduced bugs, slowdowns, or hard-to-maintain code'],
@@ -59,16 +75,24 @@ export const services = [
   {
     id: 'webflow',
     slug: 'webflow-development',
-    title: 'Webflow Development',
-    metaTitle: 'Webflow Development Services | Hasnain Saeed',
+    title: 'Webflow Developer for Hire',
+    seoLabel: 'Webflow development',
+    metaTitle: 'Webflow Developer for Hire for USA Teams | Hasnain Saeed',
     metaDescription:
-      'Webflow development services for startups and brands that need polished implementation, stronger CMS structure, and smoother launch readiness.',
+      'Webflow development from a Webflow developer for hire for USA teams, startups, and brands that need polished implementation, stronger CMS structure, and smoother launch readiness.',
     icon: 'WF',
     eyebrow: 'Polished Webflow Execution',
     summary: 'Premium Webflow implementations for startups and personal brands.',
-    intro: 'I build Webflow websites for teams that care about polished implementation, smoother CMS editing, and a launch-ready experience that still feels deliberate on mobile.',
+    intro:
+      'Webflow development from a Webflow developer for hire for USA, UK, and Canada clients who need polished implementation, smoother CMS editing, and a launch-ready experience that still feels deliberate on mobile.',
     image: '/images/project-apex-cover.jpg',
-    keywords: ['webflow development', 'webflow developer', 'webflow cms build'],
+    keywords: [
+      'webflow development',
+      'webflow developer for hire usa',
+      'hire webflow developer',
+      'webflow developer pakistan',
+      'webflow cms build',
+    ],
     includes: ['Pixel-perfect implementation', 'CMS collections', 'Animation polish', 'Responsive refinement'],
     deliverables: ['Production-ready Webflow site', 'Component style guide', 'Launch QA checklist'],
     painPoints: ['A design that still needs trustworthy Webflow implementation', 'An almost-finished Webflow site that still feels rough on mobile or during launch review'],
@@ -88,6 +112,7 @@ export const services = [
     id: 'landing-pages',
     slug: 'landing-page-design-build',
     title: 'Landing Page Design and Build',
+    seoLabel: 'landing page design and build',
     metaTitle: 'Landing Page Design & Build | Hasnain Saeed',
     metaDescription:
       'Landing page design and build services for campaigns, launches, and lead generation pages that need stronger messaging, CTA flow, and responsive polish.',
@@ -116,6 +141,7 @@ export const services = [
     id: 'optimization',
     slug: 'website-optimization-bug-fixing',
     title: 'Website Optimization and Bug Fixing',
+    seoLabel: 'website optimization and bug fixing',
     metaTitle: 'Website Optimization & Bug Fixing | Hasnain Saeed',
     metaDescription:
       'Website optimization and bug fixing for teams dealing with slow pages, unstable layouts, broken interactions, or frontend performance bottlenecks.',
@@ -144,6 +170,7 @@ export const services = [
     id: 'ui-implementation',
     slug: 'ui-ux-implementation',
     title: 'UI/UX Implementation',
+    seoLabel: 'UI implementation',
     metaTitle: 'UI Implementation Services | Hasnain Saeed',
     metaDescription:
       'UI implementation services for teams that need design-to-code delivery, responsive polish, reusable components, and reliable frontend execution.',
@@ -172,6 +199,7 @@ export const services = [
     id: 'qa-testing',
     slug: 'qa-testing-documentation',
     title: 'QA Testing and Documentation',
+    seoLabel: 'QA testing and documentation',
     metaTitle: 'Website QA Testing & Documentation | Hasnain Saeed',
     metaDescription:
       'QA testing and documentation for websites and web apps that need clearer bug reporting, release validation, and stronger launch confidence.',
@@ -200,6 +228,7 @@ export const services = [
     id: 'seo-ready',
     slug: 'seo-ready-website-setup',
     title: 'SEO-ready Website Setup',
+    seoLabel: 'technical SEO setup',
     metaTitle: 'Technical SEO Setup Services | Hasnain Saeed',
     metaDescription:
       'Technical SEO setup services for websites that need better crawlability, metadata structure, sitemap support, and launch-ready indexing foundations.',
@@ -225,6 +254,236 @@ export const services = [
     ],
   },
 ]
+
+const serviceEnhancements = {
+  wordpress: {
+    startingPrice: '$699+',
+    startingPriceValue: 699,
+    pricingNote:
+      'Most WordPress brochure sites and structured service websites start from $699+, with larger page counts, migrations, or custom functionality scoped separately.',
+    detailSections: [
+      {
+        heading: 'What this service actually covers',
+        body:
+          'WordPress development here is not limited to installing a theme and handing over login details. The work usually includes planning the page structure, tightening the frontend implementation, shaping an editing flow that makes sense for the client, and reducing the plugin or theme friction that tends to create problems later. That makes the site easier to publish on, easier to update safely, and more dependable once traffic and content changes start hitting the live build.',
+      },
+      {
+        heading: 'Who this work is best for',
+        body:
+          'This service is a strong fit for service businesses, agencies, and professional brands that want a site they can actually manage after launch. Some clients need a new build from the ground up. Others already have a WordPress site but are dealing with heavy templates, confusing editing screens, slow pages, or repeated layout bugs. In both cases, the goal is the same: build a cleaner content foundation without making the backend harder to own.',
+      },
+      {
+        heading: 'How the engagement usually runs',
+        body:
+          'A typical WordPress project starts with reviewing the current content, page goals, and technical blockers. From there, I define the page structure, component approach, and CMS needs before moving into implementation. During the build, I pay attention to responsive behavior, plugin compatibility, editing clarity, and the parts of the site most likely to break once real content is added. That QA mindset matters just as much as the code itself.',
+      },
+      {
+        heading: 'What results to expect',
+        body:
+          'The end result should feel easier to trust and easier to manage. Clients usually want clearer service pages, a better editing experience, cleaner structure for future content, and fewer issues caused by fragile theme or plugin combinations. It is also common to combine WordPress work with technical SEO cleanup, speed improvements, or ongoing maintenance so the site does not fall back into patchwork fixes right after launch.',
+      },
+    ],
+  },
+  shopify: {
+    startingPrice: '$1,499+',
+    startingPriceValue: 1499,
+    pricingNote:
+      'Most Shopify storefront work starts from $1,499+ when the goal is a real conversion-focused build or refinement pass, with larger catalogs and custom feature work scoped separately.',
+    detailSections: [
+      {
+        heading: 'What this service actually covers',
+        body:
+          'Shopify work is rarely just about making a theme look nicer. It usually involves clarifying the buying journey, tightening the homepage and collection hierarchy, improving the product page, simplifying mobile interactions, and reducing the clutter that accumulates from rushed theme edits or too many apps. The goal is a storefront that feels easier to shop, easier to merchandise, and easier to keep consistent as the catalog and campaigns evolve.',
+      },
+      {
+        heading: 'Who this work is best for',
+        body:
+          'This is a strong fit for D2C brands, product businesses, and founders who already have demand but can feel friction inside the store experience. Sometimes that friction shows up as generic layouts, inconsistent category discovery, weak product-page trust, or bugs introduced by app and theme changes over time. Other times the store is new, but it still needs a stronger structure before paid traffic or launch marketing starts pushing real buyers through it.',
+      },
+      {
+        heading: 'How the engagement usually runs',
+        body:
+          'Most Shopify projects begin by reviewing the current storefront, the main conversion blockers, and the highest-value customer paths. From there, I map the priorities around collection browsing, product-page UX, merchandising clarity, reusable sections, and responsive behavior. Implementation is followed by QA across the important shopping flows so the work is not only visually cleaner, but also steadier in the browser where trust and hesitation actually happen.',
+      },
+      {
+        heading: 'What results to expect',
+        body:
+          'A strong Shopify outcome usually looks like clearer merchandising, a more trustworthy product-detail experience, and reusable theme sections that make ongoing updates less painful. The store should feel more deliberate from homepage to cart, not more complicated. If needed, this work can also connect with speed cleanup, app conflict resolution, or post-launch optimization so the storefront keeps improving instead of slipping back into reactive fixes.',
+      },
+    ],
+  },
+  webflow: {
+    startingPrice: '$1,499+',
+    startingPriceValue: 1499,
+    pricingNote:
+      'Most polished Webflow marketing builds and CMS-driven landing sites start from $1,499+, with heavier animation systems, localization, or larger content models scoped separately.',
+    detailSections: [
+      {
+        heading: 'What this service actually covers',
+        body:
+          'Webflow development here is focused on turning approved direction into a production-ready site that still feels sharp once real content, breakpoints, and launch pressure are involved. That usually means building clean sections, consistent CMS structure, responsive layouts, restrained interactions, and a content model that is easy to manage later. The aim is not just a pretty build in the designer, but a live website that stays coherent across the pages people actually use.',
+      },
+      {
+        heading: 'Who this work is best for',
+        body:
+          'This service works best for startups, SaaS teams, personal brands, and campaign-led businesses that care about design quality but also need reliability. Some projects start from finished layouts in Figma. Others are already built in Webflow but still need refinement because mobile behavior feels rough, forms have not been checked properly, or the CMS setup is creating publishing friction. In both cases, the focus is on clarity, polish, and launch confidence.',
+      },
+      {
+        heading: 'How the engagement usually runs',
+        body:
+          'A typical Webflow engagement starts with clarifying the page system, the CMS requirements, and the highest-priority conversion actions. I then implement the layouts, build the reusable sections, and refine the responsive behavior so content lengths and real images do not quietly break the design. Before handoff or launch, I review forms, section spacing, interactions, and key browser/device states so the final build feels considered instead of rushed.',
+      },
+      {
+        heading: 'What results to expect',
+        body:
+          'Clients usually want a Webflow build that feels premium, stays easy to publish on, and does not fall apart the moment traffic arrives. That means better CMS organization, more consistent layout behavior, smoother navigation, stronger CTA flow, and fewer launch surprises. When combined with technical SEO setup or landing-page strategy, the result is a site that is easier for both people and search engines to understand.',
+      },
+    ],
+  },
+  'landing-pages': {
+    startingPrice: '$699+',
+    startingPriceValue: 699,
+    pricingNote:
+      'Focused landing pages typically start from $699+, depending on how much copy structure, design direction, tracking setup, and testing support are needed.',
+    detailSections: [
+      {
+        heading: 'What this service actually covers',
+        body:
+          'Landing-page work is about building a page around one offer, one audience, and one clear next step. Instead of spreading the message across a generic website structure, the page is organized to move someone from attention into trust and then into action. That includes the section order, CTA placement, proof blocks, mobile hierarchy, and the details that make the page feel easier to scan when the traffic is coming from ads, email, or search.',
+      },
+      {
+        heading: 'Who this work is best for',
+        body:
+          'This is useful for launches, service campaigns, lead-generation offers, waiting lists, and focused product pages where clarity matters more than page count. A lot of businesses already have a main website, but the current pages are too broad to support a high-intent offer properly. A stronger landing page gives the campaign a cleaner path to conversion without waiting for a full redesign of the rest of the site.',
+      },
+      {
+        heading: 'How the engagement usually runs',
+        body:
+          'The process normally starts with the offer itself: who it is for, what should happen on the page, and where the current message is losing people. From there, I shape the page around the strongest CTA path, decide what proof or reassurance should show up before the form or button, and then implement the final layout with responsive and performance checks. Even a short page still needs serious discipline if it is supposed to convert under real traffic.',
+      },
+      {
+        heading: 'What results to expect',
+        body:
+          'A good landing page should reduce confusion fast. Clients usually expect stronger message hierarchy, more visible trust cues, better CTA placement, and a page that feels easier to use on mobile. It should also be easier to test, easier to send traffic to, and easier to connect with analytics or A/B work later. In practical terms, the page should feel more focused, not just more decorated.',
+      },
+    ],
+  },
+  optimization: {
+    startingPrice: 'Quote based',
+    pricingNote:
+      'Optimization and bug-fixing work is usually scoped after reviewing the live site, because the right price depends on the number of issues, the platform, and whether the work is a focused sprint or a wider cleanup pass.',
+    detailSections: [
+      {
+        heading: 'What this service actually covers',
+        body:
+          'Website optimization and bug fixing is about finding the issues users actually feel, then solving them in the order that matters most. That can include slow pages, unstable layouts, broken mobile interactions, script conflicts, UI regressions, or frontend issues that have built up after repeated quick fixes. The goal is not to chase vanity metrics alone, but to improve how the site behaves where trust, usability, and conversion are being damaged.',
+      },
+      {
+        heading: 'Who this work is best for',
+        body:
+          'This service is designed for teams with a live website that technically works, but still feels rough in the places that matter. That might be a marketing site with recurring layout issues, a store suffering from app and theme conflicts, or a service website where mobile behavior and page speed are undermining lead quality. It is especially useful when a full rebuild would be excessive, but leaving the current problems in place is costing time and confidence.',
+      },
+      {
+        heading: 'How the engagement usually runs',
+        body:
+          'The work typically starts with an audit of the live experience, the reported issues, and the highest-priority user journeys. After that, I group the problems by impact across performance, layout, interactions, and technical conflicts, then implement fixes in a sequence that actually stabilizes the site. Validation matters here because bug-fixing without retesting is how regressions survive into production, especially on responsive pages and script-heavy templates.',
+      },
+      {
+        heading: 'What results to expect',
+        body:
+          'The best outcome is not just a cleaner Lighthouse score or a shorter bug list. It is a site that feels more stable, easier to navigate, and less likely to break on the pages that drive leads or sales. Clients usually expect clearer diagnostics, stronger before-and-after visibility, and fixes applied where users were already feeling friction. If needed, the work can continue as a recurring optimization sprint rather than a one-time patch.',
+      },
+    ],
+  },
+  'ui-implementation': {
+    startingPrice: '$1,499+',
+    startingPriceValue: 1499,
+    pricingNote:
+      'UI implementation projects usually start from $1,499+ when the goal is clean design-to-code delivery across multiple responsive sections, reusable components, and QA review.',
+    detailSections: [
+      {
+        heading: 'What this service actually covers',
+        body:
+          'UI implementation is where approved design direction gets translated into a real interface that still holds up in the browser. That includes spacing systems, responsive layout behavior, content states, interactions, accessibility basics, and reusable component structure. The point is not only to make the page look visually close to the design, but to make sure it behaves consistently once real content, edge cases, and cross-browser review enter the picture.',
+      },
+      {
+        heading: 'Who this work is best for',
+        body:
+          'This service is ideal for teams that already have design files, a component system, or a visual direction, but need someone to carry it into production with care. It is also useful when the live frontend feels close, but not close enough: inconsistent spacing, weak mobile hierarchy, unstable components, or handoff gaps are making the experience feel less premium than intended. That is often where trust drops, even when the design itself is strong.',
+      },
+      {
+        heading: 'How the engagement usually runs',
+        body:
+          'Projects usually begin with reviewing the source designs, the priority states, and the most important breakpoints. I then translate the layouts into reusable frontend structure, refine the interactions where needed, and test the responsive behavior so the UI still feels intentional on smaller screens. During QA, I pay special attention to typography, spacing rhythm, form behavior, and the sections where users are most likely to judge the brand quickly.',
+      },
+      {
+        heading: 'What results to expect',
+        body:
+          'Clients normally want a frontend that feels more finished, more consistent, and easier to extend later. That means cleaner visual alignment, steadier responsive behavior, reusable components, and fewer surprises between the design file and the live environment. When the implementation quality is right, the page does not just look polished. It also communicates that the business behind it pays attention to detail.',
+      },
+    ],
+  },
+  'qa-testing': {
+    startingPrice: 'Quote based',
+    pricingNote:
+      'QA support is usually scoped per sprint, release cycle, or ongoing workflow because the right price depends on the number of flows, devices, and reporting depth involved.',
+    detailSections: [
+      {
+        heading: 'What this service actually covers',
+        body:
+          'QA testing and documentation is about reducing release risk before users find the problems first. That includes mapping the important journeys, running structured checks across the right devices and browsers, logging issues clearly, and retesting fixes instead of assuming they are resolved. On many projects, the real value is not just bug discovery. It is giving the team a cleaner way to prioritize what is blocking launch readiness and what is safe to ship.',
+      },
+      {
+        heading: 'Who this work is best for',
+        body:
+          'This service fits active product teams, ecommerce businesses, agencies, and launch-stage websites that cannot afford unclear bug reporting or rushed testing. It is especially useful when internal QA is inconsistent, the project is near release, or several contributors are making changes at once and the team needs a tighter validation pass. Clear QA becomes even more valuable when the site has forms, carts, dynamic content, or multi-step user journeys.',
+      },
+      {
+        heading: 'How the engagement usually runs',
+        body:
+          'The engagement normally starts by identifying the flows that actually matter most, such as lead capture, product browsing, cart behavior, checkout, booking, or onboarding. I then test those flows with structured coverage, log issues with reproducible detail, and group them by severity so the team can make decisions faster. Once fixes are shipped, the retest step confirms whether the real problem is gone and whether any adjacent regressions were introduced.',
+      },
+      {
+        heading: 'What results to expect',
+        body:
+          'Clients usually expect stronger release confidence, clearer issue tracking, and less ambiguity about what is still blocking launch. They also get better visibility into how the product behaves for actual users instead of only relying on assumptions from staging review. When QA is handled well, the whole delivery process becomes calmer because the fix loop gets shorter and the risks are easier to see before they reach production.',
+      },
+    ],
+  },
+  'seo-ready': {
+    startingPrice: '$699+',
+    startingPriceValue: 699,
+    pricingNote:
+      'Technical SEO setup usually starts from $699+ when added to a build or cleanup project, with broader on-page content work and authority growth handled separately.',
+    detailSections: [
+      {
+        heading: 'What this service actually covers',
+        body:
+          'SEO-ready website setup focuses on the technical and structural work that helps search engines crawl the site cleanly and understand what each page is about. That includes titles, descriptions, headings, canonicals, schema, sitemap support, robots setup, internal linking basics, and launch checks around indexation intent. It is intentionally practical: the goal is to remove preventable technical mistakes without pretending that metadata alone replaces content depth or authority.',
+      },
+      {
+        heading: 'Who this work is best for',
+        body:
+          'This service is best for businesses launching a new site, rebuilding an existing one, or cleaning up a site that has weak technical foundations. It is especially helpful when the site has several service pages, case studies, or blog posts that need clearer structure before marketing pushes harder on search. It also works well as an add-on for WordPress, Shopify, or Webflow builds that want to start with cleaner crawlability instead of fixing those basics later.',
+      },
+      {
+        heading: 'How the engagement usually runs',
+        body:
+          'The work usually begins with reviewing the page structure, the URL behavior, and the metadata coverage on the routes that matter most commercially. From there, I tighten the on-page setup, supporting files, structured data, and internal link paths so the site sends more consistent signals. The final step is verifying how the built output actually renders, because SEO checks are only useful if the live version of the site matches the implementation plan.',
+      },
+      {
+        heading: 'What results to expect',
+        body:
+          'A strong outcome here means fewer technical blockers when Google or Bing first discover the site. Clients usually expect cleaner page-level metadata, better crawl support, stronger page-type clarity, and fewer preventable launch mistakes around canonicals, schema, or indexing files. This work improves readiness, not magic rankings. It gives the site a better foundation so later content, internal linking, and authority efforts are not fighting unnecessary technical confusion.',
+      },
+    ],
+  },
+}
+
+export const services = baseServices.map((service) => ({
+  ...service,
+  ...serviceEnhancements[service.id],
+}))
 
 export function getServiceBySlug(slug) {
   return services.find((service) => service.slug === slug)

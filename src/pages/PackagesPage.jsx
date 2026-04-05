@@ -34,6 +34,7 @@ export default function PackagesPage() {
         twitterTitle={metadata.twitterTitle}
         twitterDescription={metadata.twitterDescription}
         image={metadata.image}
+        keywords={metadata.keywords}
         jsonLd={[
           createWebPageSchema({
             path: routes.packages,
@@ -49,8 +50,8 @@ export default function PackagesPage() {
 
       <PageHero
         eyebrow="Packages"
-        title="Flexible Website Packages"
-        description="Clear pricing tiers for Starter, Growth, Premium, and Custom project requirements."
+        title="Website Packages from Hasnain Saeed"
+        description="Clear pricing tiers for startup sites, growth builds, premium implementation, and custom freelance web development support."
         breadcrumbs={breadcrumbItems}
       />
 

@@ -61,13 +61,12 @@ export default function HeroSection() {
 
           <div className="relative grid items-center gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:gap-6">
             <div className="max-w-3xl">
-              <p className="mb-4 text-xs uppercase tracking-[0.28em] text-orange-300/90">Hasnain Saeed | Freelance Web Developer</p>
+              <p className="mb-4 text-xs uppercase tracking-[0.28em] text-orange-300/90">Hasnain Saeed | Freelance Web Developer in Pakistan</p>
 
-              <h1 className="max-w-[16ch] text-[2rem] font-semibold leading-[1.14] text-white sm:text-[3rem] xl:text-[3.8rem]">
-                Websites That
-                <span className="text-gradient"> Ship Cleanly</span>
+              <h1 className="max-w-[18ch] text-[2rem] font-semibold leading-[1.14] text-white sm:text-[3rem] xl:text-[3.8rem]">
+                <span className="text-gradient">Freelance Shopify, WordPress &amp; Webflow Developer</span>
                 <br />
-                and Support Real Business Goals
+                Hasnain Saeed
               </h1>
 
               <div className="mt-5 flex flex-wrap items-center gap-3 text-zinc-200">
@@ -82,10 +81,8 @@ export default function HeroSection() {
                 </motion.span>
               </div>
 
-              <p className="mt-5 max-w-[56ch] text-zinc-300">
-                I help businesses launch and improve Shopify, WordPress, and Webflow websites with cleaner content structure,
-                dependable frontend implementation, and QA-backed delivery.
-              </p>
+              <p className="mt-5 max-w-[56ch] text-zinc-300">{siteConfig.firstPersonIntro}</p>
+              <p className="mt-4 max-w-[56ch] text-zinc-300">{siteConfig.firstPersonDifferentiator}</p>
 
               <div className="mt-7 flex flex-wrap gap-3">
                 <ButtonLink to="/contact">Book Consultation</ButtonLink>
@@ -105,6 +102,21 @@ export default function HeroSection() {
             </div>
 
             <div className="relative lg:pl-2">
+              <div className="mb-5 flex items-center gap-4 rounded-[1.6rem] border border-white/12 bg-white/[0.04] p-4 sm:p-5">
+                <img
+                  src={siteConfig.headshotImage}
+                  alt={`${siteConfig.name}, ${siteConfig.jobTitle} from ${siteConfig.location}`}
+                  className="h-20 w-20 rounded-[1.35rem] border border-white/12 object-cover object-top"
+                  loading="eager"
+                />
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">Direct Collaboration</p>
+                  <p className="mt-2 text-lg font-semibold text-white">{siteConfig.name}</p>
+                  <p className="mt-1 text-sm text-orange-200">{siteConfig.jobTitle}</p>
+                  <p className="mt-2 text-sm leading-6 text-zinc-300">Based in {siteConfig.location}, working directly with clients across {siteConfig.serviceMarkets.join(', ')}.</p>
+                </div>
+              </div>
+
               <div className="premium-card relative p-5 sm:p-6 lg:p-7">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <p className="text-xs uppercase tracking-[0.22em] text-zinc-400">Live Project Highlights</p>

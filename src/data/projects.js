@@ -14,6 +14,7 @@ export const projects = [
       'Structured the homepage around urgent rehab messaging, service discovery, doctor profiles, and appointment booking for the live clinic site.',
     cover: '/images/project-suave-cover.png',
     heroSummary: 'Live WordPress healthcare site for Suave Centro Medico, focused on urgent rehab care, service clarity, and appointment flow.',
+    clientName: 'Suave Centro Medico',
     clientOverview:
       'Suave Centro Medico is a Hialeah and Miami rehabilitation clinic presenting accident care, physical therapy, diagnostics, pain management, and walk-in medical support through a bilingual public website.',
     challenge:
@@ -46,11 +47,12 @@ export const projects = [
     category: 'WordPress',
     platform: 'WordPress',
     year: '2025',
-    resultBadge: 'Live brand site launch',
+    resultBadge: '9 sector pathways clarified',
     shortResult:
-      'Launched a polished WordPress and Elementor website that clarifies the MAPX brand story, sector expertise, and inquiry path.',
+      'Launched a polished WordPress and Elementor website that clarifies 9 sector pathways, the MAPX brand story, and the inquiry path for architecture prospects.',
     cover: '/images/project-mapx-cover.png',
     heroSummary: 'Live WordPress and Elementor implementation for MAPX Development, captured directly from the published website.',
+    clientName: 'MAPX Development',
     clientOverview:
       'MAPX Development is a Palm Beach County architecture and development business presenting community-focused work across civic, commercial, cultural, education, equestrian, historic, interiors, institutional, and retail sectors.',
     challenge:
@@ -89,6 +91,7 @@ export const projects = [
     cover: '/images/project-topdollar-cover.jpg',
     heroSummary:
       'Live WordPress and Elementor lead-generation site for a Palm Beach Gardens junk car buyer, centered on urgent seller intent and trust-building content.',
+    clientName: 'Top Dollar Junk Car Buyer',
     clientOverview:
       'This site targets Palm Beach Gardens vehicle owners who want to sell junk cars quickly, with clear promises around fair offers, free towing, title assistance, and fast local pickup.',
     challenge:
@@ -121,12 +124,13 @@ export const projects = [
     category: 'WordPress',
     platform: 'WordPress',
     year: '2025',
-    resultBadge: 'Luxury brand site',
+    resultBadge: '6 services clarified',
     shortResult:
-      'Built a polished WordPress brand site that showcases luxury interior design, remodeling, portfolio work, and consultation paths for Palm Beach clients.',
+      'Built a polished WordPress brand site that clarifies 6 interior design and design-build services while guiding Palm Beach clients into portfolio browsing and consultation.',
     cover: '/images/project-designinc-cover.jpg',
     heroSummary:
       'Live WordPress and Elementor website for Design Inc., presenting interior design and design-build services for Palm Beach residential and commercial clients.',
+    clientName: 'Design Inc.',
     clientOverview:
       'Design Inc. is a Florida interior design and design-build brand offering interior design, remodeling and construction, model merchandising, CAD support, warehouse and distribution, and boutique services.',
     challenge:
@@ -165,6 +169,7 @@ export const projects = [
     cover: '/images/project-showerglass-cover.jpg',
     heroSummary:
       'Live WordPress and Elementor website for Next Day Shower Glass, presenting residential and commercial glass solutions across Palm Beach County.',
+    clientName: 'Next Day Shower Glass',
     clientOverview:
       'Next Day Shower Glass serves homeowners and businesses with shower glass, frameless shower glass, custom glass, mirrors, and related residential and commercial glass installations.',
     challenge:
@@ -203,6 +208,7 @@ export const projects = [
     cover: '/images/project-apex-cover.jpg',
     heroSummary:
       'Live Webflow marketing site for Apex Tuition Australia, presenting private tutoring services, multi-state subject navigation, pricing, FAQ content, and tutor onboarding.',
+    clientName: 'Apex Tuition Australia',
     clientOverview:
       'Apex Tuition Australia is a national tutoring business offering one-on-one support across primary, middle school, high school, IB, VCE, HSC, QCE, SACE, and WACE pathways, with both online and in-person tutoring options.',
     challenge:
@@ -241,6 +247,7 @@ export const projects = [
     cover: '/images/project-pixeltrue-cover.png',
     heroSummary:
       'Live Webflow marketing site for Pixeltrue, presenting unlimited design subscriptions, tiered pricing, platform workflow, and work-gallery browsing.',
+    clientName: 'Pixeltrue',
     clientOverview:
       'Pixeltrue is a subscription design business serving startups, agencies, and growth-stage companies with recurring access to UI design, graphic design, illustration, animation, branding, presentations, and marketing assets.',
     challenge:
@@ -279,6 +286,7 @@ export const projects = [
     cover: '/images/project-aquifer-cover.png',
     heroSummary:
       'Live Webflow marketing site for Aquifer Growth, focused on product catalog automation, discoverability, managed commerce operations, pricing comparison, and consultation conversion.',
+    clientName: 'Aquifer Growth',
     clientOverview:
       'Aquifer Growth is an ecommerce operations business helping brands centralize and run product catalog management, inventory, PO and logistics workflows, site structure, discoverability, development, AI and SEO optimization, and analytics support.',
     challenge:
@@ -317,6 +325,7 @@ export const projects = [
     cover: '/images/project-aquifercfo-cover.png',
     heroSummary:
       'Live Webflow website for AquiferCFO, presenting plug-in finance department services, pricing comparisons, startup-focused credibility, industry pages, and direct lead capture.',
+    clientName: 'AquiferCFO',
     clientOverview:
       'AquiferCFO is a fractional finance and outsourced accounting partner for startups and small businesses, covering financial reporting, accounting systems, bookkeeping, payroll, corporate tax, and CFO strategy across fintech, SaaS, crypto, ecommerce, law, real estate, and healthcare.',
     challenge:
@@ -349,12 +358,13 @@ export const projects = [
     category: 'Shopify',
     platform: 'Shopify',
     year: '2026',
-    resultBadge: 'Collection-led shopping UX',
+    resultBadge: '5 category paths merchandised',
     shortResult:
-      'Built a Shopify fashion storefront with category-led merchandising, product-detail conversion flow, sale pricing, and review-backed shopping support for Pakistan customers.',
+      'Built a Shopify fashion storefront that merchandises 5 category paths, supports product-detail conversion flow, and reinforces trust for Pakistan shoppers.',
     cover: '/images/project-bebano-cover.png',
     heroSummary:
       'Live Shopify storefront for BEBANO, presenting festive wear, co-ord sets, silk pieces, western styles, and bags through a collection-first ecommerce experience.',
+    clientName: 'BEBANO',
     clientOverview:
       'BEBANO is a women’s fashion brand selling Eastern festive outfits, silk collections, co-ord sets, western looks, and accessories through a PKR storefront tailored to local shoppers in Pakistan.',
     challenge:
@@ -387,12 +397,13 @@ export const projects = [
     category: 'Shopify',
     platform: 'Shopify',
     year: '2026',
-    resultBadge: 'Premium collection-led UX',
+    resultBadge: '5 luxury collections merchandised',
     shortResult:
-      'Built a Shopify fashion storefront with premium homepage storytelling, category-led collection browsing, and conversion-ready product pages for Pakistan shoppers.',
+      'Built a Shopify fashion storefront that merchandises 5 luxury collections with premium storytelling and conversion-ready product pages for Pakistan shoppers.',
     cover: '/images/project-feyre-cover.png',
     heroSummary:
       'Live Shopify storefront for Feyre, presenting luxury pret, basic pret, festive wear, premium wear, and chikenkari through a polished, collection-first ecommerce experience.',
+    clientName: 'Feyre',
     clientOverview:
       'Feyre is a Pakistan-based luxury fashion brand selling handcrafted ready-to-wear and occasion pieces across luxury pret, festive wear, premium wear, chikenkari, and related seasonal collections in PKR.',
     challenge:

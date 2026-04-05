@@ -1,6 +1,7 @@
 import HeroSection from '../components/sections/HeroSection'
 import TrustRow from '../components/sections/TrustRow'
 import AboutPreviewSection from '../components/sections/AboutPreviewSection'
+import ProofHighlightsSection from '../components/sections/ProofHighlightsSection'
 import ServicesPreviewSection from '../components/sections/ServicesPreviewSection'
 import FeaturedProjectsSection from '../components/sections/FeaturedProjectsSection'
 import ProcessSection from '../components/sections/ProcessSection'
@@ -47,6 +48,7 @@ export default function HomePage() {
       <HeroSection />
       <TrustRow />
       <AboutPreviewSection />
+      <ProofHighlightsSection />
       <ServicesPreviewSection />
       <FeaturedProjectsSection />
       <ProcessSection />

@@ -12,6 +12,26 @@ const shareImages = {
   packages: '/images/project-mapx-cover.png',
 }
 
+const brandKeywords = [
+  'hasnain saeed portfolio',
+  'freelance web developer pakistan',
+  'hire web developer pakistan',
+  'freelance web developer for us clients',
+]
+
+const platformKeywords = ['shopify developer pakistan', 'wordpress developer pakistan', 'webflow developer pakistan']
+
+const geoIntentKeywords = [
+  'freelance shopify developer pakistan',
+  'shopify expert pakistan',
+  'hire wordpress developer pakistan',
+  'webflow developer for hire usa',
+]
+
+function mergeKeywords(...groups) {
+  return Array.from(new Set(groups.flat().filter(Boolean)))
+}
+
 function trimMetaDescription(value, maxLength = 160) {
   if (!value) return value
   if (value.length <= maxLength) return value
@@ -32,6 +52,9 @@ function createMetadata({
   twitterDescription,
   image = shareImages.default,
   type = 'website',
+  author = siteConfig.name,
+  publishedTime,
+  modifiedTime,
   keywords = [],
 }) {
   const resolvedTitle = title || siteConfig.siteTitle
@@ -49,6 +72,9 @@ function createMetadata({
     twitterDescription: trimMetaDescription(twitterDescription || resolvedOgDescription),
     image,
     type,
+    author,
+    publishedTime,
+    modifiedTime,
     keywords,
   }
 }
@@ -57,33 +83,45 @@ const staticPageMetadata = {
   home: createMetadata({
     title: 'Hasnain Saeed | Freelance Shopify, WordPress & Webflow Developer in Pakistan',
     description:
-      'Hire Hasnain Saeed for Shopify, WordPress, and Webflow development, bug fixing, technical SEO setup, UI implementation, and ongoing website support.',
+      'Freelance web developer in Pakistan for US, UK, and Canada clients. Hire Hasnain Saeed for Shopify, WordPress, Webflow, technical SEO, and QA-backed delivery.',
     pathname: routes.home,
     ogTitle: 'Freelance Shopify, WordPress & Webflow Developer',
     ogDescription:
-      'Explore services, case studies, packages, and practical guides for businesses that need a dependable freelance web developer.',
+      'Explore services, case studies, packages, and practical guides from a freelance Shopify, WordPress, and Webflow developer in Pakistan.',
     image: shareImages.home,
+    keywords: mergeKeywords(brandKeywords, platformKeywords, geoIntentKeywords, [
+      'hire shopify developer',
+      'hire wordpress developer',
+      'hire webflow developer',
+    ]),
   }),
   about: createMetadata({
-    title: 'About Hasnain Saeed | Shopify, WordPress & Webflow Developer',
+    title: 'About Hasnain Saeed | Freelance Web Developer in Pakistan',
     description:
-      'Learn how Hasnain Saeed approaches Shopify, WordPress, and Webflow projects with direct communication, QA-minded delivery, and technical implementation discipline.',
+      'Hasnain Saeed, freelance Shopify, WordPress and Webflow developer from Pakistan. QA-backed builds for USA, UK and Canada clients, direct from start to launch.',
     pathname: routes.about,
     image: shareImages.about,
+    keywords: mergeKeywords(brandKeywords, platformKeywords, ['about hasnain saeed', 'web developer pakistan']),
   }),
   services: createMetadata({
-    title: 'Shopify, WordPress & Webflow Services | Hasnain Saeed',
+    title: 'Hire Hasnain Saeed | Shopify, WordPress & Webflow Developer Services',
     description:
-      'Review Shopify, WordPress, and Webflow development services, plus landing pages, QA, bug fixing, UI implementation, and technical SEO setup.',
+      'Hire Hasnain Saeed in Pakistan for Shopify, WordPress, and Webflow development for US, UK, and Canada clients, plus QA, bug fixing, and technical SEO setup.',
     pathname: routes.services,
     image: shareImages.services,
+    keywords: mergeKeywords(brandKeywords, platformKeywords, geoIntentKeywords, [
+      'hire shopify developer',
+      'hire wordpress developer',
+      'hire webflow developer',
+    ]),
   }),
   portfolio: createMetadata({
-    title: 'Shopify, WordPress & Webflow Case Studies | Hasnain Saeed',
+    title: 'Hasnain Saeed Portfolio | Shopify, WordPress & Webflow Case Studies',
     description:
-      'Review detailed case studies covering Shopify, WordPress, and Webflow projects with screenshots, technical notes, outcomes, and live-site references.',
+      'Explore the Hasnain Saeed portfolio with Shopify, WordPress, and Webflow case studies, screenshots, technical notes, outcomes, and live-site references.',
     pathname: routes.portfolio,
     image: shareImages.portfolio,
+    keywords: mergeKeywords(brandKeywords, ['web developer portfolio pakistan', 'shopify portfolio', 'wordpress portfolio', 'webflow portfolio']),
   }),
   packages: createMetadata({
     title: 'Web Development Packages | Hasnain Saeed',
@@ -91,20 +129,23 @@ const staticPageMetadata = {
       'Compare website packages for startup sites, growth builds, premium implementation, and ongoing support before requesting a tailored project scope.',
     pathname: routes.packages,
     image: shareImages.packages,
+    keywords: mergeKeywords(brandKeywords, ['web development packages', 'freelance developer packages', 'website pricing pakistan']),
   }),
   blog: createMetadata({
-    title: 'Shopify, WordPress & Webflow Insights | Hasnain Saeed',
+    title: 'Hasnain Saeed Blog | Shopify, WordPress & Webflow Insights',
     description:
-      'Read practical insights on Shopify, WordPress, Webflow, technical SEO, website performance, QA, and implementation quality.',
+      'Read practical insights from Hasnain Saeed on Shopify, WordPress, Webflow, technical SEO, website performance, QA, and implementation quality.',
     pathname: routes.blog,
     image: shareImages.blog,
+    keywords: mergeKeywords(brandKeywords, ['web development blog pakistan', 'technical seo blog', 'shopify wordpress webflow blog']),
   }),
   contact: createMetadata({
-    title: 'Contact Hasnain Saeed | Web Development Inquiries',
+    title: 'Hire Hasnain Saeed | Freelance Web Developer in Pakistan',
     description:
-      'Start a project with Hasnain Saeed. Share your scope, platform, timeline, and goals for Shopify, WordPress, Webflow, optimization, or support work.',
+      'Hire Hasnain Saeed, a freelance web developer in Pakistan for US, UK, and Canada clients. Share your Shopify, WordPress, Webflow, or support scope.',
     pathname: routes.contact,
     image: shareImages.contact,
+    keywords: mergeKeywords(brandKeywords, platformKeywords, geoIntentKeywords, ['contact hasnain saeed', 'hire freelance web developer']),
   }),
   notFound: createMetadata({
     title: 'Page Not Found | Hasnain Saeed',
@@ -126,7 +167,19 @@ export function getProjectMetadata(project) {
     ogTitle: project.ogTitle || project.title,
     ogDescription: project.metaDescription || project.heroSummary || project.shortResult || siteConfig.description,
     image: project.cover || shareImages.portfolio,
-    keywords: Array.from(new Set([project.platform, project.category, 'case study', 'portfolio'].filter(Boolean))),
+    keywords: Array.from(
+      new Set(
+        [
+          project.platform,
+          project.category,
+          `${project.platform} case study`,
+          `${project.platform} portfolio`,
+          project.clientName,
+          'case study',
+          'portfolio',
+        ].filter(Boolean),
+      ),
+    ),
   })
 }
 
@@ -139,6 +192,9 @@ export function getBlogPostMetadata(post) {
     ogDescription: post.excerpt || post.metaDescription || siteConfig.description,
     image: post.image || shareImages.blog,
     type: 'article',
+    author: siteConfig.name,
+    publishedTime: post.date,
+    modifiedTime: post.date,
     keywords: post.keywords || [],
   })
 }

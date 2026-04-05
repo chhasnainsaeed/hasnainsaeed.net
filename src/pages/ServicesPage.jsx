@@ -47,6 +47,7 @@ export default function ServicesPage() {
         twitterTitle={metadata.twitterTitle}
         twitterDescription={metadata.twitterDescription}
         image={metadata.image}
+        keywords={metadata.keywords}
         jsonLd={[
           createOrganizationSchema(serviceNames),
           createCollectionPageSchema({
@@ -64,8 +65,8 @@ export default function ServicesPage() {
 
       <PageHero
         eyebrow="Services"
-        title="Premium Web Development, Implementation, and QA Services"
-        description="Detailed services built for businesses that need quality execution, better performance, and conversion-focused outcomes."
+        title="Shopify, WordPress, and Webflow Services by Hasnain Saeed"
+        description="Freelance Shopify, WordPress, and Webflow development from Pakistan for US, UK, and Canada clients that need cleaner execution, stronger conversion paths, and QA-backed delivery."
         breadcrumbs={breadcrumbItems}
       />
 
@@ -78,6 +79,9 @@ export default function ServicesPage() {
                   <p className="text-xs uppercase tracking-[0.2em] text-orange-300/80">{service.icon}</p>
                   <h2 className="mt-2 text-2xl font-semibold text-white">{service.title}</h2>
                   <p className="mt-3 text-sm text-zinc-300">{service.summary}</p>
+                  <p className="mt-3 text-xs uppercase tracking-[0.16em] text-zinc-500">
+                    {service.startingPrice ? `Starting from ${service.startingPrice}` : 'Quoted based on scope'}
+                  </p>
                   <ButtonLink to={getServicePath(service.slug)} variant="ghost" className="mt-5">
                     View Service Page
                   </ButtonLink>

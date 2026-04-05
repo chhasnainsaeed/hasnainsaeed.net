@@ -6,6 +6,13 @@ import { siteConfig } from '../utils/site'
 function upsertMeta(attribute, value, content) {
   let tag = document.head.querySelector(`meta[${attribute}="${value}"]`)
 
+  if (!content) {
+    if (tag?.dataset.seoManaged === 'true') {
+      tag.remove()
+    }
+    return
+  }
+
   if (!tag) {
     tag = document.createElement('meta')
     tag.setAttribute(attribute, value)
@@ -33,6 +40,7 @@ function syncDocumentHead(state) {
   document.title = state.title
 
   upsertMeta('name', 'description', state.description)
+  upsertMeta('name', 'author', state.author)
   upsertMeta('name', 'keywords', state.keywords)
   upsertMeta('name', 'robots', state.robots)
   upsertMeta('property', 'og:site_name', siteConfig.name)
@@ -42,6 +50,9 @@ function syncDocumentHead(state) {
   upsertMeta('property', 'og:description', state.ogDescription)
   upsertMeta('property', 'og:url', state.canonical)
   upsertMeta('property', 'og:image', state.image)
+  upsertMeta('property', 'og:updated_time', state.modifiedTime)
+  upsertMeta('property', 'article:published_time', state.publishedTime)
+  upsertMeta('property', 'article:modified_time', state.modifiedTime)
   upsertMeta('name', 'twitter:card', 'summary_large_image')
   upsertMeta('name', 'twitter:title', state.twitterTitle)
   upsertMeta('name', 'twitter:description', state.twitterDescription)
