@@ -31,6 +31,10 @@ export default function ServicesPage() {
   const serviceItems = services.map((service) => ({ name: service.title, path: getServicePath(service.slug) }))
   const featuredGuides = [...blogPosts].sort((left, right) => new Date(right.date) - new Date(left.date)).slice(0, 3)
   const faqSchema = createFAQSchema(faqs, routes.services)
+  const breadcrumbItems = [
+    { name: 'Home', path: routes.home },
+    { name: 'Services', path: routes.services },
+  ]
 
   return (
     <>
@@ -53,10 +57,7 @@ export default function ServicesPage() {
             items: serviceItems,
             about: serviceNames,
           }),
-          createBreadcrumbSchema([
-            { name: 'Home', path: routes.home },
-            { name: 'Services', path: routes.services },
-          ]),
+          createBreadcrumbSchema(breadcrumbItems),
           ...(faqSchema ? [faqSchema] : []),
         ]}
       />
@@ -65,6 +66,7 @@ export default function ServicesPage() {
         eyebrow="Services"
         title="Premium Web Development, Implementation, and QA Services"
         description="Detailed services built for businesses that need quality execution, better performance, and conversion-focused outcomes."
+        breadcrumbs={breadcrumbItems}
       />
 
       <section className="section-pad pb-12">

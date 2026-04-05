@@ -66,6 +66,10 @@ export default function ContactPage() {
   const serviceNames = services.map((service) => service.title)
   const faqSchema = createFAQSchema(faqs, routes.contact)
   const contactEndpoint = import.meta.env.VITE_CONTACT_FORM_ENDPOINT || '/contact-form.php'
+  const breadcrumbItems = [
+    { name: 'Home', path: routes.home },
+    { name: 'Contact', path: routes.contact },
+  ]
 
   const validate = () => {
     const nextErrors = {}
@@ -200,10 +204,7 @@ export default function ContactPage() {
             type: 'ContactPage',
             about: ['website project inquiry', ...serviceNames],
           }),
-          createBreadcrumbSchema([
-            { name: 'Home', path: routes.home },
-            { name: 'Contact', path: routes.contact },
-          ]),
+          createBreadcrumbSchema(breadcrumbItems),
           ...(faqSchema ? [faqSchema] : []),
         ]}
       />
@@ -212,6 +213,7 @@ export default function ContactPage() {
         eyebrow="Contact"
         title="Start Your Project"
         description="Share the platform, blocker, and target outcome. The contact form sends the project brief directly by email, and WhatsApp is still available if a faster conversation is better."
+        breadcrumbs={breadcrumbItems}
       />
 
       <section className="section-pad pb-16">

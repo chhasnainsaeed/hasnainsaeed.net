@@ -15,6 +15,10 @@ export default function BlogPage() {
   const metadata = getStaticPageMetadata('blog')
   const sortedBlogPosts = useMemo(() => [...blogPosts].sort((left, right) => new Date(right.date) - new Date(left.date)), [])
   const categories = useMemo(() => ['All', ...new Set(sortedBlogPosts.map((post) => post.category))], [sortedBlogPosts])
+  const breadcrumbItems = [
+    { name: 'Home', path: routes.home },
+    { name: 'Blog', path: routes.blog },
+  ]
 
   const filtered = useMemo(() => {
     return sortedBlogPosts.filter((post) => {
@@ -48,10 +52,7 @@ export default function BlogPage() {
             })),
             about: categories.filter((item) => item !== 'All'),
           }),
-          createBreadcrumbSchema([
-            { name: 'Home', path: routes.home },
-            { name: 'Blog', path: routes.blog },
-          ]),
+          createBreadcrumbSchema(breadcrumbItems),
         ]}
       />
 
@@ -59,6 +60,7 @@ export default function BlogPage() {
         eyebrow="Blog"
         title="Insights on Development, Optimization, and QA"
         description="Published guides on Shopify, WordPress, Webflow, technical SEO, launch QA, ongoing maintenance, and frontend implementation quality."
+        breadcrumbs={breadcrumbItems}
       />
 
       <section className="section-pad pb-16">

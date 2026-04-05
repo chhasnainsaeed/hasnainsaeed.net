@@ -30,6 +30,11 @@ export default function BlogDetailPage() {
   const faqSchema = createFAQSchema(post.faq, postPath)
   const relatedServices = getRelatedServicesForPost(post)
   const relatedProjects = getRelatedProjectsForPost(post)
+  const breadcrumbItems = [
+    { name: 'Home', path: routes.home },
+    { name: 'Blog', path: routes.blog },
+    { name: post.title, path: postPath },
+  ]
 
   return (
     <>
@@ -54,16 +59,12 @@ export default function BlogDetailPage() {
             about: [post.category, ...(post.keywords || [])],
           }),
           createArticleSchema(post),
-          createBreadcrumbSchema([
-            { name: 'Home', path: routes.home },
-            { name: 'Blog', path: routes.blog },
-            { name: post.title, path: postPath },
-          ]),
+          createBreadcrumbSchema(breadcrumbItems),
           ...(faqSchema ? [faqSchema] : []),
         ]}
       />
 
-      <PageHero eyebrow={post.category} title={post.title} description={post.excerpt} />
+      <PageHero eyebrow={post.category} title={post.title} description={post.excerpt} breadcrumbs={breadcrumbItems} />
 
       <section className="section-pad pb-12">
         <div className="section-wrap grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">

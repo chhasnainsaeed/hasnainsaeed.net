@@ -1,4 +1,5 @@
 import { FiArrowRight, FiLayers, FiMessageSquare, FiShield, FiZap } from 'react-icons/fi'
+import Breadcrumbs from '../components/ui/Breadcrumbs'
 import Reveal from '../components/ui/Reveal'
 import ButtonLink from '../components/ui/ButtonLink'
 import Seo from '../seo/Seo'
@@ -99,6 +100,10 @@ const modeChips = ['Independent partner', 'Build + QA', 'Launch support', 'Async
 
 export default function AboutPage() {
   const metadata = getStaticPageMetadata('about')
+  const breadcrumbItems = [
+    { name: 'Home', path: routes.home },
+    { name: 'About', path: routes.about },
+  ]
 
   return (
     <>
@@ -120,10 +125,7 @@ export default function AboutPage() {
             image: metadata.image,
             about: [siteConfig.name, siteConfig.jobTitle, ...siteConfig.corePlatforms],
           }),
-          createBreadcrumbSchema([
-            { name: 'Home', path: routes.home },
-            { name: 'About', path: routes.about },
-          ]),
+          createBreadcrumbSchema(breadcrumbItems),
         ]}
       />
 
@@ -142,6 +144,7 @@ export default function AboutPage() {
 
             <div className="relative grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
               <div>
+                <Breadcrumbs items={breadcrumbItems} className="mb-5" />
                 <p className="text-xs uppercase tracking-[0.28em] text-orange-300/90">About</p>
                 <h1 className="mt-5 max-w-[12ch] text-5xl font-semibold leading-[0.96] tracking-[-0.05em] text-white sm:text-6xl lg:text-[5.4rem]">
                   Web development with design discipline and QA built in.

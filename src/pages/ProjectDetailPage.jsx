@@ -40,6 +40,11 @@ export default function ProjectDetailPage() {
   const metadata = getProjectMetadata(project)
   const primaryService = getPrimaryServiceForProject(project)
   const relatedPosts = getRelatedPostsForProject(project).slice(0, 2)
+  const breadcrumbItems = [
+    { name: 'Home', path: routes.home },
+    { name: 'Portfolio', path: routes.portfolio },
+    { name: project.title, path: projectPath },
+  ]
 
   return (
     <>
@@ -63,15 +68,11 @@ export default function ProjectDetailPage() {
             about: Array.from(new Set([project.platform, project.category, 'case study'])),
           }),
           createCaseStudySchema(project),
-          createBreadcrumbSchema([
-            { name: 'Home', path: routes.home },
-            { name: 'Portfolio', path: routes.portfolio },
-            { name: project.title, path: projectPath },
-          ]),
+          createBreadcrumbSchema(breadcrumbItems),
         ]}
       />
 
-      <PageHero eyebrow={`${project.platform} | ${project.year}`} title={project.title} description={project.heroSummary} />
+      <PageHero eyebrow={`${project.platform} | ${project.year}`} title={project.title} description={project.heroSummary} breadcrumbs={breadcrumbItems} />
 
       <section className="section-pad pb-14">
         <div className="section-wrap">

@@ -12,6 +12,10 @@ import { getProjectPath, routes } from '../utils/routes'
 export default function PortfolioPage() {
   const [activeFilter, setActiveFilter] = useState('All')
   const metadata = getStaticPageMetadata('portfolio')
+  const breadcrumbItems = [
+    { name: 'Home', path: routes.home },
+    { name: 'Portfolio', path: routes.portfolio },
+  ]
 
   const visibleProjects = useMemo(() => {
     if (activeFilter === 'All') return projects
@@ -41,10 +45,7 @@ export default function PortfolioPage() {
             })),
             about: ['Shopify case studies', 'WordPress case studies', 'Webflow case studies'],
           }),
-          createBreadcrumbSchema([
-            { name: 'Home', path: routes.home },
-            { name: 'Portfolio', path: routes.portfolio },
-          ]),
+          createBreadcrumbSchema(breadcrumbItems),
         ]}
       />
 
@@ -52,6 +53,7 @@ export default function PortfolioPage() {
         eyebrow="Portfolio"
         title="Case Study Portfolio"
         description="Filterable project gallery across Shopify, WordPress, and Webflow work, each supported by screenshots and implementation notes."
+        breadcrumbs={breadcrumbItems}
       />
 
       <section className="section-pad pb-16">

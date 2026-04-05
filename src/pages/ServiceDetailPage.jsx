@@ -27,6 +27,11 @@ export default function ServiceDetailPage() {
   const relatedProjects = getRelatedProjectsForService(service)
   const relatedPosts = getRelatedPostsForService(service)
   const relatedServices = services.filter((item) => item.slug !== service.slug).slice(0, 3)
+  const breadcrumbItems = [
+    { name: 'Home', path: routes.home },
+    { name: 'Services', path: routes.services },
+    { name: service.title, path: servicePath },
+  ]
 
   return (
     <>
@@ -50,16 +55,12 @@ export default function ServiceDetailPage() {
             about: Array.from(new Set([service.title, ...(service.keywords || [])])),
           }),
           createServiceSchema(service, servicePath),
-          createBreadcrumbSchema([
-            { name: 'Home', path: routes.home },
-            { name: 'Services', path: routes.services },
-            { name: service.title, path: servicePath },
-          ]),
+          createBreadcrumbSchema(breadcrumbItems),
           ...(faqSchema ? [faqSchema] : []),
         ]}
       />
 
-      <PageHero eyebrow={`${service.eyebrow} | ${service.timeline}`} title={service.title} description={service.intro} />
+      <PageHero eyebrow={`${service.eyebrow} | ${service.timeline}`} title={service.title} description={service.intro} breadcrumbs={breadcrumbItems} />
 
       <section className="section-pad pb-12">
         <div className="section-wrap grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">

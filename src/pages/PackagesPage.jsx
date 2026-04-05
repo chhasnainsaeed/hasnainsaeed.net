@@ -18,6 +18,10 @@ const faqs = [
 export default function PackagesPage() {
   const metadata = getStaticPageMetadata('packages')
   const faqSchema = createFAQSchema(faqs, routes.packages)
+  const breadcrumbItems = [
+    { name: 'Home', path: routes.home },
+    { name: 'Packages', path: routes.packages },
+  ]
 
   return (
     <>
@@ -38,10 +42,7 @@ export default function PackagesPage() {
             image: metadata.image,
             about: ['website packages', 'pricing guidance', 'freelance web development'],
           }),
-          createBreadcrumbSchema([
-            { name: 'Home', path: routes.home },
-            { name: 'Packages', path: routes.packages },
-          ]),
+          createBreadcrumbSchema(breadcrumbItems),
           ...(faqSchema ? [faqSchema] : []),
         ]}
       />
@@ -50,6 +51,7 @@ export default function PackagesPage() {
         eyebrow="Packages"
         title="Flexible Website Packages"
         description="Clear pricing tiers for Starter, Growth, Premium, and Custom project requirements."
+        breadcrumbs={breadcrumbItems}
       />
 
       <section className="section-pad pb-14">
