@@ -8,7 +8,9 @@ export default function FinalCtaSection() {
       <div className="section-wrap">
         <Reveal className="premium-card p-8 text-center sm:p-14">
           <p className="text-xs uppercase tracking-[0.28em] text-orange-300/90">Ready to Start</p>
-          <h2 className="mt-4 text-3xl font-semibold text-white sm:text-5xl">Let's Build a Website That Converts</h2>
+          <h2 className="mx-auto mt-4 max-w-[16ch] text-balance text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-white sm:text-[3.2rem]">
+            Let's Build a Website That Converts
+          </h2>
           <p className="mx-auto mt-4 max-w-2xl text-zinc-300">
             Need a premium, high-performing website for your business? Let's discuss goals, scope, and a practical launch plan.
           </p>

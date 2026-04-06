@@ -46,7 +46,7 @@ export default function HeroSection() {
             <div className="max-w-3xl">
               <p className="mb-4 text-xs uppercase tracking-[0.28em] text-orange-300/90">Hasnain Saeed | Freelance Web Developer in Pakistan</p>
 
-              <h1 className="max-w-[18ch] text-[2rem] font-semibold leading-[1.14] text-white sm:text-[3rem] xl:text-[3.8rem]">
+              <h1 className="max-w-[19ch] text-balance text-[1.95rem] font-semibold leading-[1.08] tracking-[-0.035em] text-white sm:text-[2.75rem] xl:text-[3.45rem]">
                 <span className="text-gradient">Freelance Shopify, WordPress &amp; Webflow Developer</span>
                 <br />
                 Hasnain Saeed

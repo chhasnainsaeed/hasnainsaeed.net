@@ -34,8 +34,8 @@ export default function ProofHighlightsSection() {
           </article>
 
           <article className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5 sm:p-6">
-            <p className="text-3xl font-semibold text-white">USA, UK &amp; Canada</p>
-            <p className="mt-2 text-[11px] uppercase tracking-[0.18em] text-zinc-500">Active client markets</p>
+            <p className="text-3xl font-semibold text-white">Remote / International</p>
+            <p className="mt-2 text-[11px] uppercase tracking-[0.18em] text-zinc-500">Delivery model</p>
             <p className="mt-4 text-sm leading-7 text-zinc-300">
               The work is structured for remote collaboration across different time zones, with direct communication from first reply through launch support.
             </p>
@@ -54,7 +54,7 @@ export default function ProofHighlightsSection() {
           {proofProjects.map((project, index) => (
             <Reveal key={project.slug} delay={index * 0.05} className="rounded-[1.7rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] p-6">
               <p className="text-[11px] uppercase tracking-[0.18em] text-zinc-500">{project.platform}</p>
-              <h3 className="mt-3 text-2xl font-semibold text-white">{project.resultBadge}</h3>
+              <h3 className="mt-3 text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">{project.resultBadge}</h3>
               <p className="mt-4 text-sm leading-7 text-zinc-300">{project.shortResult}</p>
               <p className="mt-4 text-sm leading-7 text-zinc-400">{project.title}</p>
               <Link to={getProjectPath(project.slug)} className="mt-6 inline-flex text-sm font-semibold text-orange-300">

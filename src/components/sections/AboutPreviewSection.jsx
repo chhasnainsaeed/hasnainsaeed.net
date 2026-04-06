@@ -56,7 +56,7 @@ export default function AboutPreviewSection() {
 
             <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.02fr)_380px] lg:gap-12">
               <div>
-                <h2 className="max-w-[12ch] text-3xl font-semibold leading-[1.06] text-white sm:text-4xl lg:text-[3.1rem]">
+                <h2 className="max-w-[18ch] text-balance text-[2.1rem] font-semibold leading-[1.08] tracking-[-0.035em] text-white sm:text-[2.75rem] lg:text-[3rem]">
                   Quiet execution for websites that need to feel finished.
                 </h2>
                 <p className="mt-5 max-w-[60ch] text-sm leading-7 text-zinc-300 sm:text-base sm:leading-8">
@@ -104,7 +104,7 @@ export default function AboutPreviewSection() {
               {serviceColumns.map((item) => (
                 <article key={item.label} className="bg-[linear-gradient(180deg,rgba(255,255,255,0.035),rgba(255,255,255,0.02))] p-5 sm:p-6">
                   <p className="text-[11px] uppercase tracking-[0.18em] text-zinc-500">{item.label}</p>
-                  <h3 className="mt-4 text-xl font-semibold text-white">{item.title}</h3>
+                  <h3 className="mt-4 text-balance text-xl font-semibold leading-[1.15] tracking-[-0.02em] text-white">{item.title}</h3>
                   <p className="mt-3 text-sm leading-7 text-zinc-300">{item.note}</p>
                 </article>
               ))}

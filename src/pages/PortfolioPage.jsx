@@ -63,10 +63,12 @@ export default function PortfolioPage() {
           <Reveal className="premium-card mb-8 p-7 sm:p-8">
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(16rem,0.8fr)]">
               <div className="space-y-4">
-                <h2 className="text-2xl font-semibold text-white">Shopify, WordPress, and Webflow case studies for international clients</h2>
+                <h2 className="max-w-[20ch] text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">
+                  Shopify, WordPress, and Webflow case studies for international clients
+                </h2>
                 <p className="max-w-3xl text-sm text-zinc-300">
-                  This portfolio brings together selected Shopify, WordPress, and Webflow projects delivered for businesses in the USA,
-                  UK, Australia, and Pakistan. Each case study focuses on the real implementation work: launch-ready builds, clearer user
+                  This portfolio brings together selected Shopify, WordPress, and Webflow projects delivered for businesses across Australia,
+                  Pakistan, and wider international markets. Each case study focuses on the real implementation work: launch-ready builds, clearer user
                   journeys, QA checks, and the business outcomes the site needed to support.
                 </p>
                 <p className="max-w-3xl text-sm text-zinc-300">

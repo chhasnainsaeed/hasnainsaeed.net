@@ -84,13 +84,13 @@ export default function BlogDetailPage() {
               <img src={post.image} alt={post.title} className="mx-auto h-auto w-auto max-h-[34rem] max-w-full" loading="eager" />
             </div>
             <div className="p-6 sm:p-8">
-              <h2 className="text-2xl font-semibold text-white">Why this topic matters</h2>
+              <h2 className="text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">Why this topic matters</h2>
               <p className="mt-4 text-zinc-300">{post.intro}</p>
             </div>
           </Reveal>
 
           <Reveal className="premium-card p-6 sm:p-8" delay={0.08}>
-            <h2 className="text-2xl font-semibold text-white">Article Snapshot</h2>
+            <h2 className="text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">Article Snapshot</h2>
             <div className="mt-5 grid gap-4">
               <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
                 <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">Author</p>
@@ -117,7 +117,7 @@ export default function BlogDetailPage() {
       <section className="section-pad pb-12">
         <div className="section-wrap grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
           <Reveal className="premium-card p-6 sm:p-8">
-            <h2 className="text-2xl font-semibold text-white">Key Takeaways</h2>
+            <h2 className="text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">Key Takeaways</h2>
             <ul className="mt-4 space-y-3 text-sm text-zinc-300">
               {post.keyTakeaways.map((item) => (
                 <li key={item}>- {item}</li>
@@ -126,7 +126,7 @@ export default function BlogDetailPage() {
           </Reveal>
 
           <Reveal className="premium-card p-6 sm:p-8" delay={0.08}>
-            <h2 className="text-2xl font-semibold text-white">On This Page</h2>
+            <h2 className="text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">On This Page</h2>
             <nav aria-label="Article sections" className="mt-5">
               <ol className="space-y-3 text-sm text-zinc-300">
                 {post.sections.map((section) => (
@@ -149,7 +149,10 @@ export default function BlogDetailPage() {
         <div className="section-wrap space-y-6">
           {post.sections.map((section, index) => (
             <Reveal key={section.heading} className="premium-card p-6 sm:p-8" delay={index * 0.04}>
-              <h2 id={getSectionId(section.heading)} className="scroll-mt-28 text-2xl font-semibold text-white">
+              <h2
+                id={getSectionId(section.heading)}
+                className="scroll-mt-28 text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white"
+              >
                 {section.heading}
               </h2>
               <p className="mt-4 max-w-4xl text-zinc-300">{section.body}</p>
@@ -193,11 +196,13 @@ export default function BlogDetailPage() {
       <section className="section-pad pb-16">
         <div className="section-wrap grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
           <Reveal>
-            <h2 className="mb-5 text-3xl font-semibold text-white">FAQ</h2>
+            <h2 className="mb-5 text-balance text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-white">FAQ</h2>
             <FaqAccordion items={post.faq} />
           </Reveal>
           <Reveal className="premium-card p-7 sm:p-8" delay={0.08}>
-            <h2 className="text-2xl font-semibold text-white">Turn this topic into execution</h2>
+            <h2 className="text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">
+              Turn this topic into execution
+            </h2>
             <p className="mt-4 text-sm text-zinc-300">
               If this issue already affects a live website, the next step is implementation, cleanup, and QA on the pages that matter most.
             </p>

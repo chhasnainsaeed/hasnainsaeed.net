@@ -350,7 +350,7 @@ export default function ContactPage() {
 
           <Reveal className="space-y-6" delay={0.08}>
             <div className="premium-card p-7">
-              <h2 className="text-2xl font-semibold text-white">Direct Contact</h2>
+              <h2 className="text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">Direct Contact</h2>
               <ul className="mt-4 space-y-3 text-sm text-zinc-300">
                 <li>
                   Email:{' '}
@@ -371,7 +371,7 @@ export default function ContactPage() {
             </div>
 
             <div className="premium-card p-7">
-              <h2 className="text-2xl font-semibold text-white">Best details to include</h2>
+              <h2 className="text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">Best details to include</h2>
               <ul className="mt-4 space-y-2 text-sm text-zinc-300">
                 <li>- The current platform or tech stack</li>
                 <li>- The main blocker or opportunity</li>
@@ -381,7 +381,7 @@ export default function ContactPage() {
             </div>
 
             <div className="premium-card p-7">
-              <h2 className="text-2xl font-semibold text-white">Before you send the brief</h2>
+              <h2 className="text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">Before you send the brief</h2>
               <p className="mt-3 text-sm text-zinc-300">If you need help narrowing scope first, the fastest review paths are the service pages and the portfolio case studies.</p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <ButtonLink to={routes.services}>Review Services</ButtonLink>
@@ -397,11 +397,13 @@ export default function ContactPage() {
       <section className="section-pad pb-16">
         <div className="section-wrap grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
           <Reveal className="premium-card p-7 sm:p-8">
-            <h2 className="text-3xl font-semibold text-white">Frequently Asked Questions</h2>
+            <h2 className="max-w-[18ch] text-balance text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-white">
+              Frequently Asked Questions
+            </h2>
             <div className="mt-6 space-y-4">
               {faqs.map((item) => (
                 <article key={item.question} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
-                  <h3 className="text-lg font-semibold text-white">{item.question}</h3>
+                  <h3 className="text-balance text-lg font-semibold leading-[1.18] tracking-[-0.01em] text-white">{item.question}</h3>
                   <p className="mt-2 text-sm text-zinc-300">{item.answer}</p>
                 </article>
               ))}
@@ -409,7 +411,7 @@ export default function ContactPage() {
           </Reveal>
 
           <Reveal className="premium-card p-7 sm:p-8" delay={0.08}>
-            <h2 className="text-2xl font-semibold text-white">What happens next?</h2>
+            <h2 className="text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">What happens next?</h2>
             <p className="mt-4 text-sm text-zinc-300">
               The first reply is meant to reduce ambiguity. You can expect a direct answer on fit, likely scope, and the clearest next step for the project.
             </p>

@@ -11,13 +11,13 @@ export const siteConfig = {
   jobTitle: 'Freelance Shopify, WordPress & Webflow Developer',
   siteTitle: 'Hasnain Saeed | Freelance Shopify, WordPress & Webflow Developer',
   description:
-    'Hasnain Saeed is a freelance Shopify, WordPress, and Webflow developer in Pakistan helping US, UK, and Canada clients with website builds, technical SEO foundations, bug fixing, UI implementation, and ongoing support.',
+    'Hasnain Saeed is a freelance Shopify, WordPress, and Webflow developer in Pakistan helping international clients with website builds, technical SEO foundations, bug fixing, UI implementation, and ongoing support.',
   authorBio:
-    'Hasnain Saeed is a freelance web developer in Pakistan helping US, UK, and Canada clients build, improve, and maintain Shopify, WordPress, and Webflow websites with a focus on content clarity, technical quality, and dependable execution.',
+    'Hasnain Saeed is a freelance web developer in Pakistan helping international clients build, improve, and maintain Shopify, WordPress, and Webflow websites with a focus on content clarity, technical quality, and dependable execution.',
   firstPersonIntro:
-    "I'm Hasnain Saeed, a freelance Shopify, WordPress, and Webflow developer from Pakistan working with US, UK, and Canada clients. I build, refine, and launch websites with cleaner structure, dependable frontend implementation, and QA-backed delivery.",
+    "I'm Hasnain Saeed, a freelance Shopify, WordPress, and Webflow developer from Pakistan working with international clients. I build, refine, and launch websites with cleaner structure, dependable frontend implementation, and QA-backed delivery.",
   firstPersonDifferentiator:
-    'Most of the work I take on already has direction behind it. Clients hire me as a freelance web developer for US clients and international teams when they need direct collaboration, careful QA, and a live site that feels polished, performs reliably, and stays manageable after launch.',
+    'Most of the work I take on already has direction behind it. Clients hire me when they need direct collaboration, careful QA, and a live site that feels polished, performs reliably, and stays manageable after launch.',
   url: 'https://hasnainsaeed.net',
   locale: 'en_US',
   contactEmail: 'hello@hasnainsaeed.net',
@@ -33,9 +33,9 @@ export const siteConfig = {
     bing: runtimeEnv.VITE_BING_SITE_VERIFICATION || runtimeEnv.BING_SITE_VERIFICATION || '',
     yandex: runtimeEnv.VITE_YANDEX_SITE_VERIFICATION || runtimeEnv.YANDEX_SITE_VERIFICATION || '',
   },
-  serviceMarkets: ['USA', 'UK', 'Canada', 'International'],
+  serviceMarkets: ['North America', 'Europe', 'Australia', 'International'],
   location: 'Pakistan',
-  timezoneNote: 'Remote collaboration across USA, UK, Canada, and international time zones.',
+  timezoneNote: 'Remote collaboration across international time zones.',
   directContactNote: 'You speak directly with Hasnain from first reply to delivery.',
   corePlatforms: ['Shopify', 'WordPress', 'Webflow', 'WooCommerce'],
 }

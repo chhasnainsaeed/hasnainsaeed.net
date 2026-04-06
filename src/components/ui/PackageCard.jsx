@@ -12,7 +12,7 @@ export default function PackageCard({ pack }) {
           Most Popular
         </span>
       ) : null}
-      <h3 className="text-2xl font-semibold text-white">{pack.name}</h3>
+      <h3 className="text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">{pack.name}</h3>
       <p className="mt-2 text-xs uppercase tracking-[0.2em] text-zinc-400">Best For</p>
       <p className="mt-1 text-sm text-zinc-200">{pack.idealFor}</p>
       <p className="mt-2 text-3xl font-bold text-gradient">{pack.price}</p>

@@ -43,12 +43,12 @@ const baseServices = [
     seoLabel: 'Shopify store development',
     metaTitle: 'Freelance Shopify Developer in Pakistan | Shopify Store Development',
     metaDescription:
-      'Shopify store development from a freelance Shopify developer in Pakistan for US and international brands that need stronger UX, reusable sections, and launch-ready QA.',
+      'Shopify store development from a freelance Shopify developer in Pakistan for international brands that need stronger UX, reusable sections, and launch-ready QA.',
     icon: 'SF',
     eyebrow: 'Conversion-Focused Ecommerce',
     summary: 'Shopify storefront builds and customizations focused on conversion and clean UX.',
     intro:
-      'Shopify store development from a freelance Shopify developer in Pakistan for US and international brands that need polished storefront UX, stronger product discovery, and fewer conversion blockers.',
+      'Shopify store development from a freelance Shopify developer in Pakistan for international brands that need polished storefront UX, stronger product discovery, and fewer conversion blockers.',
     image: '/images/project-feyre-cover.png',
     keywords: [
       'shopify store development',
@@ -77,18 +77,18 @@ const baseServices = [
     slug: 'webflow-development',
     title: 'Webflow Developer for Hire',
     seoLabel: 'Webflow development',
-    metaTitle: 'Webflow Developer for Hire for USA Teams | Hasnain Saeed',
+    metaTitle: 'Webflow Developer for Hire | Hasnain Saeed',
     metaDescription:
-      'Webflow development from a Webflow developer for hire for USA teams, startups, and brands that need polished implementation, stronger CMS structure, and smoother launch readiness.',
+      'Webflow development from a Webflow developer for hire for startups, teams, and brands that need polished implementation, stronger CMS structure, and smoother launch readiness.',
     icon: 'WF',
     eyebrow: 'Polished Webflow Execution',
     summary: 'Premium Webflow implementations for startups and personal brands.',
     intro:
-      'Webflow development from a Webflow developer for hire for USA, UK, and Canada clients who need polished implementation, smoother CMS editing, and a launch-ready experience that still feels deliberate on mobile.',
+      'Webflow development from a Webflow developer for hire for international clients who need polished implementation, smoother CMS editing, and a launch-ready experience that still feels deliberate on mobile.',
     image: '/images/project-apex-cover.jpg',
     keywords: [
       'webflow development',
-      'webflow developer for hire usa',
+      'remote webflow developer',
       'hire webflow developer',
       'webflow developer pakistan',
       'webflow cms build',

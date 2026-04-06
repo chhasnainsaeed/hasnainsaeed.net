@@ -112,13 +112,15 @@ export default function ProjectDetailPage() {
         <div className="section-wrap grid gap-6 lg:grid-cols-2">
           <Reveal className="premium-card p-6">
             <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">Project Snapshot</p>
-            <h2 className="mt-2 text-2xl font-semibold text-white">{project.resultBadge}</h2>
+            <h2 className="mt-2 text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">{project.resultBadge}</h2>
             <p className="mt-3 text-sm text-zinc-300">{project.shortResult}</p>
           </Reveal>
           {project.websiteUrl ? (
             <Reveal className="premium-card p-6" delay={0.08}>
               <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">Live Client Site</p>
-              <h2 className="mt-2 text-2xl font-semibold text-white">{project.clientName || 'Published Website'}</h2>
+              <h2 className="mt-2 text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">
+                {project.clientName || 'Published Website'}
+              </h2>
               <p className="mt-3 text-sm text-zinc-300">
                 Published reference available at <span className="text-zinc-100">{projectDomain}</span> for credibility checks, content
                 review, and live QA validation.
@@ -134,19 +136,19 @@ export default function ProjectDetailPage() {
             </Reveal>
           ) : null}
           <Reveal className="premium-card p-6">
-            <h2 className="text-2xl font-semibold text-white">Client Overview</h2>
+            <h2 className="text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">Client Overview</h2>
             <p className="mt-3 text-sm text-zinc-300">{project.clientOverview}</p>
           </Reveal>
           <Reveal className="premium-card p-6" delay={project.websiteUrl ? 0 : 0.08}>
-            <h2 className="text-2xl font-semibold text-white">Challenge</h2>
+            <h2 className="text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">Challenge</h2>
             <p className="mt-3 text-sm text-zinc-300">{project.challenge}</p>
           </Reveal>
           <Reveal className="premium-card p-6">
-            <h2 className="text-2xl font-semibold text-white">Solution</h2>
+            <h2 className="text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">Solution</h2>
             <p className="mt-3 text-sm text-zinc-300">{project.solution}</p>
           </Reveal>
           <Reveal className="premium-card p-6" delay={0.08}>
-            <h2 className="text-2xl font-semibold text-white">Development Process</h2>
+            <h2 className="text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">Development Process</h2>
             <ul className="mt-3 space-y-2 text-sm text-zinc-300">
               {project.process.map((step) => (
                 <li key={step}>- {step}</li>
@@ -154,11 +156,11 @@ export default function ProjectDetailPage() {
             </ul>
           </Reveal>
           <Reveal className="premium-card p-6">
-            <h2 className="text-2xl font-semibold text-white">QA / Testing Notes</h2>
+            <h2 className="text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">QA / Testing Notes</h2>
             <p className="mt-3 text-sm text-zinc-300">{project.qaNotes}</p>
           </Reveal>
           <Reveal className="premium-card p-6" delay={0.08}>
-            <h2 className="text-2xl font-semibold text-white">Result Highlights</h2>
+            <h2 className="text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">Result Highlights</h2>
             <ul className="mt-3 space-y-2 text-sm text-zinc-300">
               {project.results.map((result) => (
                 <li key={result}>- {result}</li>
@@ -171,7 +173,7 @@ export default function ProjectDetailPage() {
       <section className="section-pad pb-16">
         <div className="section-wrap space-y-6">
           <Reveal className="premium-card p-6">
-            <h2 className="text-2xl font-semibold text-white">Tools Used</h2>
+            <h2 className="text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">Tools Used</h2>
             <div className="mt-4 flex flex-wrap gap-2">
               {project.tools.map((tool) => (
                 <span key={tool} className="rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs text-zinc-200">
@@ -194,7 +196,7 @@ export default function ProjectDetailPage() {
           </div>
           {project.testimonial ? (
             <Reveal className="premium-card p-6">
-              <h2 className="text-2xl font-semibold text-white">Client Testimonial</h2>
+              <h2 className="text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">Client Testimonial</h2>
               <p className="mt-3 text-zinc-200">"{project.testimonial.quote}"</p>
               <p className="mt-4 text-sm text-zinc-400">
                 {project.testimonial.name} - {project.testimonial.role}
@@ -206,7 +208,7 @@ export default function ProjectDetailPage() {
               {primaryService ? (
                 <Reveal className="premium-card p-7 sm:p-8">
                   <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">Related Service</p>
-                  <h2 className="mt-2 text-2xl font-semibold text-white">{primaryService.title}</h2>
+                  <h2 className="mt-2 text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">{primaryService.title}</h2>
                   <p className="mt-4 max-w-3xl text-sm text-zinc-300">{primaryService.summary}</p>
                   <div className="mt-6 flex flex-wrap gap-3">
                     <ButtonLink to={getServicePath(primaryService.slug)}>View Service</ButtonLink>
@@ -219,10 +221,12 @@ export default function ProjectDetailPage() {
 
               {relatedPosts.length ? (
                 <>
-                  <Reveal className="flex items-end justify-between gap-4">
-                    <div>
+                  <Reveal className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+                    <div className="max-w-[46rem]">
                       <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">Related Guides</p>
-                      <h2 className="mt-2 text-3xl font-semibold text-white">Helpful articles tied to this build</h2>
+                      <h2 className="mt-2 max-w-[18ch] text-balance text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-white">
+                        Helpful articles tied to this build
+                      </h2>
                     </div>
                     <Link to={routes.blog} className="text-sm font-semibold text-orange-300">
                       Browse Blog &rarr;

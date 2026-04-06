@@ -8,7 +8,7 @@ export default function ServiceCard({ service }) {
       <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-orange-400/40 bg-orange-500/12 text-xs font-bold text-orange-300 transition duration-300 group-hover:scale-110 group-hover:rotate-6">
         {service.icon}
       </span>
-      <h3 className="mt-4 text-xl font-semibold text-white">{service.title}</h3>
+      <h3 className="mt-4 text-balance text-xl font-semibold leading-[1.15] tracking-[-0.02em] text-white">{service.title}</h3>
       <p className="mt-3 flex-1 text-sm text-zinc-300">{service.summary}</p>
       <p className="mt-4 text-xs uppercase tracking-[0.16em] text-zinc-500">
         {service.startingPrice ? `Starting from ${service.startingPrice}` : 'Quoted based on scope'}

@@ -17,7 +17,7 @@ const statMeta = {
   },
   'Service Markets': {
     chip: 'Markets',
-    note: 'Remote collaboration for USA, UK, Canada, and international clients.',
+    note: 'Remote collaboration for international clients and distributed teams.',
   },
 }
 
@@ -47,7 +47,9 @@ export default function TrustRow() {
           <div className="relative grid gap-5 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
             <div>
               <p className="text-xs uppercase tracking-[0.26em] text-orange-200/85">Credibility</p>
-              <h2 className="mt-3 max-w-2xl text-3xl font-semibold text-white sm:text-4xl">Built Around Public Proof and Direct Delivery</h2>
+              <h2 className="mt-3 max-w-[18ch] text-balance text-[2rem] font-semibold leading-[1.08] tracking-[-0.03em] text-white sm:text-[2.6rem]">
+                Built Around Public Proof and Direct Delivery
+              </h2>
               <p className="mt-3 max-w-xl text-sm text-zinc-300 sm:text-base">
                 The site now centers on real portfolio work, clear service scope, and a direct working model instead of generic agency-style claims.
               </p>

@@ -97,11 +97,13 @@ export default function PackagesPage() {
       <section className="section-pad pb-16">
         <div className="section-wrap grid gap-6 lg:grid-cols-2">
           <Reveal>
-            <h2 className="mb-5 text-3xl font-semibold text-white">Frequently Asked Questions</h2>
+            <h2 className="mb-5 max-w-[18ch] text-balance text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-white">
+              Frequently Asked Questions
+            </h2>
             <FaqAccordion items={faqs} />
           </Reveal>
           <Reveal className="premium-card p-7" delay={0.08}>
-            <h3 className="text-2xl font-semibold text-white">Need a Custom Proposal?</h3>
+            <h3 className="text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">Need a Custom Proposal?</h3>
             <p className="mt-3 text-zinc-300">Share your goals and timeline to receive a tailored scope with realistic delivery milestones.</p>
             <ButtonLink to="/contact" className="mt-6">
               Book Consultation

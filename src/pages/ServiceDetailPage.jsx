@@ -79,7 +79,7 @@ export default function ServiceDetailPage() {
           </Reveal>
 
           <Reveal className="premium-card p-6 sm:p-8" delay={0.08}>
-            <h2 className="text-2xl font-semibold text-white">Service Snapshot</h2>
+            <h2 className="text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">Service Snapshot</h2>
             <div className="mt-5 grid gap-4">
               <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
                 <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">Ideal Fit</p>
@@ -114,7 +114,7 @@ export default function ServiceDetailPage() {
           <div className="section-wrap grid gap-6 lg:grid-cols-2">
             {service.detailSections.map((section, index) => (
               <Reveal key={section.heading} className="premium-card p-6 sm:p-8" delay={index * 0.05}>
-                <h2 className="text-2xl font-semibold text-white">{section.heading}</h2>
+                <h2 className="text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">{section.heading}</h2>
                 <p className="mt-4 text-sm leading-8 text-zinc-300">{section.body}</p>
               </Reveal>
             ))}
@@ -125,7 +125,9 @@ export default function ServiceDetailPage() {
       <section className="section-pad pb-12">
         <div className="section-wrap grid gap-6 lg:grid-cols-2">
           <Reveal className="premium-card p-6 sm:p-8">
-            <h2 className="text-2xl font-semibold text-white">Problems solved by {serviceKeyword}</h2>
+            <h2 className="max-w-[20ch] text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">
+              Problems solved by {serviceKeyword}
+            </h2>
             <ul className="mt-4 space-y-3 text-sm text-zinc-300">
               {service.painPoints.map((item) => (
                 <li key={item}>- {item}</li>
@@ -134,7 +136,9 @@ export default function ServiceDetailPage() {
           </Reveal>
 
           <Reveal className="premium-card p-6 sm:p-8" delay={0.08}>
-            <h2 className="text-2xl font-semibold text-white">What&apos;s included in {serviceKeyword}</h2>
+            <h2 className="max-w-[20ch] text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">
+              What&apos;s included in {serviceKeyword}
+            </h2>
             <ul className="mt-4 space-y-3 text-sm text-zinc-300">
               {service.includes.map((item) => (
                 <li key={item}>- {item}</li>
@@ -147,7 +151,9 @@ export default function ServiceDetailPage() {
       <section className="section-pad pb-12">
         <div className="section-wrap grid gap-6 lg:grid-cols-2">
           <Reveal className="premium-card p-6 sm:p-8">
-            <h2 className="text-2xl font-semibold text-white">Deliverables and outcomes from {serviceKeyword}</h2>
+            <h2 className="max-w-[20ch] text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">
+              Deliverables and outcomes from {serviceKeyword}
+            </h2>
             <h3 className="mt-5 text-sm uppercase tracking-[0.18em] text-zinc-400">Deliverables</h3>
             <ul className="mt-3 space-y-2 text-sm text-zinc-300">
               {service.deliverables.map((item) => (
@@ -163,7 +169,9 @@ export default function ServiceDetailPage() {
           </Reveal>
 
           <Reveal className="premium-card p-6 sm:p-8" delay={0.08}>
-            <h2 className="text-2xl font-semibold text-white">How {serviceKeyword} projects usually run</h2>
+            <h2 className="max-w-[20ch] text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">
+              How {serviceKeyword} projects usually run
+            </h2>
             <ol className="mt-5 space-y-4">
               {service.workflow.map((step, index) => (
                 <li key={step} className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
@@ -179,10 +187,12 @@ export default function ServiceDetailPage() {
 
       <section className="section-pad pb-12">
         <div className="section-wrap space-y-6">
-          <Reveal className="flex items-end justify-between gap-4">
-            <div>
+          <Reveal className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-[46rem]">
               <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">Related Proof</p>
-              <h2 className="mt-2 text-3xl font-semibold text-white">Relevant case studies for {serviceKeyword}</h2>
+              <h2 className="mt-2 max-w-[18ch] text-balance text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-white">
+                Relevant case studies for {serviceKeyword}
+              </h2>
             </div>
             <Link to={routes.portfolio} className="text-sm font-semibold text-orange-300">
               View Portfolio &rarr;
@@ -202,10 +212,12 @@ export default function ServiceDetailPage() {
       {relatedPosts.length ? (
         <section className="section-pad pb-12">
           <div className="section-wrap space-y-6">
-          <Reveal className="flex items-end justify-between gap-4">
-            <div>
+          <Reveal className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-[46rem]">
               <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">Support Content</p>
-              <h2 className="mt-2 text-3xl font-semibold text-white">Guides related to {serviceKeyword}</h2>
+              <h2 className="mt-2 max-w-[18ch] text-balance text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-white">
+                Guides related to {serviceKeyword}
+              </h2>
             </div>
             <Link to={routes.blog} className="text-sm font-semibold text-orange-300">
               Browse Blog &rarr;
@@ -226,12 +238,14 @@ export default function ServiceDetailPage() {
       <section className="section-pad pb-16">
         <div className="section-wrap grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
           <Reveal>
-            <h2 className="mb-5 text-3xl font-semibold text-white">FAQ about {serviceKeyword}</h2>
+            <h2 className="mb-5 max-w-[18ch] text-balance text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-white">
+              FAQ about {serviceKeyword}
+            </h2>
             <FaqAccordion items={service.faq} />
           </Reveal>
 
           <Reveal className="premium-card p-7 sm:p-8" delay={0.08}>
-            <h2 className="text-2xl font-semibold text-white">Explore related services</h2>
+            <h2 className="text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">Explore related services</h2>
             <div className="mt-5 space-y-4">
               {relatedServices.map((item) => (
                 <Link

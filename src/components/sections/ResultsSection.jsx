@@ -33,7 +33,7 @@ const resultStats = [
     value: siteConfig.serviceMarkets.length,
     suffix: '',
     progress: 54,
-    note: 'Remote delivery is positioned for clients in the USA, UK, Canada, and other international markets.',
+    note: 'Remote delivery is positioned for international clients and cross-time-zone collaboration.',
   },
 ]
 
@@ -62,7 +62,7 @@ export default function ResultsSection() {
                 <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-white/10">
                   <div className="h-full rounded-full bg-gradient-to-r from-orange-500 to-red-500" style={{ width: `${item.progress}%` }} />
                 </div>
-                <h3 className="mt-4 text-lg font-semibold text-white">{item.title}</h3>
+                <h3 className="mt-4 text-balance text-lg font-semibold leading-[1.18] tracking-[-0.01em] text-white">{item.title}</h3>
                 <p className="mt-2 text-sm text-zinc-300">{item.note}</p>
               </article>
             </Reveal>

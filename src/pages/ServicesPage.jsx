@@ -13,7 +13,7 @@ import { getServicePath, routes } from '../utils/routes'
 const faqs = [
   {
     question: 'Do you work with international clients?',
-    answer: 'Yes. I regularly collaborate with clients in USA, UK, and Canada using async-friendly workflows and clear milestone updates.',
+    answer: 'Yes. I regularly collaborate with international clients using async-friendly workflows and clear milestone updates.',
   },
   {
     question: 'Can you join existing projects for fixes and optimization?',
@@ -66,7 +66,7 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Services"
         title="Shopify, WordPress, and Webflow Services by Hasnain Saeed"
-        description="Freelance Shopify, WordPress, and Webflow development from Pakistan for US, UK, and Canada clients that need cleaner execution, stronger conversion paths, and QA-backed delivery."
+        description="Freelance Shopify, WordPress, and Webflow development from Pakistan for international clients that need cleaner execution, stronger conversion paths, and QA-backed delivery."
         breadcrumbs={breadcrumbItems}
       />
 
@@ -77,7 +77,7 @@ export default function ServicesPage() {
               <div className="grid gap-6 lg:grid-cols-[1fr_1fr_1fr]">
                 <div>
                   <p className="text-xs uppercase tracking-[0.2em] text-orange-300/80">{service.icon}</p>
-                  <h2 className="mt-2 text-2xl font-semibold text-white">{service.title}</h2>
+                  <h2 className="mt-2 text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">{service.title}</h2>
                   <p className="mt-3 text-sm text-zinc-300">{service.summary}</p>
                   <p className="mt-3 text-xs uppercase tracking-[0.16em] text-zinc-500">
                     {service.startingPrice ? `Starting from ${service.startingPrice}` : 'Quoted based on scope'}
@@ -114,11 +114,11 @@ export default function ServicesPage() {
       <section className="section-pad py-12">
         <div className="section-wrap grid gap-6 lg:grid-cols-2">
           <Reveal>
-            <h2 className="mb-5 text-3xl font-semibold text-white">FAQ</h2>
+            <h2 className="mb-5 text-balance text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-white">FAQ</h2>
             <FaqAccordion items={faqs} />
           </Reveal>
           <Reveal className="premium-card p-7" delay={0.1}>
-            <h2 className="text-2xl font-semibold text-white">Why Work With Hasnain</h2>
+            <h2 className="text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">Why Work With Hasnain</h2>
             <ul className="mt-4 space-y-2 text-sm text-zinc-300">
               <li>- Platform-specific implementation expertise</li>
               <li>- Conversion-aware UI decisions</li>
@@ -134,10 +134,12 @@ export default function ServicesPage() {
 
       <section className="section-pad pb-18">
         <div className="section-wrap space-y-6">
-          <Reveal className="flex items-end justify-between gap-4">
-            <div>
+          <Reveal className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-[46rem]">
               <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">Content Support</p>
-              <h2 className="mt-2 text-3xl font-semibold text-white">Guides connected to these services</h2>
+              <h2 className="mt-2 max-w-[18ch] text-balance text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-white">
+                Guides connected to these services
+              </h2>
             </div>
             <ButtonLink to={routes.blog} variant="ghost">
               View All Articles

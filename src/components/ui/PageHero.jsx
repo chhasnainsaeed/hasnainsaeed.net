@@ -8,8 +8,10 @@ export default function PageHero({ eyebrow, title, description, breadcrumbs = []
         <Reveal className="premium-card overflow-hidden p-8 sm:p-12">
           {breadcrumbs.length ? <Breadcrumbs items={breadcrumbs} className="mb-5" /> : null}
           <p className="text-xs uppercase tracking-[0.28em] text-orange-300/90">{eyebrow}</p>
-          <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">{title}</h1>
-          <p className="mt-5 max-w-3xl text-lg text-zinc-300">{description}</p>
+          <h1 className="mt-4 max-w-[22ch] text-balance text-[2.4rem] font-semibold leading-[1.06] tracking-[-0.035em] text-white sm:text-[3.2rem] lg:text-[4rem]">
+            {title}
+          </h1>
+          <p className="mt-5 max-w-[64ch] text-base leading-7 text-zinc-300 sm:text-lg">{description}</p>
         </Reveal>
       </div>
     </section>

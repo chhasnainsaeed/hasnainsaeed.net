@@ -19,7 +19,7 @@ export default function ProcessSection() {
             <Reveal key={step.title} delay={index * 0.05}>
               <article className="premium-card relative p-5">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-orange-300">{String(index + 1).padStart(2, '0')}</p>
-                <h3 className="mt-2 text-xl font-semibold text-white">{step.title}</h3>
+                <h3 className="mt-2 text-balance text-xl font-semibold leading-[1.15] tracking-[-0.02em] text-white">{step.title}</h3>
                 <p className="mt-2 text-sm text-zinc-300">{step.description}</p>
               </article>
             </Reveal>

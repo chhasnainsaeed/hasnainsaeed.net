@@ -62,9 +62,9 @@ export const fallbackAnswers = [
   },
   {
     intent: 'location',
-    keywords: ['country', 'location', 'international', 'usa', 'uk', 'canada', 'remote', 'timezone'],
+    keywords: ['country', 'location', 'international', 'remote', 'timezone'],
     answer:
-      'Projects are delivered remotely for international clients (USA, UK, Canada) with clear async communication and milestones.',
+      'Projects are delivered remotely for international clients with clear async communication and milestones.',
   },
   {
     intent: 'portfolio',

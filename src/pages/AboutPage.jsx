@@ -131,7 +131,7 @@ export default function AboutPage() {
         ]}
       />
 
-      <section className="section-pad pb-12 pt-12 sm:pt-16">
+      <section className="section-pad pb-8 pt-12 sm:pt-16">
         <div className="section-wrap">
           <Reveal className="relative overflow-hidden rounded-[2.4rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(255,115,0,0.22),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(255,77,45,0.16),transparent_32%),linear-gradient(180deg,#15161d_0%,#08090d_100%)] px-6 py-8 shadow-[0_30px_90px_rgba(0,0,0,0.36)] sm:px-8 sm:py-10 lg:px-12 lg:py-14">
             <div
@@ -144,16 +144,15 @@ export default function AboutPage() {
             />
             <div className="pointer-events-none absolute -right-10 top-0 h-56 w-56 rounded-full bg-orange-500/16 blur-3xl" />
 
-            <div className="relative grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+            <div className="relative grid gap-10 lg:grid-cols-[minmax(0,1.16fr)_minmax(18rem,0.84fr)] lg:items-center lg:gap-8">
               <div>
                 <Breadcrumbs items={breadcrumbItems} className="mb-5" />
                 <p className="text-xs uppercase tracking-[0.28em] text-orange-300/90">About</p>
-                <h1 className="mt-5 max-w-[13ch] text-5xl font-semibold leading-[0.96] tracking-[-0.05em] text-white sm:text-6xl lg:text-[5.4rem]">
-                  Hasnain Saeed, freelance web developer with design discipline and QA built in.
+                <h1 className="mt-5 max-w-[19ch] text-balance text-[2.35rem] font-semibold leading-[1.05] tracking-[-0.035em] text-white sm:text-[3rem] lg:text-[3.85rem]">
+                  Freelance web developer with design discipline and QA built in.
                 </h1>
-                <p className="mt-6 max-w-[64ch] text-base leading-8 text-zinc-300 sm:text-lg">
-                  {siteConfig.authorBio} The work is not just about getting pages online. It is about making sure the live version still feels polished,
-                  stable, and ready once real traffic hits.
+                <p className="mt-5 max-w-[60ch] text-base leading-7 text-zinc-300 sm:text-[1.05rem]">
+                  {siteConfig.authorBio} The goal is a live site that still feels polished, stable, and ready once real traffic hits.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
@@ -164,35 +163,55 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              <div className="grid gap-4">
+              <div className="grid gap-4 lg:max-w-[26rem] lg:justify-self-end">
                 <ProfilePortrait showCaption={false} />
-                <div className="rounded-[1.9rem] border border-white/10 bg-black/20 p-6 backdrop-blur-sm">
-                  <p className="text-[11px] uppercase tracking-[0.22em] text-zinc-500">Operating Mode</p>
-                  <p className="mt-4 text-2xl font-semibold leading-tight text-white">Direct collaboration from first reply to launch-ready delivery.</p>
-                  <p className="mt-4 text-sm leading-7 text-zinc-300">{siteConfig.directContactNote}</p>
-                  <p className="mt-2 text-sm leading-7 text-zinc-300">{siteConfig.timezoneNote}</p>
-
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {modeChips.map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-full border border-white/12 bg-white/[0.05] px-3 py-1.5 text-[11px] uppercase tracking-[0.16em] text-zinc-200"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="grid gap-px overflow-hidden rounded-[1.9rem] border border-white/10 bg-white/10 sm:grid-cols-2">
-                  {heroStats.map((item) => (
-                    <div key={item.label} className="bg-[linear-gradient(180deg,rgba(255,255,255,0.045),rgba(255,255,255,0.02))] p-5">
-                      <p className="text-3xl font-semibold tracking-[-0.04em] text-white">{item.value}</p>
-                      <p className="mt-2 text-[11px] uppercase tracking-[0.18em] text-zinc-400">{item.label}</p>
-                    </div>
-                  ))}
+                <div className="rounded-[1.9rem] border border-white/10 bg-black/20 p-5 backdrop-blur-sm">
+                  <p className="text-[11px] uppercase tracking-[0.22em] text-zinc-500">Working Style</p>
+                  <p className="mt-3 text-xl font-semibold leading-[1.2] tracking-[-0.02em] text-white">
+                    Direct collaboration, cleaner execution, and QA built into delivery.
+                  </p>
+                  <p className="mt-3 text-sm leading-7 text-zinc-300">{siteConfig.directContactNote}</p>
                 </div>
               </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section-pad pb-12 pt-4">
+        <div className="section-wrap grid gap-6 lg:grid-cols-[1.04fr_0.96fr]">
+          <Reveal className="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(17,17,20,0.94),rgba(8,9,13,0.94))] p-7 sm:p-8">
+            <p className="text-xs uppercase tracking-[0.24em] text-orange-300/85">Operating Mode</p>
+            <h2 className="mt-4 max-w-[20ch] text-balance text-[2rem] font-semibold leading-[1.08] tracking-[-0.03em] text-white sm:text-[2.7rem]">
+              Direct collaboration from first reply to launch-ready delivery.
+            </h2>
+            <p className="mt-4 text-sm leading-7 text-zinc-300">{siteConfig.directContactNote}</p>
+            <p className="mt-2 text-sm leading-7 text-zinc-300">{siteConfig.timezoneNote}</p>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              {modeChips.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-white/12 bg-white/[0.05] px-3 py-1.5 text-[11px] uppercase tracking-[0.16em] text-zinc-200"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </Reveal>
+
+          <Reveal className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03]" delay={0.06}>
+            <div className="border-b border-white/10 px-6 py-5 sm:px-7">
+              <p className="text-xs uppercase tracking-[0.22em] text-zinc-500">Quick Snapshot</p>
+              <p className="mt-3 text-lg font-semibold text-white">A compact view of how I usually work with clients.</p>
+            </div>
+            <div className="grid gap-px bg-white/10 sm:grid-cols-2">
+              {heroStats.map((item) => (
+                <div key={item.label} className="bg-[linear-gradient(180deg,rgba(255,255,255,0.045),rgba(255,255,255,0.02))] p-5 sm:p-6">
+                  <p className="text-3xl font-semibold tracking-[-0.04em] text-white">{item.value}</p>
+                  <p className="mt-2 text-[11px] uppercase tracking-[0.18em] text-zinc-400">{item.label}</p>
+                </div>
+              ))}
             </div>
           </Reveal>
         </div>
@@ -202,7 +221,7 @@ export default function AboutPage() {
         <div className="section-wrap grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <Reveal className="lg:pt-6">
             <p className="text-xs uppercase tracking-[0.26em] text-orange-300/85">What The Work Is</p>
-            <h2 className="mt-5 max-w-[12ch] text-4xl font-semibold leading-[1.02] tracking-[-0.04em] text-white sm:text-[3.35rem]">
+            <h2 className="mt-5 max-w-[18ch] text-balance text-[2.2rem] font-semibold leading-[1.06] tracking-[-0.035em] text-white sm:text-[3rem]">
               Usually not a blank-slate build. Usually the finishing work that matters.
             </h2>
             <p className="mt-6 max-w-[58ch] text-sm leading-8 text-zinc-300 sm:text-base">
@@ -235,7 +254,7 @@ export default function AboutPage() {
                     <p className="text-3xl font-semibold tracking-[-0.05em] text-orange-300">{item.number}</p>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-semibold leading-tight text-white">{item.title}</h3>
+                    <h3 className="text-[1.65rem] font-semibold leading-[1.12] tracking-[-0.025em] text-white">{item.title}</h3>
                     <p className="mt-3 max-w-[60ch] text-sm leading-7 text-zinc-300">{item.description}</p>
                   </div>
                   <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-orange-300/20 bg-orange-400/10 text-orange-200">
@@ -254,7 +273,9 @@ export default function AboutPage() {
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div>
                 <p className="text-xs uppercase tracking-[0.24em] text-orange-300/85">Timeline</p>
-                <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">How the role evolved</h2>
+                <h2 className="mt-4 text-balance text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-white sm:text-4xl">
+                  How the role evolved
+                </h2>
               </div>
               <span className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-[11px] uppercase tracking-[0.16em] text-zinc-400">
                 2020 to now
@@ -266,7 +287,7 @@ export default function AboutPage() {
                 <Reveal key={item.year} delay={0.08 + index * 0.05} className="relative">
                   <span className="absolute left-[-31px] top-2 h-5 w-5 rounded-full border border-orange-300/30 bg-orange-400/14 shadow-[0_0_0_6px_rgba(255,115,0,0.07)]" />
                   <p className="text-[11px] uppercase tracking-[0.2em] text-orange-200">{item.year}</p>
-                  <h3 className="mt-2 text-xl font-semibold text-white">{item.title}</h3>
+                  <h3 className="mt-2 text-balance text-xl font-semibold leading-[1.15] tracking-[-0.02em] text-white">{item.title}</h3>
                   <p className="mt-2 max-w-[58ch] text-sm leading-7 text-zinc-300">{item.note}</p>
                 </Reveal>
               ))}
@@ -278,7 +299,9 @@ export default function AboutPage() {
               <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-orange-300/25 bg-black/10 text-orange-100">
                 <FiZap className="h-5 w-5" />
               </span>
-              <h2 className="mt-6 max-w-[14ch] text-3xl font-semibold leading-tight text-white">The best work happens when execution is treated like part of the strategy.</h2>
+              <h2 className="mt-6 max-w-[18ch] text-balance text-[2rem] font-semibold leading-[1.08] tracking-[-0.03em] text-white">
+                The best work happens when execution is treated like part of the strategy.
+              </h2>
               <p className="mt-4 text-sm leading-7 text-zinc-100/90">
                 That means the final build is expected to read clearly, hold up across devices, and reduce the usual launch friction instead of adding to it.
               </p>
@@ -304,10 +327,10 @@ export default function AboutPage() {
 
       <section className="section-pad py-12">
         <div className="section-wrap">
-          <Reveal className="flex flex-wrap items-end justify-between gap-4">
-            <div>
+          <Reveal className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-[48rem]">
               <p className="text-xs uppercase tracking-[0.24em] text-orange-300/85">Platforms</p>
-              <h2 className="mt-4 max-w-[12ch] text-4xl font-semibold leading-[1.02] tracking-[-0.04em] text-white sm:text-[3.15rem]">
+              <h2 className="mt-4 max-w-[18ch] text-balance text-[2.2rem] font-semibold leading-[1.06] tracking-[-0.035em] text-white sm:text-[2.95rem]">
                 Same delivery standard across the platforms most clients already use.
               </h2>
             </div>
@@ -325,7 +348,7 @@ export default function AboutPage() {
               >
                 <div>
                   <p className="text-[11px] uppercase tracking-[0.18em] text-zinc-500">Platform</p>
-                  <h3 className="mt-3 text-2xl font-semibold text-white">{item.name}</h3>
+                  <h3 className="mt-3 text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">{item.name}</h3>
                 </div>
                 <p className="max-w-[62ch] text-sm leading-7 text-zinc-300">{item.summary}</p>
                 <p className="text-sm leading-7 text-zinc-400">{item.note}</p>
@@ -341,7 +364,7 @@ export default function AboutPage() {
             <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
               <div>
                 <p className="text-xs uppercase tracking-[0.24em] text-orange-300/85">Next Step</p>
-                <h2 className="mt-5 max-w-[14ch] text-4xl font-semibold leading-[1.02] tracking-[-0.04em] text-white sm:text-[3.35rem]">
+                <h2 className="mt-5 max-w-[18ch] text-balance text-[2.2rem] font-semibold leading-[1.06] tracking-[-0.035em] text-white sm:text-[3rem]">
                   If the site already has direction, I can help carry the execution.
                 </h2>
                 <p className="mt-5 max-w-[60ch] text-sm leading-8 text-zinc-300 sm:text-base">

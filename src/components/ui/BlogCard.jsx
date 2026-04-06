@@ -23,7 +23,7 @@ export default function BlogCard({ post }) {
           <span>{post.category}</span>
           <span>{post.readTime}</span>
         </div>
-        <h3 className="mt-3 text-xl font-semibold text-white">
+        <h3 className="mt-3 text-balance text-xl font-semibold leading-[1.15] tracking-[-0.02em] text-white">
           <Link to={getBlogPath(post.slug)} className="transition group-hover:text-orange-200">
             {post.title}
           </Link>

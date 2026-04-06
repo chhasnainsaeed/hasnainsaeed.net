@@ -16,7 +16,7 @@ const brandKeywords = [
   'hasnain saeed portfolio',
   'freelance web developer pakistan',
   'hire web developer pakistan',
-  'freelance web developer for us clients',
+  'freelance web developer for international clients',
 ]
 
 const platformKeywords = ['shopify developer pakistan', 'wordpress developer pakistan', 'webflow developer pakistan']
@@ -25,7 +25,7 @@ const geoIntentKeywords = [
   'freelance shopify developer pakistan',
   'shopify expert pakistan',
   'hire wordpress developer pakistan',
-  'webflow developer for hire usa',
+  'remote webflow developer',
 ]
 
 function mergeKeywords(...groups) {
@@ -83,7 +83,7 @@ const staticPageMetadata = {
   home: createMetadata({
     title: 'Hasnain Saeed | Freelance Shopify, WordPress & Webflow Developer',
     description:
-      'Freelance web developer in Pakistan for US, UK, and Canada clients. Hire Hasnain Saeed for Shopify, WordPress, Webflow, technical SEO, and QA-backed delivery.',
+      'Freelance web developer in Pakistan helping international clients with Shopify, WordPress, Webflow, technical SEO, and QA-backed delivery.',
     pathname: routes.home,
     ogTitle: 'Hasnain Saeed | Freelance Shopify, WordPress & Webflow Developer',
     ogDescription:
@@ -98,7 +98,7 @@ const staticPageMetadata = {
   about: createMetadata({
     title: 'About Hasnain Saeed | Freelance Web Developer in Pakistan',
     description:
-      'Hasnain Saeed, freelance Shopify, WordPress and Webflow developer from Pakistan. QA-backed builds for USA, UK and Canada clients, direct from start to launch.',
+      'Hasnain Saeed, freelance Shopify, WordPress and Webflow developer from Pakistan. QA-backed builds with direct collaboration from start to launch.',
     pathname: routes.about,
     image: shareImages.about,
     keywords: mergeKeywords(brandKeywords, platformKeywords, ['about hasnain saeed', 'web developer pakistan']),
@@ -106,7 +106,7 @@ const staticPageMetadata = {
   services: createMetadata({
     title: 'Hire Hasnain Saeed | Shopify, WordPress & Webflow Developer Services',
     description:
-      'Hire Hasnain Saeed in Pakistan for Shopify, WordPress, and Webflow development for US, UK, and Canada clients, plus QA, bug fixing, and technical SEO setup.',
+      'Hire Hasnain Saeed in Pakistan for Shopify, WordPress, and Webflow development, plus QA, bug fixing, and technical SEO setup.',
     pathname: routes.services,
     image: shareImages.services,
     keywords: mergeKeywords(brandKeywords, platformKeywords, geoIntentKeywords, [
@@ -142,7 +142,7 @@ const staticPageMetadata = {
   contact: createMetadata({
     title: 'Hire Hasnain Saeed | Freelance Web Developer in Pakistan',
     description:
-      'Hire Hasnain Saeed, a freelance web developer in Pakistan for US, UK, and Canada clients. Share your Shopify, WordPress, Webflow, or support scope.',
+      'Hire Hasnain Saeed, a freelance web developer in Pakistan. Share your Shopify, WordPress, Webflow, or support scope.',
     pathname: routes.contact,
     image: shareImages.contact,
     keywords: mergeKeywords(brandKeywords, platformKeywords, geoIntentKeywords, ['contact hasnain saeed', 'hire freelance web developer']),

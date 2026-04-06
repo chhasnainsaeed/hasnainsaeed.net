@@ -29,7 +29,7 @@ export default function ProjectCard({ project }) {
           <span>|</span>
           <span>{project.year}</span>
         </div>
-        <h3 className="mt-3 text-xl font-semibold text-white">{project.title}</h3>
+        <h3 className="mt-3 text-balance text-xl font-semibold leading-[1.15] tracking-[-0.02em] text-white">{project.title}</h3>
         <p className="mt-2 text-sm text-zinc-300">{project.shortResult}</p>
         <Link to={`/portfolio/${project.slug}`} className="mt-5 inline-flex text-sm font-semibold text-orange-300">
           View Case Study &rarr;

@@ -103,7 +103,7 @@ export default function BlogPage() {
             </div>
           ) : (
             <Reveal className="premium-card p-7 sm:p-8">
-              <h2 className="text-2xl font-semibold text-white">No articles matched that filter</h2>
+              <h2 className="text-balance text-2xl font-semibold leading-[1.12] tracking-[-0.02em] text-white">No articles matched that filter</h2>
               <p className="mt-3 max-w-2xl text-zinc-300">Try a broader keyword or switch categories to explore the full archive.</p>
             </Reveal>
           )}
@@ -113,7 +113,9 @@ export default function BlogPage() {
       <section className="section-pad pb-18">
         <div className="section-wrap">
           <Reveal className="premium-card p-7 sm:p-10">
-            <h2 className="text-3xl font-semibold text-white">Need these improvements applied on a live website?</h2>
+            <h2 className="max-w-[18ch] text-balance text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-white">
+              Need these improvements applied on a live website?
+            </h2>
             <p className="mt-3 max-w-2xl text-zinc-300">
               The guides explain the thinking. The next step is implementation, cleanup, or QA support on the pages that are already affecting leads or sales.
             </p>
