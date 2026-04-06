@@ -30,20 +30,40 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <title>Hasnain Saeed | Freelance Web Developer for Shopify, WordPress, and Webflow</title>
     <script>
-      window.addEventListener('load', function () {
-        var loadFlowpoint = function () {
-          var s = document.createElement('script')
-          s.src = 'https://cdn.flowpoint.ai/t/6cd64286-d52b-4e94-8584-5f13ab0409d2.js?v=' + Date.now()
-          s.async = 1
-          document.head.appendChild(s)
+      ;(() => {
+        let hasLoadedFlowpoint = false
+
+        const canDelayTracking = !navigator.connection?.saveData
+
+        const loadFlowpoint = () => {
+          if (hasLoadedFlowpoint || !canDelayTracking) return
+
+          hasLoadedFlowpoint = true
+
+          const script = document.createElement('script')
+          script.src = 'https://cdn.flowpoint.ai/t/6cd64286-d52b-4e94-8584-5f13ab0409d2.js'
+          script.async = true
+          document.head.appendChild(script)
         }
 
-        if ('requestIdleCallback' in window) {
-          window.requestIdleCallback(loadFlowpoint, { timeout: 2000 })
-        } else {
-          window.setTimeout(loadFlowpoint, 1200)
+        const scheduleFlowpoint = () => {
+          if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(loadFlowpoint, { timeout: 8000 })
+            return
+          }
+
+          window.setTimeout(loadFlowpoint, 8000)
         }
-      })
+
+        if (document.readyState === 'complete') {
+          scheduleFlowpoint()
+        } else {
+          window.addEventListener('load', scheduleFlowpoint, { once: true })
+        }
+
+        window.addEventListener('pointerdown', loadFlowpoint, { once: true, passive: true })
+        window.addEventListener('keydown', loadFlowpoint, { once: true })
+      })()
     </script>
   </head>
   <body>

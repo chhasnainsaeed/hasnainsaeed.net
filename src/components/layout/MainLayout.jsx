@@ -11,10 +11,12 @@ function DeferredChatbot() {
   useEffect(() => {
     let cancelled = false
     let timeoutId = 0
-    let idleId = 0
     let removeLoadListener = null
+    let removeInteractionListeners = null
 
     const loadChatbot = async () => {
+      if (cancelled) return
+
       try {
         const module = await import('../chatbot/ChatbotWidget')
         if (!cancelled) {
@@ -25,16 +27,30 @@ function DeferredChatbot() {
       }
     }
 
-    const scheduleLoad = () => {
-      if ('requestIdleCallback' in window) {
-        idleId = window.requestIdleCallback(() => {
-          void loadChatbot()
-        }, { timeout: 2500 })
-      } else {
-        timeoutId = window.setTimeout(() => {
-          void loadChatbot()
-        }, 1200)
+    const handleInteraction = () => {
+      removeInteractionListeners?.()
+      void loadChatbot()
+    }
+
+    const registerInteractionListeners = () => {
+      const options = { passive: true }
+
+      window.addEventListener('pointerdown', handleInteraction, { once: true, passive: true })
+      window.addEventListener('keydown', handleInteraction, { once: true })
+      window.addEventListener('scroll', handleInteraction, { once: true, passive: true })
+
+      removeInteractionListeners = () => {
+        window.removeEventListener('pointerdown', handleInteraction, options)
+        window.removeEventListener('keydown', handleInteraction)
+        window.removeEventListener('scroll', handleInteraction, options)
       }
+    }
+
+    const scheduleLoad = () => {
+      registerInteractionListeners()
+      timeoutId = window.setTimeout(() => {
+        handleInteraction()
+      }, 7000)
     }
 
     if (document.readyState === 'complete') {
@@ -48,10 +64,8 @@ function DeferredChatbot() {
     return () => {
       cancelled = true
       removeLoadListener?.()
+      removeInteractionListeners?.()
       if (timeoutId) window.clearTimeout(timeoutId)
-      if (idleId && 'cancelRequestIdleCallback' in window) {
-        window.cancelRequestIdleCallback(idleId)
-      }
     }
   }, [])
 

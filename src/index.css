@@ -81,7 +81,7 @@ main {
 }
 
 .premium-card {
-  @apply rounded-2xl border border-white/10 bg-white/[0.03] shadow-[0_24px_70px_rgba(0,0,0,0.35)];
+  @apply rounded-2xl border border-white/10 bg-white/[0.03] shadow-[0_18px_46px_rgba(0,0,0,0.28)];
 }
 
 .text-gradient {
@@ -94,7 +94,8 @@ main {
 .glow-dot {
   position: absolute;
   border-radius: 9999px;
-  filter: blur(50px);
+  filter: blur(36px);
+  opacity: 0.78;
   z-index: 0;
   display: none;
 }
@@ -172,10 +173,6 @@ button,
 
 @media (min-width: 1024px) {
   .glass-panel {
-    backdrop-filter: blur(14px);
-  }
-
-  .premium-card {
-    backdrop-filter: blur(14px);
+    backdrop-filter: blur(10px);
   }
 }
