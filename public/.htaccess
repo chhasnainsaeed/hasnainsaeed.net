@@ -11,6 +11,11 @@ RewriteRule ^services/app-ui-ux-design/?$ https://hasnainsaeed.net/services/ui-u
 RewriteRule ^services/ui-ux-design/?$ https://hasnainsaeed.net/services/ui-ux-implementation/ [R=301,L]
 RewriteRule ^services/amazon-design/?$ https://hasnainsaeed.net/services/ [R=301,L]
 
+# Let permanently removed WordPress-only paths die cleanly instead of
+# redirecting them to the homepage and creating soft-404-like signals.
+RewriteRule ^elementskit-content(?:/|$) - [G,L]
+RewriteRule ^author(?:/|$) - [G,L]
+
 # Keep every request on the HTTPS apex host.
 RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} ^www\.hasnainsaeed\.net$ [NC]
