@@ -3,6 +3,7 @@ import { packages } from '../../data/packages'
 import Reveal from '../ui/Reveal'
 import SectionHeading from '../ui/SectionHeading'
 import PackageCard from '../ui/PackageCard'
+import { getRouteHref, routes } from '../../utils/routes'
 
 export default function PackagesPreviewSection() {
   return (
@@ -23,7 +24,7 @@ export default function PackagesPreviewSection() {
           ))}
         </div>
         <Reveal>
-          <Link to="/packages" className="inline-flex text-sm font-semibold text-orange-300">
+          <Link to={getRouteHref(routes.packages)} className="inline-flex text-sm font-semibold text-orange-300">
             View All Packages &rarr;
           </Link>
         </Reveal>

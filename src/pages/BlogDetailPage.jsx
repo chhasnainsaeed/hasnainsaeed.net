@@ -10,7 +10,7 @@ import Seo from '../seo/Seo'
 import { getBlogPostMetadata } from '../seo/metadata'
 import { createArticleSchema, createBreadcrumbSchema, createFAQSchema, createOrganizationSchema, createPersonSchema, createWebPageSchema } from '../seo/schema'
 import { getRelatedProjectsForPost, getRelatedServicesForPost } from '../utils/relatedContent'
-import { getBlogPath, getProjectPath, getServicePath, routes } from '../utils/routes'
+import { getBlogPath, getProjectPath, getRouteHref, getServicePath, routes } from '../utils/routes'
 import { getAbsoluteUrl, siteConfig } from '../utils/site'
 
 function getSectionId(heading) {
@@ -138,7 +138,7 @@ export default function BlogDetailPage() {
                 ))}
               </ol>
             </nav>
-            <Link to={routes.blog} className="mt-6 inline-flex text-sm font-semibold text-orange-300">
+            <Link to={getRouteHref(routes.blog)} className="mt-6 inline-flex text-sm font-semibold text-orange-300">
               Back to Blog &rarr;
             </Link>
           </Reveal>

@@ -12,7 +12,7 @@ import Seo from '../seo/Seo'
 import { getServiceMetadata } from '../seo/metadata'
 import { createBreadcrumbSchema, createFAQSchema, createOrganizationSchema, createServiceSchema, createWebPageSchema } from '../seo/schema'
 import { getRelatedPostsForService, getRelatedProjectsForService } from '../utils/relatedContent'
-import { getServicePath, routes } from '../utils/routes'
+import { getRouteHref, getServicePath, routes } from '../utils/routes'
 import { getAbsoluteUrl } from '../utils/site'
 
 function getServiceKeyword(service) {
@@ -194,7 +194,7 @@ export default function ServiceDetailPage() {
                 Relevant case studies for {serviceKeyword}
               </h2>
             </div>
-            <Link to={routes.portfolio} className="text-sm font-semibold text-orange-300">
+            <Link to={getRouteHref(routes.portfolio)} className="text-sm font-semibold text-orange-300">
               View Portfolio &rarr;
             </Link>
           </Reveal>
@@ -219,7 +219,7 @@ export default function ServiceDetailPage() {
                 Guides related to {serviceKeyword}
               </h2>
             </div>
-            <Link to={routes.blog} className="text-sm font-semibold text-orange-300">
+            <Link to={getRouteHref(routes.blog)} className="text-sm font-semibold text-orange-300">
               Browse Blog &rarr;
               </Link>
             </Reveal>

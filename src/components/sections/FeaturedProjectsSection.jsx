@@ -3,6 +3,7 @@ import { projects } from '../../data/projects'
 import Reveal from '../ui/Reveal'
 import SectionHeading from '../ui/SectionHeading'
 import ProjectCard from '../ui/ProjectCard'
+import { getRouteHref, routes } from '../../utils/routes'
 
 export default function FeaturedProjectsSection() {
   return (
@@ -23,7 +24,7 @@ export default function FeaturedProjectsSection() {
           ))}
         </div>
         <Reveal>
-          <Link to="/portfolio" className="inline-flex text-sm font-semibold text-orange-300">
+          <Link to={getRouteHref(routes.portfolio)} className="inline-flex text-sm font-semibold text-orange-300">
             View Full Portfolio &rarr;
           </Link>
         </Reveal>

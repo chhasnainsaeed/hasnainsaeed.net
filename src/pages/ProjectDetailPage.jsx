@@ -11,7 +11,7 @@ import Seo from '../seo/Seo'
 import { getProjectMetadata } from '../seo/metadata'
 import { createBreadcrumbSchema, createCaseStudySchema, createOrganizationSchema, createPersonSchema, createWebPageSchema } from '../seo/schema'
 import { getPrimaryServiceForProject, getRelatedPostsForProject } from '../utils/relatedContent'
-import { getProjectPath, getServicePath, routes } from '../utils/routes'
+import { getProjectPath, getRouteHref, getServicePath, routes } from '../utils/routes'
 import { getAbsoluteUrl } from '../utils/site'
 
 function ProjectMedia({ src, alt, fallback, className = '' }) {
@@ -228,7 +228,7 @@ export default function ProjectDetailPage() {
                         Helpful articles tied to this build
                       </h2>
                     </div>
-                    <Link to={routes.blog} className="text-sm font-semibold text-orange-300">
+                    <Link to={getRouteHref(routes.blog)} className="text-sm font-semibold text-orange-300">
                       Browse Blog &rarr;
                     </Link>
                   </Reveal>

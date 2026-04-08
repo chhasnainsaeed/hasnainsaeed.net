@@ -3,6 +3,7 @@ import { FiArrowUpRight } from 'react-icons/fi'
 import Reveal from '../ui/Reveal'
 import ProfilePortrait from '../ui/ProfilePortrait'
 import { siteConfig } from '../../utils/site'
+import { getRouteHref, routes } from '../../utils/routes'
 
 const bestFitItems = [
   'Approved designs that need clean implementation',
@@ -46,7 +47,7 @@ export default function AboutPreviewSection() {
             <div className="flex flex-wrap items-center justify-between gap-4">
               <p className="text-xs uppercase tracking-[0.26em] text-orange-300/85">About Hasnain</p>
               <Link
-                to="/about"
+                to={getRouteHref(routes.about)}
                 className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-zinc-300 transition hover:text-white"
               >
                 More About Me

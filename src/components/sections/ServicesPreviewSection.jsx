@@ -3,6 +3,7 @@ import { services } from '../../data/services'
 import Reveal from '../ui/Reveal'
 import SectionHeading from '../ui/SectionHeading'
 import ServiceCard from '../ui/ServiceCard'
+import { getRouteHref, routes } from '../../utils/routes'
 
 const featuredSummaries = ['shopify-store-development', 'wordpress-development', 'webflow-development']
 
@@ -38,7 +39,7 @@ export default function ServicesPreviewSection() {
           ))}
         </div>
         <Reveal>
-          <Link to="/services" className="inline-flex text-sm font-semibold text-orange-300">
+          <Link to={getRouteHref(routes.services)} className="inline-flex text-sm font-semibold text-orange-300">
             Explore All Services &rarr;
           </Link>
         </Reveal>

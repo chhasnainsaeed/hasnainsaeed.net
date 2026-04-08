@@ -3,6 +3,7 @@ import { blogPosts } from '../../data/blogPosts'
 import Reveal from '../ui/Reveal'
 import SectionHeading from '../ui/SectionHeading'
 import BlogCard from '../ui/BlogCard'
+import { getRouteHref, routes } from '../../utils/routes'
 
 export default function BlogPreviewSection() {
   const latestPosts = [...blogPosts].sort((left, right) => new Date(right.date) - new Date(left.date)).slice(0, 3)
@@ -25,7 +26,7 @@ export default function BlogPreviewSection() {
           ))}
         </div>
         <Reveal>
-          <Link to="/blog" className="inline-flex text-sm font-semibold text-orange-300">
+          <Link to={getRouteHref(routes.blog)} className="inline-flex text-sm font-semibold text-orange-300">
             Read More Articles &rarr;
           </Link>
         </Reveal>

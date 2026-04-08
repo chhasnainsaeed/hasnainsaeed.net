@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { getRouteHref } from '../../utils/routes'
 
 export default function ButtonLink({ to, href, children, variant = 'primary', className = '', ...props }) {
   const base =
@@ -18,8 +19,10 @@ export default function ButtonLink({ to, href, children, variant = 'primary', cl
     )
   }
 
+  const resolvedTo = typeof to === 'string' ? getRouteHref(to) : to
+
   return (
-    <Link to={to} className={`${base} ${styles[variant]} ${className}`} {...props}>
+    <Link to={resolvedTo} className={`${base} ${styles[variant]} ${className}`} {...props}>
       {children}
     </Link>
   )

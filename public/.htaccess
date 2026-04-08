@@ -3,6 +3,14 @@ Options -Indexes
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
+# Send legacy URLs straight to their current canonical destinations.
+RewriteRule ^home/?$ https://hasnainsaeed.net/ [R=301,L]
+RewriteRule ^pricing/?$ https://hasnainsaeed.net/packages/ [R=301,L]
+RewriteRule ^services/landing-page-design/?$ https://hasnainsaeed.net/services/landing-page-design-build/ [R=301,L]
+RewriteRule ^services/app-ui-ux-design/?$ https://hasnainsaeed.net/services/ui-ux-implementation/ [R=301,L]
+RewriteRule ^services/ui-ux-design/?$ https://hasnainsaeed.net/services/ui-ux-implementation/ [R=301,L]
+RewriteRule ^services/amazon-design/?$ https://hasnainsaeed.net/services/ [R=301,L]
+
 # Keep every request on the HTTPS apex host.
 RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} ^www\.hasnainsaeed\.net$ [NC]

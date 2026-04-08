@@ -1,4 +1,4 @@
-import { routes } from './routes.js'
+import { getRouteHref, routes } from './routes.js'
 
 const runtimeEnv =
   (typeof import.meta !== 'undefined' && import.meta.env) ||
@@ -89,13 +89,13 @@ export function getWhatsAppUrl(message = '') {
 }
 
 export const navLinks = [
-  { name: 'Home', href: routes.home },
-  { name: 'About', href: routes.about },
-  { name: 'Services', href: routes.services },
-  { name: 'Portfolio', href: routes.portfolio },
-  { name: 'Packages', href: routes.packages },
-  { name: 'Blog', href: routes.blog },
-  { name: 'Contact', href: routes.contact },
+  { name: 'Home', href: getRouteHref(routes.home) },
+  { name: 'About', href: getRouteHref(routes.about) },
+  { name: 'Services', href: getRouteHref(routes.services) },
+  { name: 'Portfolio', href: getRouteHref(routes.portfolio) },
+  { name: 'Packages', href: getRouteHref(routes.packages) },
+  { name: 'Blog', href: getRouteHref(routes.blog) },
+  { name: 'Contact', href: getRouteHref(routes.contact) },
 ]
 
 export const trustStats = [

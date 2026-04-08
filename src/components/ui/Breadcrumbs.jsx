@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { getRouteHref } from '../../utils/routes'
 
 export default function Breadcrumbs({ items = [], className = '' }) {
   if (!items.length) return null
@@ -16,7 +17,7 @@ export default function Breadcrumbs({ items = [], className = '' }) {
                   {item.name}
                 </span>
               ) : (
-                <Link to={item.path} className="transition hover:text-orange-200">
+                <Link to={getRouteHref(item.path)} className="transition hover:text-orange-200">
                   {item.name}
                 </Link>
               )}

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { getProjectPath } from '../../utils/routes'
 
 export default function ProjectCard({ project }) {
   const coverAlt = project.coverAlt || `${project.platform} website case study for ${project.title}`
@@ -31,7 +32,7 @@ export default function ProjectCard({ project }) {
         </div>
         <h3 className="mt-3 text-balance text-xl font-semibold leading-[1.15] tracking-[-0.02em] text-white">{project.title}</h3>
         <p className="mt-2 text-sm text-zinc-300">{project.shortResult}</p>
-        <Link to={`/portfolio/${project.slug}`} className="mt-5 inline-flex text-sm font-semibold text-orange-300">
+        <Link to={getProjectPath(project.slug)} className="mt-5 inline-flex text-sm font-semibold text-orange-300">
           View Case Study &rarr;
         </Link>
       </div>
